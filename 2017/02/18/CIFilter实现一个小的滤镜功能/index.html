@@ -87,28 +87,52 @@
 
 
 
-<meta name="description" content="1 相册，相机，麦克风等使用会崩溃。
-iOS10的新特性，以后使用相机，相册，麦克风，通讯录都要在Info.plist文件中申请权限啦。
-Privacy - Camera Usage Description //相机权限
-Privacy - Photo Library Usage Description //相册权限
-Privacy - Contacts Usage Description //">
+<meta name="description" content="实现一个小的滤镜功能
+用系统的CIFilter实现一个小的滤镜功能
+
+​    CIFilter:滤镜类包含一个字典结构,对各种滤镜定义了属于他们各自的属性,滤镜有很多种,比如鲜艳程度滤镜,色彩反转滤镜,剪裁滤镜等等
+让图像通过一个CIFilter显示在屏幕上
+
+创建一个CIImage对象
+创建一个CIContext
+创建一个CIFilter
+输出滤镜
+
+具体实现
+1234567891011121">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS XCode8升级的坑">
-<meta property="og:url" content="http://yoursite.com/2017/02/09/iOS-XCode8升级的坑/index.html">
+<meta property="og:title" content="CIFilter实现一个小的滤镜功能">
+<meta property="og:url" content="http://yoursite.com/2017/02/18/CIFilter实现一个小的滤镜功能/index.html">
 <meta property="og:site_name" content="张鹏辉的博客">
-<meta property="og:description" content="1 相册，相机，麦克风等使用会崩溃。
-iOS10的新特性，以后使用相机，相册，麦克风，通讯录都要在Info.plist文件中申请权限啦。
-Privacy - Camera Usage Description //相机权限
-Privacy - Photo Library Usage Description //相册权限
-Privacy - Contacts Usage Description //">
-<meta property="og:updated_time" content="2017-02-09T12:10:23.000Z">
+<meta property="og:description" content="实现一个小的滤镜功能
+用系统的CIFilter实现一个小的滤镜功能
+
+​    CIFilter:滤镜类包含一个字典结构,对各种滤镜定义了属于他们各自的属性,滤镜有很多种,比如鲜艳程度滤镜,色彩反转滤镜,剪裁滤镜等等
+让图像通过一个CIFilter显示在屏幕上
+
+创建一个CIImage对象
+创建一个CIContext
+创建一个CIFilter
+输出滤镜
+
+具体实现
+1234567891011121">
+<meta property="og:updated_time" content="2017-02-18T03:05:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS XCode8升级的坑">
-<meta name="twitter:description" content="1 相册，相机，麦克风等使用会崩溃。
-iOS10的新特性，以后使用相机，相册，麦克风，通讯录都要在Info.plist文件中申请权限啦。
-Privacy - Camera Usage Description //相机权限
-Privacy - Photo Library Usage Description //相册权限
-Privacy - Contacts Usage Description //">
+<meta name="twitter:title" content="CIFilter实现一个小的滤镜功能">
+<meta name="twitter:description" content="实现一个小的滤镜功能
+用系统的CIFilter实现一个小的滤镜功能
+
+​    CIFilter:滤镜类包含一个字典结构,对各种滤镜定义了属于他们各自的属性,滤镜有很多种,比如鲜艳程度滤镜,色彩反转滤镜,剪裁滤镜等等
+让图像通过一个CIFilter显示在屏幕上
+
+创建一个CIImage对象
+创建一个CIContext
+创建一个CIFilter
+输出滤镜
+
+具体实现
+1234567891011121">
 
 
 
@@ -136,13 +160,13 @@ Privacy - Contacts Usage Description //">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/09/iOS-XCode8升级的坑/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/18/CIFilter实现一个小的滤镜功能/"/>
 
 
 
 
 
-  <title> iOS XCode8升级的坑 | 张鹏辉的博客 </title>
+  <title> CIFilter实现一个小的滤镜功能 | 张鹏辉的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -269,7 +293,7 @@ Privacy - Contacts Usage Description //">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/09/iOS-XCode8升级的坑/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/18/CIFilter实现一个小的滤镜功能/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="miggie Zhang">
@@ -293,7 +317,7 @@ Privacy - Contacts Usage Description //">
             
             
               
-                iOS XCode8升级的坑
+                CIFilter实现一个小的滤镜功能
               
             
           </h1>
@@ -308,8 +332,8 @@ Privacy - Contacts Usage Description //">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-09T19:31:18+08:00">
-                2017-02-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-18T10:53:56+08:00">
+                2017-02-18
               </time>
             
 
@@ -366,32 +390,19 @@ Privacy - Contacts Usage Description //">
       
 
       
-        <p><strong>1 相册，相机，麦克风等使用会崩溃。</strong></p>
-<p>iOS10的新特性，以后使用相机，相册，麦克风，通讯录都要在Info.plist文件中申请权限啦。</p>
-<p>Privacy - Camera Usage Description //相机权限</p>
-<p>Privacy - Photo Library Usage Description //相册权限</p>
-<p>Privacy - Contacts Usage Description //通讯录权限</p>
-<p>Privacy - Microphone Usage Description //麦克风权限</p>
-<p>Privacy - NSSiriUsageDescription //Siri权限</p>
-<p>Privacy - Speech Recognition Usage Description //语音转文字权限</p>
-<p>Privacy - Bluetooth Peripheral Usage Description //蓝牙权限</p>
-<p>Privacy - Reminders Usage Description //提醒事项权限</p>
-<p>Privacy - Motion Usage Description //运动与健康权限</p>
-<p>Privacy - Media Libaray Usage Description //媒体资源库权限</p>
-<p>Privacy - Calendars Usage Description //日历权限</p>
-<p>Privacy - Location When In Use Usage Description //定位权限</p>
-<p>Privacy - Location Always Usage Description //定位权限</p>
-<p><strong>2 打印一堆没用的东西</strong></p>
-<p>加入如图键值</p>
-<p>加入如图的键值就可以正常打印了</p>
-<p><strong>3 真机测试没有log日志</strong></p>
-<p>测试没有log日志就好像瞎了一样,这里我自定义了打印日志</p>
-<p>#ifdef DEBUG</p>
-<p>#define LYlog(…) printf(“函数名:%s [行号:%d] %s\n”,<strong>FUNCTION</strong>, <strong>LINE</strong>, [[NSString stringWithFormat:<strong>VA_ARGS</strong>]UTF8String]);</p>
-<p>#else</p>
-<p>#define LYlog(…)</p>
-<p>#endif</p>
-<p>这个缺点就是没有打印时间的,还在研究中</p>
+        <h1 id="实现一个小的滤镜功能"><a href="#实现一个小的滤镜功能" class="headerlink" title="实现一个小的滤镜功能"></a>实现一个小的滤镜功能</h1><blockquote>
+<p>用系统的CIFilter实现一个小的滤镜功能</p>
+</blockquote>
+<p>​    CIFilter:滤镜类包含一个字典结构,对各种滤镜定义了属于他们各自的属性,滤镜有很多种,比如鲜艳程度滤镜,色彩反转滤镜,剪裁滤镜等等</p>
+<p>让图像通过一个CIFilter显示在屏幕上</p>
+<ul>
+<li>创建一个CIImage对象</li>
+<li>创建一个CIContext</li>
+<li>创建一个CIFilter</li>
+<li>输出滤镜</li>
+</ul>
+<p>具体实现</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//将uiimage转ciimage</div><div class="line">CIImage *ciImage = [[CIImage alloc]initWithImage:_imageView.image];</div><div class="line">//创建滤镜</div><div class="line">CIFilter *filter = [CIFilter filterWithName:@&quot;CIPhotoEffectChrome&quot; keysAndValues:kCIInputImageKey,ciImage, nil];</div><div class="line">//已有的值不改变,其他的设为默认值</div><div class="line">[filter setDefaults];</div><div class="line">//获取绘制上下文</div><div class="line">CIContext *context = [CIContext contextWithOptions:nil];</div><div class="line">//渲染并输出ciimage</div><div class="line">CIImage *outputImage = [filter outputImage];</div><div class="line">//创建cgimage句柄</div><div class="line">CGImageRef cgImage = [context createCGImage:outputImage fromRect:[outputImage extent]];</div><div class="line">//获取图片</div><div class="line">UIImage *image = [UIImage imageWithCGImage:cgImage];</div><div class="line">//释放cgimage句柄</div><div class="line">CGImageRelease(cgImage);</div><div class="line">    </div><div class="line">_imageView.image = image;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -428,8 +439,8 @@ Privacy - Contacts Usage Description //">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/08/hello-hexo-i-am-zhangpenghui/" rel="next" title="hello hexo, i am zhangpenghui">
-                <i class="fa fa-chevron-left"></i> hello hexo, i am zhangpenghui
+              <a href="/2017/02/14/初步认识YYKit/" rel="next" title="初步认识YYKit">
+                <i class="fa fa-chevron-left"></i> 初步认识YYKit
               </a>
             
           </div>
@@ -437,10 +448,6 @@ Privacy - Contacts Usage Description //">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/11/iOS开发中的断点调试/" rel="prev" title="Markdowm的学习">
-                Markdowm的学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -487,8 +494,17 @@ Privacy - Contacts Usage Description //">
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://a.looyu.com/10000004/8b728605ca094c70b50ce4f7083b63ba.jpg"
@@ -544,6 +560,22 @@ Privacy - Contacts Usage Description //">
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#实现一个小的滤镜功能"><span class="nav-number">1.</span> <span class="nav-text">实现一个小的滤镜功能</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
