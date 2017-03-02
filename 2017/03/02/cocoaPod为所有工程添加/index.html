@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="blog," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -87,31 +87,28 @@
 
 
 
-<meta name="description" content="&amp;lt;#–这里是备注吗–&amp;gt; 
-Hello hexo,这是我的第一篇hexo博客
-好紧张
+<meta name="description" content="为一个工程中的所有target添加pod库支持
+前一阵在工程中心添加了一个第三方库,然后自己一个工程中的两个target就只有一个可以正常运行了,另一个则”file not”了
 
-​    第一次有了属于自己的域名的博客
-2017">
+然后在百度了一些问题,但是没有确切的明确的解释这个问题的,现在自己解决了,就把解决方法记录下来
+首先造成这个问题的原因是因为pod文件中只引用了一个target,所以只有被引用的那个target是可以正常使用的,所以我们">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello hexo, i am zhangpenghui">
-<meta property="og:url" content="http://yoursite.com/2017/02/08/hello-hexo-i-am-zhangpenghui/index.html">
+<meta property="og:title" content="为工程中所有target添加pod支持">
+<meta property="og:url" content="http://yoursite.com/2017/03/02/cocoaPod为所有工程添加/index.html">
 <meta property="og:site_name" content="张鹏辉的博客">
-<meta property="og:description" content="&amp;lt;#–这里是备注吗–&amp;gt; 
-Hello hexo,这是我的第一篇hexo博客
-好紧张
+<meta property="og:description" content="为一个工程中的所有target添加pod库支持
+前一阵在工程中心添加了一个第三方库,然后自己一个工程中的两个target就只有一个可以正常运行了,另一个则”file not”了
 
-​    第一次有了属于自己的域名的博客
-2017">
-<meta property="og:updated_time" content="2017-02-09T09:08:25.000Z">
+然后在百度了一些问题,但是没有确切的明确的解释这个问题的,现在自己解决了,就把解决方法记录下来
+首先造成这个问题的原因是因为pod文件中只引用了一个target,所以只有被引用的那个target是可以正常使用的,所以我们">
+<meta property="og:updated_time" content="2017-03-02T12:22:47.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello hexo, i am zhangpenghui">
-<meta name="twitter:description" content="&amp;lt;#–这里是备注吗–&amp;gt; 
-Hello hexo,这是我的第一篇hexo博客
-好紧张
+<meta name="twitter:title" content="为工程中所有target添加pod支持">
+<meta name="twitter:description" content="为一个工程中的所有target添加pod库支持
+前一阵在工程中心添加了一个第三方库,然后自己一个工程中的两个target就只有一个可以正常运行了,另一个则”file not”了
 
-​    第一次有了属于自己的域名的博客
-2017">
+然后在百度了一些问题,但是没有确切的明确的解释这个问题的,现在自己解决了,就把解决方法记录下来
+首先造成这个问题的原因是因为pod文件中只引用了一个target,所以只有被引用的那个target是可以正常使用的,所以我们">
 
 
 
@@ -139,13 +136,13 @@ Hello hexo,这是我的第一篇hexo博客
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/08/hello-hexo-i-am-zhangpenghui/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/03/02/cocoaPod为所有工程添加/"/>
 
 
 
 
 
-  <title> hello hexo, i am zhangpenghui | 张鹏辉的博客 </title>
+  <title> 为工程中所有target添加pod支持 | 张鹏辉的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -282,7 +279,7 @@ Hello hexo,这是我的第一篇hexo博客
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/08/hello-hexo-i-am-zhangpenghui/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/02/cocoaPod为所有工程添加/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="miggie Zhang">
@@ -306,7 +303,7 @@ Hello hexo,这是我的第一篇hexo博客
             
             
               
-                hello hexo, i am zhangpenghui
+                为工程中所有target添加pod支持
               
             
           </h1>
@@ -321,8 +318,8 @@ Hello hexo,这是我的第一篇hexo博客
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-08T15:21:39+08:00">
-                2017-02-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-02T20:01:40+08:00">
+                2017-03-02
               </time>
             
 
@@ -340,8 +337,8 @@ Hello hexo,这是我的第一篇hexo博客
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/08/hello-hexo-i-am-zhangpenghui/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/hello-hexo-i-am-zhangpenghui/" itemprop="commentCount"></span>
+                <a href="/2017/03/02/cocoaPod为所有工程添加/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/02/cocoaPod为所有工程添加/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,13 +364,13 @@ Hello hexo,这是我的第一篇hexo博客
       
 
       
-        <hr>
-<p>&lt;#–这里是备注吗–&gt; </p>
-<h2 id="Hello-hexo-这是我的第一篇hexo博客"><a href="#Hello-hexo-这是我的第一篇hexo博客" class="headerlink" title="Hello hexo,这是我的第一篇hexo博客"></a>Hello hexo,这是我的第一篇hexo博客</h2><blockquote>
-<p>好紧张</p>
+        <h3 id="为一个工程中的所有target添加pod库支持"><a href="#为一个工程中的所有target添加pod库支持" class="headerlink" title="为一个工程中的所有target添加pod库支持"></a>为一个工程中的所有target添加pod库支持</h3><blockquote>
+<p>前一阵在工程中心添加了一个第三方库,然后自己一个工程中的两个target就只有一个可以正常运行了,另一个则”file not”了</p>
 </blockquote>
-<p>​    第一次有了属于自己的域名的博客</p>
-<p>2017</p>
+<p>然后在百度了一些问题,但是没有确切的明确的解释这个问题的,现在自己解决了,就把解决方法记录下来</p>
+<p>首先造成这个问题的原因是因为pod文件中只引用了一个target,所以只有被引用的那个target是可以正常使用的,所以我们需要做的就是在pod中把工程中的target都引用进来(不知道引用这个词对不对)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">platform :ios, &apos;8.0&apos;</div><div class="line"></div><div class="line">abstract_target &apos;AAAA&apos; do  </div><div class="line"></div><div class="line">pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0&apos;</div><div class="line"></div><div class="line">pod &apos;Masonry&apos;pod &apos;MJRefresh&apos;</div><div class="line"></div><div class="line">target &apos;BBBB&apos;</div><div class="line"></div><div class="line">target &apos;CCCC&apos;</div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
+<p>在podfile配置文件中,使用了abstract_target关键字,后面跟的名字AAA是一个不存在的target名字,后面增加我项目中实际存在的两个target,整体表示两个target共用上面的所有库.</p>
 
       
     </div>
@@ -397,7 +394,7 @@ Hello hexo,这是我的第一篇hexo博客
       
         <div class="post-tags">
           
-            <a href="/tags/blog/" rel="tag"># blog</a>
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
           
         </div>
       
@@ -410,8 +407,8 @@ Hello hexo,这是我的第一篇hexo博客
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/08/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2017/02/20/iOS视图布局向上偏移的原因/" rel="next" title="iOS视图布局向上偏移的原因">
+                <i class="fa fa-chevron-left"></i> iOS视图布局向上偏移的原因
               </a>
             
           </div>
@@ -419,10 +416,6 @@ Hello hexo,这是我的第一篇hexo博客
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/09/iOS-XCode8升级的坑/" rel="prev" title="iOS XCode8升级的坑">
-                iOS XCode8升级的坑 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -448,8 +441,8 @@ Hello hexo,这是我的第一篇hexo博客
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/08/hello-hexo-i-am-zhangpenghui/"
-           data-title="hello hexo, i am zhangpenghui" data-url="http://yoursite.com/2017/02/08/hello-hexo-i-am-zhangpenghui/">
+      <div class="ds-thread" data-thread-key="2017/03/02/cocoaPod为所有工程添加/"
+           data-title="为工程中所有target添加pod支持" data-url="http://yoursite.com/2017/03/02/cocoaPod为所有工程添加/">
       </div>
     
   </div>
@@ -549,7 +542,7 @@ Hello hexo,这是我的第一篇hexo博客
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hello-hexo-这是我的第一篇hexo博客"><span class="nav-number">1.</span> <span class="nav-text">Hello hexo,这是我的第一篇hexo博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为一个工程中的所有target添加pod库支持"><span class="nav-number">1.</span> <span class="nav-text">为一个工程中的所有target添加pod库支持</span></a></li></ol></div>
             
 
           </div>
