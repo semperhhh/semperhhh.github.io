@@ -96,7 +96,7 @@
 <meta property="og:description" content="iOS视图布局向上偏移的原因在常用的iOS视图布局的时候,有时候会出现控件向上偏移的情况
 12345678910111213141516171819_firstTableView = [[UITableView alloc]init];_firstTableView.top = 0;_firstTableView.left = 0;_firstTableView.height = self.vie">
 <meta property="og:image" content="http://olnx80yq4.bkt.clouddn.com/image/bolg/170220170220.PNG">
-<meta property="og:updated_time" content="2017-02-20T07:37:00.000Z">
+<meta property="og:updated_time" content="2017-02-21T02:03:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS视图布局向上偏移的原因">
 <meta name="twitter:description" content="iOS视图布局向上偏移的原因在常用的iOS视图布局的时候,有时候会出现控件向上偏移的情况
@@ -386,6 +386,8 @@
 <p>在上面的代码中添加</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.edgesForExtendedLayout = UIRectEdgeNone;</div></pre></td></tr></table></figure>
 <p>,两个空间的高度布局一样了.</p>
+<p><em>当有导航控制器时,系统会默认将第一个添加的csrollview或其子类视图的内容下移64个像素</em>  ,也可以加上这句代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.automaticallyAdjustsScrollViewInsets = NO;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -688,7 +690,7 @@
   
 
   <script type="text/javascript">
-    var duoshuoQuery = {short_name:"http://zhangpenghui.duoshuo.com"};
+    var duoshuoQuery = {short_name:"zhangpenghui"};
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
