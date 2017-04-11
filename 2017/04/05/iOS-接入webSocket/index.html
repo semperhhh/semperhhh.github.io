@@ -101,7 +101,7 @@
 
 首先导入了square大神的SocketRocket(简称SR,应该是iOS端webSocket采用比较多的框架),比较简单,发送消息参数需要和后台约定好
 1&amp;gt; 创建SRWebSocket我这边创建了一个webSocket的单例类,在单例类里实例化SRWebS">
-<meta property="og:updated_time" content="2017-04-11T13:29:29.000Z">
+<meta property="og:updated_time" content="2017-04-11T13:34:11.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 接入webSocket">
 <meta name="twitter:description" content="iOS 接入webSocket
@@ -369,29 +369,7 @@
 </blockquote>
 <p>首先导入了square大神的SocketRocket(简称SR,应该是iOS端webSocket采用比较多的框架),比较简单,发送消息参数需要和后台约定好</p>
 <h4 id="1-gt-创建SRWebSocket"><a href="#1-gt-创建SRWebSocket" class="headerlink" title="1&gt; 创建SRWebSocket"></a>1&gt; 创建SRWebSocket</h4><p>我这边创建了一个webSocket的单例类,在单例类里实例化SRWebSocket并且设置代理</p>
-<p>~~~<br>SRWebSocket *webSocket;<br>webSocket.delegate = nil;<br>[webSocket close];<br>webSocket = [[SRWebSocket alloc]initWithURLRequest:url];//这里的url是一个遵守ws协议的开头是’ws://‘的<br>webSocket.delegate = self;    //记得要遵守协议<srwebsocketdelegate>,实现delegate方法<br>[webSocket open];    //打开socket通道</srwebsocketdelegate></p>
-<p>–<srwebsocketdelegate></srwebsocketdelegate></p>
-<ul>
-<li><p>(void)webSocketDidOpen:(SRWebSocket *)webSocket;{<br>  NSLog(@”当进入这个代理方法的时候说明socket通道已经打开”);<br>}</p>
-</li>
-<li><p>(void)webSocket:(SRWebSocket <em>)webSocket didFailWithError:(NSError </em>)error {<br>  NSLog(@”连接失败，这里可以实现掉线自动重连”);<br>}</p>
-</li>
-<li><p>(void)webSocket:(SRWebSocket <em>)webSocket didCloseWithCode:(NSInteger)code reason:(NSString </em>)reason wasClean:(BOOL)wasClean;{</p>
-<p>  [webSocket close];    //关闭socket<br>  webSocket = nil;<br>  NSLog(@”socket通道断开了,断开一般是服务器主动断开的,这个时候可以进行重连”);</p>
-</li>
-</ul>
-<p>}</p>
-<ul>
-<li><p>(void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;{</p>
-<p>  NSLog(@”Received \”%@\””, message);<br>  NSLog(@”这里是收到服务器推来的消息 一般是JSON格式”);<br>}</p>
-</li>
-<li><p>(void)sendData:(id)data {</p>
-<p>   if (socket.readyState == SR_OPEN) {</p>
-<pre><code>[socket send:data];    // 发送数据,这里要socket打开才能发送,不然会crashes
-</code></pre><p>   }<br>}</p>
-</li>
-</ul>
-<p>~~~ objective-c</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">SRWebSocket *webSocket;</div><div class="line">webSocket.delegate = nil;</div><div class="line">[webSocket close];</div><div class="line">webSocket = [[SRWebSocket alloc]initWithURLRequest:url];//这里的url是一个遵守ws协议的开头是&apos;ws://&apos;的</div><div class="line">webSocket.delegate = self;	//记得要遵守协议&lt;SRWebSocketDelegate&gt;,实现delegate方法</div><div class="line">[webSocket open];	//打开socket通道</div><div class="line"></div><div class="line">--&lt;SRWebSocketDelegate&gt;</div><div class="line">- (void)webSocketDidOpen:(SRWebSocket *)webSocket;&#123;</div><div class="line">	NSLog(@&quot;当进入这个代理方法的时候说明socket通道已经打开&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error &#123;</div><div class="line">    NSLog(@&quot;连接失败，这里可以实现掉线自动重连&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;&#123;</div><div class="line"></div><div class="line">	[webSocket close];	//关闭socket</div><div class="line">	webSocket = nil;</div><div class="line">    NSLog(@&quot;socket通道断开了,断开一般是服务器主动断开的,这个时候可以进行重连&quot;);</div><div class="line">   </div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;&#123;</div><div class="line"></div><div class="line">    NSLog(@&quot;Received \&quot;%@\&quot;&quot;, message);</div><div class="line">    NSLog(@&quot;这里是收到服务器推来的消息 一般是JSON格式&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)sendData:(id)data &#123;</div><div class="line"></div><div class="line"> 	if (socket.readyState == SR_OPEN) &#123;</div><div class="line"></div><div class="line"> 		[socket send:data];    // 发送数据,这里要socket打开才能发送,不然会crashes</div><div class="line"> 	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
