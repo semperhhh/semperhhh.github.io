@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="笔记," />
 
 
 
@@ -87,19 +87,25 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="自适应行高笔记
+以前的cell不同文本的高度都是用的SDAutoLayout,但是第三方用的时间久了总是想着能够自己钻一下,有一个缺点就是SDAuto在cell自适应高度的时候会多次的去调用setmodel这个方法
+
+​    多次调用setmodel这个方法,感觉不算什么大问题,但是setmodel 中有许多的业务在这里面,调用的次数多了就显得多余和臃肿,所有想着试一试Masonry和YYKit">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/02/08/hello-world/index.html">
+<meta property="og:title" content="自适应行高笔记">
+<meta property="og:url" content="http://yoursite.com/2017/05/07/自适应行高笔记/index.html">
 <meta property="og:site_name" content="张鹏辉的博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2017-02-08T06:23:30.000Z">
+<meta property="og:description" content="自适应行高笔记
+以前的cell不同文本的高度都是用的SDAutoLayout,但是第三方用的时间久了总是想着能够自己钻一下,有一个缺点就是SDAuto在cell自适应高度的时候会多次的去调用setmodel这个方法
+
+​    多次调用setmodel这个方法,感觉不算什么大问题,但是setmodel 中有许多的业务在这里面,调用的次数多了就显得多余和臃肿,所有想着试一试Masonry和YYKit">
+<meta property="og:updated_time" content="2017-05-07T08:00:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="自适应行高笔记">
+<meta name="twitter:description" content="自适应行高笔记
+以前的cell不同文本的高度都是用的SDAutoLayout,但是第三方用的时间久了总是想着能够自己钻一下,有一个缺点就是SDAuto在cell自适应高度的时候会多次的去调用setmodel这个方法
+
+​    多次调用setmodel这个方法,感觉不算什么大问题,但是setmodel 中有许多的业务在这里面,调用的次数多了就显得多余和臃肿,所有想着试一试Masonry和YYKit">
 
 
 
@@ -127,13 +133,13 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/08/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/07/自适应行高笔记/"/>
 
 
 
 
 
-  <title> Hello World | 张鹏辉的博客 </title>
+  <title> 自适应行高笔记 | 张鹏辉的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -270,7 +276,7 @@ Quick">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/08/hello-world/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/07/自适应行高笔记/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="miggie Zhang">
@@ -294,7 +300,7 @@ Quick">
             
             
               
-                Hello World
+                自适应行高笔记
               
             
           </h1>
@@ -309,8 +315,8 @@ Quick">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-08T14:23:30+08:00">
-                2017-02-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-07T15:47:08+08:00">
+                2017-05-07
               </time>
             
 
@@ -328,8 +334,8 @@ Quick">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/08/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/hello-world/" itemprop="commentCount"></span>
+                <a href="/2017/05/07/自适应行高笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/07/自适应行高笔记/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -355,15 +361,12 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <h3 id="自适应行高笔记"><a href="#自适应行高笔记" class="headerlink" title="自适应行高笔记"></a>自适应行高笔记</h3><blockquote>
+<p>以前的cell不同文本的高度都是用的SDAutoLayout,但是第三方用的时间久了总是想着能够自己钻一下,有一个缺点就是SDAuto在cell自适应高度的时候会多次的去调用setmodel这个方法</p>
+</blockquote>
+<p>​    多次调用<em>setmodel</em>这个方法,感觉不算什么大问题,但是<em>setmodel</em> 中有许多的业务在这里面,调用的次数多了就显得多余和臃肿,所有想着试一试<em>Masonry</em>和<em>YYKit</em>这两种的布局方式.</p>
+<p>​    首先YYKit,YYKit确实是非常厉害的三方库,对作者也是膜拜的心情,各种富文本布局是非常炫酷也非常实用,但是我觉得yykit的布局是不太明确的,如 <em>uilabel.top</em> 这种写法不能让我直观的感受到label的top到底是哪个,基于这个我就又去看了<em>Masonry</em></p>
+<p>​    在<em>Masonry</em>中,布局是非常舒服的,相信大多数开发也是实用的Masonry布局,然而听组长说<em>Masonry</em>的布局是没有自使用行高的,但是可以计算label文本内容的高度</p>
 
       
     </div>
@@ -385,6 +388,12 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/笔记/" rel="tag"># 笔记</a>
+          
+        </div>
+      
 
       
         
@@ -394,15 +403,15 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/05/02/iOS-延迟函数/" rel="next" title="iOS 延迟函数">
+                <i class="fa fa-chevron-left"></i> iOS 延迟函数
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/08/hello-hexo-i-am-zhangpenghui/" rel="prev" title="hello hexo, i am zhangpenghui">
-                hello hexo, i am zhangpenghui <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -428,8 +437,8 @@ Quick">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/08/hello-world/"
-           data-title="Hello World" data-url="http://yoursite.com/2017/02/08/hello-world/">
+      <div class="ds-thread" data-thread-key="2017/05/07/自适应行高笔记/"
+           data-title="自适应行高笔记" data-url="http://yoursite.com/2017/05/07/自适应行高笔记/">
       </div>
     
   </div>
@@ -529,7 +538,7 @@ Quick">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#自适应行高笔记"><span class="nav-number">1.</span> <span class="nav-text">自适应行高笔记</span></a></li></ol></div>
             
 
           </div>
