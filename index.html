@@ -361,6 +361,13 @@
 <p>​    多次调用<em>setmodel</em>这个方法,感觉不算什么大问题,但是<em>setmodel</em> 中有许多的业务在这里面,调用的次数多了就显得多余和臃肿,所有想着试一试<em>Masonry</em>和<em>YYKit</em>这两种的布局方式.</p>
 <p>​    首先YYKit,YYKit确实是非常厉害的三方库,对作者也是膜拜的心情,各种富文本布局是非常炫酷也非常实用,但是我觉得yykit的布局是不太明确的,如 <em>uilabel.top</em> 这种写法不能让我直观的感受到label的top到底是哪个,基于这个我就又去看了<em>Masonry</em></p>
 <p>​    在<em>Masonry</em>中,布局是非常舒服的,相信大多数开发也是实用的Masonry布局,然而听组长说<em>Masonry</em>的布局是没有自使用行高的,但是可以计算label文本内容的高度</p>
+<h4 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h4><p>布局是习惯了masonry的,所有用masonry做基础布局,在布局过程中遇到了一些问题</p>
+<ul>
+<li>masonry在setmodel中布局,因为是消息类,所以有一个父类的cell,具体的例如文本,图片,音频继承自这个cell,这就是所谓的工厂模式吧</li>
+<li>在父cell中写了一些共有的控件,例如时间、头像,在父cell中的setmodel的时候定义了这些控件的布局,但是在子类中[super setmodel]后,控件还是没有frame,是因为cell的layout还没有刷新frame, 调用[setlayoutifneed] 就可以刷新控件的frame,从而拿到要做cell的高度的底部控件的高</li>
+<li>将控件的高保存在模型中(model),代理的控制器中cell高度的代理方法调用数组中对应的cell的model,获取保存在其中的高就可以知道当前cell的高度</li>
+<li>但是,这样的高度只有在cell展示出来的时候才可以计算cell的高度,在聊天的类中,是需要根据cell的高度来决定聊天列表向下滚到的底部的距离的,但是新进来的消息是在没有展示cell的时候就执行代理中返回高度的代理方法的,这时候cell的高度为0,列表不会向下滚动,就看不到新的消息,一个简单的解决方法是在消息的字典转model时给model预设一个高度,这样就能保证聊天列表会向下滚动,而且不会超过cell的高度,因为在滚动时会去计算cell的高度,但是预设的高度小于cell的应有高度,则不会滚动到底部</li>
+</ul>
 
           
         
