@@ -87,28 +87,16 @@
 
 
 
-<meta name="description" content="iOS 接入webSocket
-前段时间用到了webSocket,在某度了好久之后还是没有发现一些比较全面的,所以自己记录下来一点
-
-首先导入了square大神的SocketRocket(简称SR,应该是iOS端webSocket采用比较多的框架),比较简单,发送消息参数需要和后台约定好
-1&amp;gt; 创建SRWebSocket我这边创建了一个webSocket的单例类,在单例类里实例化SRWebS">
+<meta name="description" content="UIScrollViewDelegate的一些方法1234567891011121314-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate &amp;#123;        if (decelerate) &amp;#123;                NSLog(@&amp;quot;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 接入webSocket">
-<meta property="og:url" content="http://yoursite.com/2017/04/05/iOS-接入webSocket/index.html">
+<meta property="og:title" content="UIScroll的一些代理方法">
+<meta property="og:url" content="http://yoursite.com/2017/06/14/UIScroll的一些代理方法/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
-<meta property="og:description" content="iOS 接入webSocket
-前段时间用到了webSocket,在某度了好久之后还是没有发现一些比较全面的,所以自己记录下来一点
-
-首先导入了square大神的SocketRocket(简称SR,应该是iOS端webSocket采用比较多的框架),比较简单,发送消息参数需要和后台约定好
-1&amp;gt; 创建SRWebSocket我这边创建了一个webSocket的单例类,在单例类里实例化SRWebS">
-<meta property="og:updated_time" content="2017-04-11T13:34:11.000Z">
+<meta property="og:description" content="UIScrollViewDelegate的一些方法1234567891011121314-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate &amp;#123;        if (decelerate) &amp;#123;                NSLog(@&amp;quot;">
+<meta property="og:updated_time" content="2017-06-14T01:41:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 接入webSocket">
-<meta name="twitter:description" content="iOS 接入webSocket
-前段时间用到了webSocket,在某度了好久之后还是没有发现一些比较全面的,所以自己记录下来一点
-
-首先导入了square大神的SocketRocket(简称SR,应该是iOS端webSocket采用比较多的框架),比较简单,发送消息参数需要和后台约定好
-1&amp;gt; 创建SRWebSocket我这边创建了一个webSocket的单例类,在单例类里实例化SRWebS">
+<meta name="twitter:title" content="UIScroll的一些代理方法">
+<meta name="twitter:description" content="UIScrollViewDelegate的一些方法1234567891011121314-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate &amp;#123;        if (decelerate) &amp;#123;                NSLog(@&amp;quot;">
 
 
 
@@ -136,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/05/iOS-接入webSocket/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/14/UIScroll的一些代理方法/"/>
 
 
 
 
 
-  <title> iOS 接入webSocket | 张鹏辉の博客 </title>
+  <title> UIScroll的一些代理方法 | 张鹏辉の博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/05/iOS-接入webSocket/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/UIScroll的一些代理方法/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="miggie Zhang">
@@ -303,7 +291,7 @@
             
             
               
-                iOS 接入webSocket
+                UIScroll的一些代理方法
               
             
           </h1>
@@ -318,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-05T21:28:35+08:00">
-                2017-04-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-14T09:39:08+08:00">
+                2017-06-14
               </time>
             
 
@@ -337,8 +325,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/05/iOS-接入webSocket/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/05/iOS-接入webSocket/" itemprop="commentCount"></span>
+                <a href="/2017/06/14/UIScroll的一些代理方法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/14/UIScroll的一些代理方法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,12 +352,7 @@
       
 
       
-        <h2 id="iOS-接入webSocket"><a href="#iOS-接入webSocket" class="headerlink" title="iOS 接入webSocket"></a>iOS 接入webSocket</h2><blockquote>
-<p>前段时间用到了webSocket,在某度了好久之后还是没有发现一些比较全面的,所以自己记录下来一点</p>
-</blockquote>
-<p>首先导入了square大神的SocketRocket(简称SR,应该是iOS端webSocket采用比较多的框架),比较简单,发送消息参数需要和后台约定好</p>
-<h4 id="1-gt-创建SRWebSocket"><a href="#1-gt-创建SRWebSocket" class="headerlink" title="1&gt; 创建SRWebSocket"></a>1&gt; 创建SRWebSocket</h4><p>我这边创建了一个webSocket的单例类,在单例类里实例化SRWebSocket并且设置代理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">SRWebSocket *webSocket;</div><div class="line">webSocket.delegate = nil;</div><div class="line">[webSocket close];</div><div class="line">webSocket = [[SRWebSocket alloc]initWithURLRequest:url];//这里的url是一个遵守ws协议的开头是&apos;ws://&apos;的</div><div class="line">webSocket.delegate = self;	//记得要遵守协议&lt;SRWebSocketDelegate&gt;,实现delegate方法</div><div class="line">[webSocket open];	//打开socket通道</div><div class="line"></div><div class="line">--&lt;SRWebSocketDelegate&gt;</div><div class="line">- (void)webSocketDidOpen:(SRWebSocket *)webSocket;&#123;</div><div class="line">	NSLog(@&quot;当进入这个代理方法的时候说明socket通道已经打开&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error &#123;</div><div class="line">    NSLog(@&quot;连接失败，这里可以实现掉线自动重连&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;&#123;</div><div class="line"></div><div class="line">	[webSocket close];	//关闭socket</div><div class="line">	webSocket = nil;</div><div class="line">    NSLog(@&quot;socket通道断开了,断开一般是服务器主动断开的,这个时候可以进行重连&quot;);</div><div class="line">   </div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;&#123;</div><div class="line"></div><div class="line">    NSLog(@&quot;Received \&quot;%@\&quot;&quot;, message);</div><div class="line">    NSLog(@&quot;这里是收到服务器推来的消息 一般是JSON格式&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)sendData:(id)data &#123;</div><div class="line"></div><div class="line"> 	if (socket.readyState == SR_OPEN) &#123;</div><div class="line"></div><div class="line"> 		[socket send:data];    // 发送数据,这里要socket打开才能发送,不然会crashes</div><div class="line"> 	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="UIScrollViewDelegate的一些方法"><a href="#UIScrollViewDelegate的一些方法" class="headerlink" title="UIScrollViewDelegate的一些方法"></a>UIScrollViewDelegate的一些方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate &#123;</div><div class="line">    </div><div class="line">    if (decelerate) &#123;</div><div class="line">        </div><div class="line">        NSLog(@&quot;decelerate&quot;);               //减速开始</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    NSLog(@&quot;scrollviewdidenddragging&quot;);     //滑动结束</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView &#123;</div><div class="line">    </div><div class="line">    NSLog(@&quot;scrollviewdidenddecelerating&quot;); //减速结束</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -406,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/27/iOS对数组中对象的深拷贝/" rel="next" title="iOS对数组中对象的深拷贝">
-                <i class="fa fa-chevron-left"></i> iOS对数组中对象的深拷贝
+              <a href="/2017/06/11/sublime3-java编译/" rel="next" title="sublime3 java编译">
+                <i class="fa fa-chevron-left"></i> sublime3 java编译
               </a>
             
           </div>
@@ -415,10 +398,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/16/iOS-条件断点/" rel="prev" title="iOS 条件断点">
-                iOS 条件断点 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -444,8 +423,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/05/iOS-接入webSocket/"
-           data-title="iOS 接入webSocket" data-url="http://yoursite.com/2017/04/05/iOS-接入webSocket/">
+      <div class="ds-thread" data-thread-key="2017/06/14/UIScroll的一些代理方法/"
+           data-title="UIScroll的一些代理方法" data-url="http://yoursite.com/2017/06/14/UIScroll的一些代理方法/">
       </div>
     
   </div>
@@ -545,7 +524,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS-接入webSocket"><span class="nav-number">1.</span> <span class="nav-text">iOS 接入webSocket</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-gt-创建SRWebSocket"><span class="nav-number">1.0.1.</span> <span class="nav-text">1> 创建SRWebSocket</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#UIScrollViewDelegate的一些方法"><span class="nav-number">1.</span> <span class="nav-text">UIScrollViewDelegate的一些方法</span></a></li></ol></div>
             
 
           </div>
