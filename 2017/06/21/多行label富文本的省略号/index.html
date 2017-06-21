@@ -87,28 +87,16 @@
 
 
 
-<meta name="description" content="为一个工程中的所有target添加pod库支持
-前一阵在工程中心添加了一个第三方库,然后自己一个工程中的两个target就只有一个可以正常运行了,另一个则”file not”了
-
-然后在百度了一些问题,但是没有确切的明确的解释这个问题的,现在自己解决了,就把解决方法记录下来
-首先造成这个问题的原因是因为pod文件中只引用了一个target,所以只有被引用的那个target是可以正常使用的,所以我们">
+<meta name="description" content="多行label下富文本的省略号多行label下设置行数为3numberOfLines=3,当文本内容超过3的时候,默认text是有一个省略号来表示折叠内容的,当文本设置为富文本的时候isAttributedContent=yes,后面是没有省略号的,如果要设置富文本的段落样式,则富文本需要用到NSMutableParagraphStyle,这个style中有这样的一个属性:lineBreakMod">
 <meta property="og:type" content="article">
-<meta property="og:title" content="为工程中所有target添加pod支持">
-<meta property="og:url" content="http://yoursite.com/2017/03/02/cocoaPod为所有工程添加/index.html">
+<meta property="og:title" content="多行label富文本的省略号">
+<meta property="og:url" content="http://yoursite.com/2017/06/21/多行label富文本的省略号/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
-<meta property="og:description" content="为一个工程中的所有target添加pod库支持
-前一阵在工程中心添加了一个第三方库,然后自己一个工程中的两个target就只有一个可以正常运行了,另一个则”file not”了
-
-然后在百度了一些问题,但是没有确切的明确的解释这个问题的,现在自己解决了,就把解决方法记录下来
-首先造成这个问题的原因是因为pod文件中只引用了一个target,所以只有被引用的那个target是可以正常使用的,所以我们">
-<meta property="og:updated_time" content="2017-03-02T12:22:47.000Z">
+<meta property="og:description" content="多行label下富文本的省略号多行label下设置行数为3numberOfLines=3,当文本内容超过3的时候,默认text是有一个省略号来表示折叠内容的,当文本设置为富文本的时候isAttributedContent=yes,后面是没有省略号的,如果要设置富文本的段落样式,则富文本需要用到NSMutableParagraphStyle,这个style中有这样的一个属性:lineBreakMod">
+<meta property="og:updated_time" content="2017-06-21T02:49:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="为工程中所有target添加pod支持">
-<meta name="twitter:description" content="为一个工程中的所有target添加pod库支持
-前一阵在工程中心添加了一个第三方库,然后自己一个工程中的两个target就只有一个可以正常运行了,另一个则”file not”了
-
-然后在百度了一些问题,但是没有确切的明确的解释这个问题的,现在自己解决了,就把解决方法记录下来
-首先造成这个问题的原因是因为pod文件中只引用了一个target,所以只有被引用的那个target是可以正常使用的,所以我们">
+<meta name="twitter:title" content="多行label富文本的省略号">
+<meta name="twitter:description" content="多行label下富文本的省略号多行label下设置行数为3numberOfLines=3,当文本内容超过3的时候,默认text是有一个省略号来表示折叠内容的,当文本设置为富文本的时候isAttributedContent=yes,后面是没有省略号的,如果要设置富文本的段落样式,则富文本需要用到NSMutableParagraphStyle,这个style中有这样的一个属性:lineBreakMod">
 
 
 
@@ -136,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/02/cocoaPod为所有工程添加/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/21/多行label富文本的省略号/"/>
 
 
 
 
 
-  <title> 为工程中所有target添加pod支持 | 张鹏辉の博客 </title>
+  <title> 多行label富文本的省略号 | 张鹏辉の博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/02/cocoaPod为所有工程添加/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/21/多行label富文本的省略号/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="miggie Zhang">
@@ -303,7 +291,7 @@
             
             
               
-                为工程中所有target添加pod支持
+                多行label富文本的省略号
               
             
           </h1>
@@ -318,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-02T20:01:40+08:00">
-                2017-03-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-21T10:39:51+08:00">
+                2017-06-21
               </time>
             
 
@@ -337,8 +325,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/02/cocoaPod为所有工程添加/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/02/cocoaPod为所有工程添加/" itemprop="commentCount"></span>
+                <a href="/2017/06/21/多行label富文本的省略号/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/21/多行label富文本的省略号/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,13 +352,7 @@
       
 
       
-        <h3 id="为一个工程中的所有target添加pod库支持"><a href="#为一个工程中的所有target添加pod库支持" class="headerlink" title="为一个工程中的所有target添加pod库支持"></a>为一个工程中的所有target添加pod库支持</h3><blockquote>
-<p>前一阵在工程中心添加了一个第三方库,然后自己一个工程中的两个target就只有一个可以正常运行了,另一个则”file not”了</p>
-</blockquote>
-<p>然后在百度了一些问题,但是没有确切的明确的解释这个问题的,现在自己解决了,就把解决方法记录下来</p>
-<p>首先造成这个问题的原因是因为pod文件中只引用了一个target,所以只有被引用的那个target是可以正常使用的,所以我们需要做的就是在pod中把工程中的target都引用进来(不知道引用这个词对不对)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">platform :ios, &apos;8.0&apos;</div><div class="line"></div><div class="line">abstract_target &apos;AAAA&apos; do  </div><div class="line"></div><div class="line">pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0&apos;</div><div class="line"></div><div class="line">pod &apos;Masonry&apos;pod &apos;MJRefresh&apos;</div><div class="line"></div><div class="line">target &apos;BBBB&apos;</div><div class="line"></div><div class="line">target &apos;CCCC&apos;</div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
-<p>在podfile配置文件中,使用了abstract_target关键字,后面跟的名字AAA是一个不存在的target名字,后面增加我项目中实际存在的两个target,整体表示两个target共用上面的所有库.</p>
+        <h3 id="多行label下富文本的省略号"><a href="#多行label下富文本的省略号" class="headerlink" title="多行label下富文本的省略号"></a>多行label下富文本的省略号</h3><p>多行label下设置行数为3<em>numberOfLines=3</em>,当文本内容超过3的时候,默认text是有一个省略号来表示折叠内容的,<br>当文本设置为富文本的时候<em>isAttributedContent=yes</em>,后面是没有省略号的,<br>如果要设置富文本的段落样式,则富文本需要用到<em>NSMutableParagraphStyle</em>,这个style中有这样的一个属性:<em>lineBreakMode</em><br><em>lineBreakMode</em>在text中默认是切断的,但是在富文本中是没有设置的,这时候我们只要将<em>lineBreakMode</em>设置成<em>NSLineBreakByTruncatingTail</em>就乐意在富文本有折叠内容的时候出现省略号.<br>label.lineBreakMode = NSLineBreakByCharWrapping;以字符为显示单位显示，后面部分省略不显示。<br>label.lineBreakMode = NSLineBreakByClipping;剪切与文本宽度相同的内容长度，后半部分被删除。<br>label.lineBreakMode = NSLineBreakByTruncatingHead;前面部分文字以……方式省略，显示尾部文字内容。<br>label.lineBreakMode = NSLineBreakByTruncatingMiddle;中间的内容以……方式省略，显示头尾的文字内容。<br>label.lineBreakMode = NSLineBreakByTruncatingTail;结尾部分的内容以……方式省略，显示头的文字内容。<br>label.lineBreakMode = NSLineBreakByWordWrapping;以单词为显示单位显示，后面部分省略不显示。</p>
 
       
     </div>
@@ -407,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/20/iOS视图布局向上偏移的原因/" rel="next" title="iOS视图布局向上偏移的原因">
-                <i class="fa fa-chevron-left"></i> iOS视图布局向上偏移的原因
+              <a href="/2017/06/14/UIScroll的一些代理方法/" rel="next" title="UIScroll的一些代理方法">
+                <i class="fa fa-chevron-left"></i> UIScroll的一些代理方法
               </a>
             
           </div>
@@ -416,10 +398,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/03/27/iOS对数组中对象的深拷贝/" rel="prev" title="iOS对数组中对象的深拷贝">
-                iOS对数组中对象的深拷贝 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -445,8 +423,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/02/cocoaPod为所有工程添加/"
-           data-title="为工程中所有target添加pod支持" data-url="http://yoursite.com/2017/03/02/cocoaPod为所有工程添加/">
+      <div class="ds-thread" data-thread-key="2017/06/21/多行label富文本的省略号/"
+           data-title="多行label富文本的省略号" data-url="http://yoursite.com/2017/06/21/多行label富文本的省略号/">
       </div>
     
   </div>
@@ -546,7 +524,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#为一个工程中的所有target添加pod库支持"><span class="nav-number">1.</span> <span class="nav-text">为一个工程中的所有target添加pod库支持</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#多行label下富文本的省略号"><span class="nav-number">1.</span> <span class="nav-text">多行label下富文本的省略号</span></a></li></ol></div>
             
 
           </div>
