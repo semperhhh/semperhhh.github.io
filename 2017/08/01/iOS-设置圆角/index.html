@@ -91,7 +91,7 @@
 
 在view中设置圆角和uiimageview中设置圆角有点不一样当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.
 
-1.普通的 12UIImageView.layer.cornerRadiusUIImageView.laye">
+1,普通的 12UIImageView.layer.cornerRadiusUIImageView.laye">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 设置圆角">
 <meta property="og:url" content="http://yoursite.com/2017/08/01/iOS-设置圆角/index.html">
@@ -100,15 +100,15 @@
 
 在view中设置圆角和uiimageview中设置圆角有点不一样当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.
 
-1.普通的 12UIImageView.layer.cornerRadiusUIImageView.laye">
-<meta property="og:updated_time" content="2017-08-01T12:58:49.000Z">
+1,普通的 12UIImageView.layer.cornerRadiusUIImageView.laye">
+<meta property="og:updated_time" content="2017-08-02T01:43:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 设置圆角">
 <meta name="twitter:description" content="##iOS中设置圆角
 
 在view中设置圆角和uiimageview中设置圆角有点不一样当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.
 
-1.普通的 12UIImageView.layer.cornerRadiusUIImageView.laye">
+1,普通的 12UIImageView.layer.cornerRadiusUIImageView.laye">
 
 
 
@@ -368,14 +368,11 @@
 <blockquote>
 <p>在view中设置圆角和uiimageview中设置圆角有点不一样<br>当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.</p>
 </blockquote>
-<p>1.普通的<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIImageView.layer.cornerRadius</div><div class="line">UIImageView.layer.masksToBounds</div></pre></td></tr></table></figure></p>
+<p>1,普通的<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIImageView.layer.cornerRadius</div><div class="line">UIImageView.layer.masksToBounds</div></pre></td></tr></table></figure></p>
 <p> 这个 离屏渲染 ,切圆角多了就会掉帧,但是是直接改图片框的,无论图片大小都没有关系</p>
-<p> 2.CAShapeLayer和UIBezierPath<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CAShapeLayer *layer</div><div class="line">layer.path = uibezierPath.CGPath</div><div class="line">UIImageView.layer.mask = layer</div></pre></td></tr></table></figure></p>
+<p> 2, CAShapeLayer和UIBezierPath<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CAShapeLayer *layer</div><div class="line">layer.path = uibezierPath.CGPath</div><div class="line">UIImageView.layer.mask = layer</div></pre></td></tr></table></figure></p>
 <p>这个离屏渲染,是直接覆盖图片框的,无论图片大小都没有关系 ,对内存的消耗最少,渲染快速</p>
-<ol>
-<li>Core Graphics和UIBezierPath<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">UIGraphicsBeginImageContext()</div><div class="line">CGcontextRef()</div><div class="line">CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">CGContextTranslateCTM(context, 0, self.size.height);</div><div class="line">CGContextScaleCTM(context, 1.0, -1.0);</div><div class="line">UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.size.width, self.size.height) cornerRadius:radius];</div><div class="line">CGContextAddPath(context, path.CGPath);</div><div class="line">CGContextClip(context);</div><div class="line">CGContextDrawImage(context, CGRectMake(0, 0, self.size.width, self.size.height), self.CGImage);</div></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>3, Core Graphics和UIBezierPath<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">UIGraphicsBeginImageContext()</div><div class="line">CGcontextRef()</div><div class="line">CGContextRef context = UIGraphicsGetCurrentContext();</div><div class="line">CGContextTranslateCTM(context, 0, self.size.height);</div><div class="line">CGContextScaleCTM(context, 1.0, -1.0);</div><div class="line">UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.size.width, self.size.height) cornerRadius:radius];</div><div class="line">CGContextAddPath(context, path.CGPath);</div><div class="line">CGContextClip(context);</div><div class="line">CGContextDrawImage(context, CGRectMake(0, 0, self.size.width, self.size.height), self.CGImage);</div></pre></td></tr></table></figure></p>
 <p>从图片上下文裁剪,这个方法是目前我找到的比较好的方法,没有离屏渲染,但是,但是这个裁剪的圆角是根据图片的大小<br>,如果图片不一样大小裁剪出来的圆角呈现的也是不一样的,所以用之前最好确定图片的大小,当然裁圆形是没有问题的</p>
 <ul>
 <li>CGContextTranslateCTM(context, 0, self.size.height);<br>CGContextScaleCTM(context, 1.0, -1.0); *<br>如果不调用这两个,裁剪出来的图片就是反的</li>
