@@ -265,6 +265,144 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/11/SDK一些相关小问题记录/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="miggie Zhang">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="https://a.looyu.com/10000004/8b728605ca094c70b50ce4f7083b63ba.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="张鹏辉の博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="张鹏辉の博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/10/11/SDK一些相关小问题记录/" itemprop="url">
+                  SDK一些相关小问题记录
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-11T21:04:51+08:00">
+                2017-10-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/11/SDK一些相关小问题记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/11/SDK一些相关小问题记录/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="SDK一些小问题"><a href="#SDK一些小问题" class="headerlink" title="SDK一些小问题"></a>SDK一些小问题</h2><h4 id="bundle图片资源"><a href="#bundle图片资源" class="headerlink" title="bundle图片资源"></a>bundle图片资源</h4><ul>
+<li><p>asset资源只能拖到xcode中是可以读取到图片资源的,但是通过放到bundle中就读取不到了,和没有引用一样,不知道是xcode9的bug还是就是这样的设定</p>
+</li>
+<li><p>xcode9导入文件是有bug的,导入的文件都是没有引用的!需要手动添加引用</p>
+</li>
+<li><p>在读取图片的时候图片名称需要加上bundle前缀,如”xx.bundle/picname”</p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/01/iOS-设置圆角/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -357,8 +495,9 @@
           
             <p>##iOS中设置圆角</p>
 <blockquote>
-<p>在view中设置圆角和uiimageview中设置圆角有点不一样<br>当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.</p>
+<p>在view中设置圆角和uiimageview中设置圆角有点不一样</p>
 </blockquote>
+<p>当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.</p>
 <p>1,普通的<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIImageView.layer.cornerRadius</div><div class="line">UIImageView.layer.masksToBounds</div></pre></td></tr></table></figure></p>
 <p> 这个 离屏渲染 ,切圆角多了就会掉帧,但是是直接改图片框的,无论图片大小都没有关系</p>
 <p> 2, CAShapeLayer和UIBezierPath<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CAShapeLayer *layer</div><div class="line">layer.path = uibezierPath.CGPath</div><div class="line">UIImageView.layer.mask = layer</div></pre></td></tr></table></figure></p>
@@ -1505,143 +1644,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/02/cocoaPod为所有工程添加/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="miggie Zhang">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="https://a.looyu.com/10000004/8b728605ca094c70b50ce4f7083b63ba.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="张鹏辉の博客">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="张鹏辉の博客" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/02/cocoaPod为所有工程添加/" itemprop="url">
-                  为工程中所有target添加pod支持
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-02T20:01:40+08:00">
-                2017-03-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/02/cocoaPod为所有工程添加/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/02/cocoaPod为所有工程添加/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="为一个工程中的所有target添加pod库支持"><a href="#为一个工程中的所有target添加pod库支持" class="headerlink" title="为一个工程中的所有target添加pod库支持"></a>为一个工程中的所有target添加pod库支持</h3><blockquote>
-<p>前一阵在工程中心添加了一个第三方库,然后自己一个工程中的两个target就只有一个可以正常运行了,另一个则”file not”了</p>
-</blockquote>
-<p>然后在百度了一些问题,但是没有确切的明确的解释这个问题的,现在自己解决了,就把解决方法记录下来</p>
-<p>首先造成这个问题的原因是因为pod文件中只引用了一个target,所以只有被引用的那个target是可以正常使用的,所以我们需要做的就是在pod中把工程中的target都引用进来(不知道引用这个词对不对)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">platform :ios, &apos;8.0&apos;</div><div class="line"></div><div class="line">abstract_target &apos;AAAA&apos; do  </div><div class="line"></div><div class="line">pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0&apos;</div><div class="line"></div><div class="line">pod &apos;Masonry&apos;pod &apos;MJRefresh&apos;</div><div class="line"></div><div class="line">target &apos;BBBB&apos;</div><div class="line"></div><div class="line">target &apos;CCCC&apos;</div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
-<p>在podfile配置文件中,使用了abstract_target关键字,后面跟的名字AAA是一个不存在的target名字,后面增加我项目中实际存在的两个target,整体表示两个target共用上面的所有库.</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1689,7 +1691,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

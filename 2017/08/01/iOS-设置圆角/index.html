@@ -89,26 +89,29 @@
 
 <meta name="description" content="##iOS中设置圆角
 
-在view中设置圆角和uiimageview中设置圆角有点不一样当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.
+在view中设置圆角和uiimageview中设置圆角有点不一样
 
-1,普通的 12UIImageView.layer.cornerRadiusUIImageView.laye">
+当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.
+1,普通的 12UIImageView.layer.cornerRadiusUIImageView.lay">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 设置圆角">
 <meta property="og:url" content="http://yoursite.com/2017/08/01/iOS-设置圆角/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
 <meta property="og:description" content="##iOS中设置圆角
 
-在view中设置圆角和uiimageview中设置圆角有点不一样当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.
+在view中设置圆角和uiimageview中设置圆角有点不一样
 
-1,普通的 12UIImageView.layer.cornerRadiusUIImageView.laye">
-<meta property="og:updated_time" content="2017-08-02T01:43:35.000Z">
+当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.
+1,普通的 12UIImageView.layer.cornerRadiusUIImageView.lay">
+<meta property="og:updated_time" content="2017-08-02T01:45:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 设置圆角">
 <meta name="twitter:description" content="##iOS中设置圆角
 
-在view中设置圆角和uiimageview中设置圆角有点不一样当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.
+在view中设置圆角和uiimageview中设置圆角有点不一样
 
-1,普通的 12UIImageView.layer.cornerRadiusUIImageView.laye">
+当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.
+1,普通的 12UIImageView.layer.cornerRadiusUIImageView.lay">
 
 
 
@@ -366,8 +369,9 @@
       
         <p>##iOS中设置圆角</p>
 <blockquote>
-<p>在view中设置圆角和uiimageview中设置圆角有点不一样<br>当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.</p>
+<p>在view中设置圆角和uiimageview中设置圆角有点不一样</p>
 </blockquote>
+<p>当没有用到性能调优的时候就感觉离屏渲染就是把圆角画出来,现在真的用到了,认真的看了几种方法,网上的文章都是列出几种方法,然后说自己的方法是最厉害的,别的方法不是内存占用就是离屏渲染,踩过了就记录一下.</p>
 <p>1,普通的<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UIImageView.layer.cornerRadius</div><div class="line">UIImageView.layer.masksToBounds</div></pre></td></tr></table></figure></p>
 <p> 这个 离屏渲染 ,切圆角多了就会掉帧,但是是直接改图片框的,无论图片大小都没有关系</p>
 <p> 2, CAShapeLayer和UIBezierPath<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CAShapeLayer *layer</div><div class="line">layer.path = uibezierPath.CGPath</div><div class="line">UIImageView.layer.mask = layer</div></pre></td></tr></table></figure></p>
@@ -424,6 +428,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/11/SDK一些相关小问题记录/" rel="prev" title="SDK一些相关小问题记录">
+                SDK一些相关小问题记录 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -488,7 +496,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
