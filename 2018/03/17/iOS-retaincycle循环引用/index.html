@@ -87,16 +87,22 @@
 
 
 
-<meta name="description" content="UIScrollViewDelegate的一些方法1234567891011121314-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate &amp;#123;        if (decelerate) &amp;#123;                NSLog(@&amp;quot;">
+<meta name="description" content="retain cycle循环引用循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用.
+解决方法一般是两种:    1.事前避免:将该对象使用_weak或者_block修饰符修饰之后再在block中使用;    2.时候补救:将其中一方强制置空 xx == nil;
+只有当block直接或间接的被self持有时,才需要weakself.如果">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UIScroll的一些代理方法">
-<meta property="og:url" content="http://yoursite.com/2017/06/14/UIScroll的一些代理方法/index.html">
+<meta property="og:title" content="iOS-21,retaincycle循环引用">
+<meta property="og:url" content="http://yoursite.com/2018/03/17/iOS-retaincycle循环引用/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
-<meta property="og:description" content="UIScrollViewDelegate的一些方法1234567891011121314-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate &amp;#123;        if (decelerate) &amp;#123;                NSLog(@&amp;quot;">
-<meta property="og:updated_time" content="2017-06-14T01:41:07.000Z">
+<meta property="og:description" content="retain cycle循环引用循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用.
+解决方法一般是两种:    1.事前避免:将该对象使用_weak或者_block修饰符修饰之后再在block中使用;    2.时候补救:将其中一方强制置空 xx == nil;
+只有当block直接或间接的被self持有时,才需要weakself.如果">
+<meta property="og:updated_time" content="2018-03-17T07:31:20.824Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UIScroll的一些代理方法">
-<meta name="twitter:description" content="UIScrollViewDelegate的一些方法1234567891011121314-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate &amp;#123;        if (decelerate) &amp;#123;                NSLog(@&amp;quot;">
+<meta name="twitter:title" content="iOS-21,retaincycle循环引用">
+<meta name="twitter:description" content="retain cycle循环引用循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用.
+解决方法一般是两种:    1.事前避免:将该对象使用_weak或者_block修饰符修饰之后再在block中使用;    2.时候补救:将其中一方强制置空 xx == nil;
+只有当block直接或间接的被self持有时,才需要weakself.如果">
 
 
 
@@ -124,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/14/UIScroll的一些代理方法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/03/17/iOS-retaincycle循环引用/"/>
 
 
 
 
 
-  <title> UIScroll的一些代理方法 | 张鹏辉の博客 </title>
+  <title> iOS-21,retaincycle循环引用 | 张鹏辉の博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -267,7 +273,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/14/UIScroll的一些代理方法/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/17/iOS-retaincycle循环引用/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="miggie Zhang">
@@ -291,7 +297,7 @@
             
             
               
-                UIScroll的一些代理方法
+                iOS-21,retaincycle循环引用
               
             
           </h1>
@@ -306,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-14T09:39:08+08:00">
-                2017-06-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-03-17T15:22:10+08:00">
+                2018-03-17
               </time>
             
 
@@ -325,8 +331,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/14/UIScroll的一些代理方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/14/UIScroll的一些代理方法/" itemprop="commentCount"></span>
+                <a href="/2018/03/17/iOS-retaincycle循环引用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/03/17/iOS-retaincycle循环引用/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -352,7 +358,19 @@
       
 
       
-        <h3 id="UIScrollViewDelegate的一些方法"><a href="#UIScrollViewDelegate的一些方法" class="headerlink" title="UIScrollViewDelegate的一些方法"></a>UIScrollViewDelegate的一些方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate &#123;</div><div class="line">    </div><div class="line">    if (decelerate) &#123;</div><div class="line">        </div><div class="line">        NSLog(@&quot;decelerate&quot;);               //减速开始</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    NSLog(@&quot;scrollviewdidenddragging&quot;);     //滑动结束</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView &#123;</div><div class="line">    </div><div class="line">    NSLog(@&quot;scrollviewdidenddecelerating&quot;); //减速结束</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h2 id="retain-cycle循环引用"><a href="#retain-cycle循环引用" class="headerlink" title="retain cycle循环引用"></a>retain cycle循环引用</h2><p>循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用.</p>
+<p>解决方法一般是两种:<br>    1.事前避免:将该对象使用_weak或者_block修饰符修饰之后再在block中使用;<br>    2.时候补救:将其中一方强制置空 xx == nil;</p>
+<p>只有当block直接或间接的被self持有时,才需要weakself.如果在block内需要多次访问self,则需要使用strongself.</p>
+<p>当 block 本身不被 self 持有，而被别的对象持有，同时不产生循环引用的时候，就不需要使用 weak self 了。最常见的代码就是 UIView 的动画代码，我们在使用 UIView 的 animateWithDuration:animations 方法 做动画的时候，并不需要使用 weak self，因为引用持有关系是：</p>
+<ul>
+<li>UIView 的某个负责动画的对象持有了 block </li>
+<li>block 持有了 self </li>
+<li>因为 self 并不持有 block，所以就没有循环引用产生，因为就不需要使用 weak self 了。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[UIView animateWithDuration:0.2 animations:^&#123;</div><div class="line">    self.alpha = 1;</div><div class="line">&#125;];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>当动画结束时，UIView 会结束持有这个 block，如果没有别的对象持有 block 的话，block 对象就会释放掉，从而 block 会释放掉对于 self 的持有。整个内存引用关系被解除。</p>
+<p>strong self<br>    在 block 中先写一个 strong self，其实是为了避免在 block 的执行过程中，突然出现 self 被释放的尴尬情况。通常情况下，如果不这么做的话，还是很容易出现一些奇怪的逻辑，甚至闪退。</p>
+<p>在block内如何修改block外部变量<br>    block中访问的外部变量是复制过去的,即:写操作不对原变量生效,可以加上_block来让其写操作生效.<br>    block不允许修改外部变量的值,这里所说的外部变量的值,值得是栈中指针的内存地址._block所起到的作用就是只要观察到该变量被block锁持有,就将”外部变量”在栈中的内存地址放到了堆中,进而在block内部也可以修改外部变量的值.<br>    a 在定义前是栈区，但只要进入了 block 区域，就变成了堆区。这才是 __block 关键字的真正作用.</p>
 
       
     </div>
@@ -389,8 +407,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/11/sublime3-java编译/" rel="next" title="sublime3 java编译">
-                <i class="fa fa-chevron-left"></i> sublime3 java编译
+              <a href="/2018/02/07/iOS-iPhoneX关于输入框安全区的处理/" rel="next" title="iPhoneX关于输入框安全区的处理">
+                <i class="fa fa-chevron-left"></i> iPhoneX关于输入框安全区的处理
               </a>
             
           </div>
@@ -398,10 +416,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/21/多行label富文本的省略号/" rel="prev" title="多行label富文本的省略号">
-                多行label富文本的省略号 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -427,8 +441,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/06/14/UIScroll的一些代理方法/"
-           data-title="UIScroll的一些代理方法" data-url="http://yoursite.com/2017/06/14/UIScroll的一些代理方法/">
+      <div class="ds-thread" data-thread-key="2018/03/17/iOS-retaincycle循环引用/"
+           data-title="iOS-21,retaincycle循环引用" data-url="http://yoursite.com/2018/03/17/iOS-retaincycle循环引用/">
       </div>
     
   </div>
@@ -528,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#UIScrollViewDelegate的一些方法"><span class="nav-number">1.</span> <span class="nav-text">UIScrollViewDelegate的一些方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#retain-cycle循环引用"><span class="nav-number">1.</span> <span class="nav-text">retain cycle循环引用</span></a></li></ol></div>
             
 
           </div>

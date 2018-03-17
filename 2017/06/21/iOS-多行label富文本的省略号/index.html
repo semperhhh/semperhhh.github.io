@@ -87,28 +87,16 @@
 
 
 
-<meta name="description" content="iOS对数组中对象的深拷贝
-在队数组中对象的copy 和 mutablecopy中,这两种对数组中对线的拷贝都是拷贝的指针
-
-如果先对数组中对象进行深拷贝,比方说在工程中想要操作两个一样的数组,但是两个数组间的操作相互是不影响的,这时浅拷贝已经不能满足我们的需求,然而再对数组的copy和mutablecopy中,这两种对数组中对象的拷贝不是对对象本身的拷贝,而是对指向对象的指针的拷贝.
-​">
+<meta name="description" content="多行label下富文本的省略号多行label下设置行数为3numberOfLines=3,当文本内容超过3的时候,默认text是有一个省略号来表示折叠内容的,当文本设置为富文本的时候isAttributedContent=yes,后面是没有省略号的,如果要设置富文本的段落样式,则富文本需要用到NSMutableParagraphStyle,这个style中有这样的一个属性:lineBreakMod">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS对数组中对象的深拷贝">
-<meta property="og:url" content="http://yoursite.com/2017/03/27/iOS对数组中对象的深拷贝/index.html">
+<meta property="og:title" content="多行label富文本的省略号">
+<meta property="og:url" content="http://yoursite.com/2017/06/21/iOS-多行label富文本的省略号/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
-<meta property="og:description" content="iOS对数组中对象的深拷贝
-在队数组中对象的copy 和 mutablecopy中,这两种对数组中对线的拷贝都是拷贝的指针
-
-如果先对数组中对象进行深拷贝,比方说在工程中想要操作两个一样的数组,但是两个数组间的操作相互是不影响的,这时浅拷贝已经不能满足我们的需求,然而再对数组的copy和mutablecopy中,这两种对数组中对象的拷贝不是对对象本身的拷贝,而是对指向对象的指针的拷贝.
-​">
-<meta property="og:updated_time" content="2017-03-27T12:51:45.000Z">
+<meta property="og:description" content="多行label下富文本的省略号多行label下设置行数为3numberOfLines=3,当文本内容超过3的时候,默认text是有一个省略号来表示折叠内容的,当文本设置为富文本的时候isAttributedContent=yes,后面是没有省略号的,如果要设置富文本的段落样式,则富文本需要用到NSMutableParagraphStyle,这个style中有这样的一个属性:lineBreakMod">
+<meta property="og:updated_time" content="2017-06-21T02:49:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS对数组中对象的深拷贝">
-<meta name="twitter:description" content="iOS对数组中对象的深拷贝
-在队数组中对象的copy 和 mutablecopy中,这两种对数组中对线的拷贝都是拷贝的指针
-
-如果先对数组中对象进行深拷贝,比方说在工程中想要操作两个一样的数组,但是两个数组间的操作相互是不影响的,这时浅拷贝已经不能满足我们的需求,然而再对数组的copy和mutablecopy中,这两种对数组中对象的拷贝不是对对象本身的拷贝,而是对指向对象的指针的拷贝.
-​">
+<meta name="twitter:title" content="多行label富文本的省略号">
+<meta name="twitter:description" content="多行label下富文本的省略号多行label下设置行数为3numberOfLines=3,当文本内容超过3的时候,默认text是有一个省略号来表示折叠内容的,当文本设置为富文本的时候isAttributedContent=yes,后面是没有省略号的,如果要设置富文本的段落样式,则富文本需要用到NSMutableParagraphStyle,这个style中有这样的一个属性:lineBreakMod">
 
 
 
@@ -136,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/27/iOS对数组中对象的深拷贝/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/21/iOS-多行label富文本的省略号/"/>
 
 
 
 
 
-  <title> iOS对数组中对象的深拷贝 | 张鹏辉の博客 </title>
+  <title> 多行label富文本的省略号 | 张鹏辉の博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/27/iOS对数组中对象的深拷贝/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/21/iOS-多行label富文本的省略号/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="miggie Zhang">
@@ -303,7 +291,7 @@
             
             
               
-                iOS对数组中对象的深拷贝
+                多行label富文本的省略号
               
             
           </h1>
@@ -318,8 +306,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-27T20:36:13+08:00">
-                2017-03-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-21T10:39:51+08:00">
+                2017-06-21
               </time>
             
 
@@ -337,8 +325,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/27/iOS对数组中对象的深拷贝/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/27/iOS对数组中对象的深拷贝/" itemprop="commentCount"></span>
+                <a href="/2017/06/21/iOS-多行label富文本的省略号/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/21/iOS-多行label富文本的省略号/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,13 +352,7 @@
       
 
       
-        <h2 id="iOS对数组中对象的深拷贝"><a href="#iOS对数组中对象的深拷贝" class="headerlink" title="iOS对数组中对象的深拷贝"></a>iOS对数组中对象的深拷贝</h2><blockquote>
-<p>在队数组中对象的copy 和 mutablecopy中,这两种对数组中对线的拷贝都是拷贝的指针</p>
-</blockquote>
-<p>如果先对数组中对象进行深拷贝,比方说在工程中想要操作两个一样的数组,但是两个数组间的操作相互是不影响的,这时浅拷贝已经不能满足我们的需求,然而再对数组的copy和mutablecopy中,这两种对数组中对象的拷贝不是对对象本身的拷贝,而是对指向对象的指针的拷贝.</p>
-<p>​    想要将自定义对象深拷贝,我们需要用到两个类代理方法 NSCopying,NSMutableCopying,在自定义对象的.m中实现代理方法- (id)copyWithZone:(nullable NSZone <em>)zone和- (id)mutableCopyWithZone:(nullable NSZone </em>)zone,例如我这里声明了一个自定义对象类为model:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Model</div><div class="line">@interface Model : NSObject&lt;NSCopying,NSMutableCopying&gt;</div><div class="line">@property (nonatomic, copy) NSString *str1;</div><div class="line">@property (nonatomic, copy) NSString *str2;</div><div class="line">@end </div><div class="line">@implementation Model</div><div class="line">- (id)copyWithZone:(nullable NSZone *)zone&#123;</div><div class="line">Model *person = [[self class] allocWithZone:zone];</div><div class="line">person.str1 = [_str1 copy];</div><div class="line">person.str2 = [_str2 copy];</div><div class="line">return person;</div><div class="line">&#125;</div><div class="line">- (id)mutableCopyWithZone:(nullable NSZone *)zone&#123;</div><div class="line">Model *person = [[self class] allocWithZone:zone];</div><div class="line">person.str1 = [_str1 copy];</div><div class="line">person.str2 = [_str2 copy];</div><div class="line">return person;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<p>这个时候可以用[[NSMutableArray alloc] initWithArray:arr1 copyItems:YES]来接这个数组,这样数组里面的model也同样copy了.</p>
+        <h3 id="多行label下富文本的省略号"><a href="#多行label下富文本的省略号" class="headerlink" title="多行label下富文本的省略号"></a>多行label下富文本的省略号</h3><p>多行label下设置行数为3<em>numberOfLines=3</em>,当文本内容超过3的时候,默认text是有一个省略号来表示折叠内容的,<br>当文本设置为富文本的时候<em>isAttributedContent=yes</em>,后面是没有省略号的,<br>如果要设置富文本的段落样式,则富文本需要用到<em>NSMutableParagraphStyle</em>,这个style中有这样的一个属性:<em>lineBreakMode</em><br><em>lineBreakMode</em>在text中默认是切断的,但是在富文本中是没有设置的,这时候我们只要将<em>lineBreakMode</em>设置成<em>NSLineBreakByTruncatingTail</em>就乐意在富文本有折叠内容的时候出现省略号.<br>label.lineBreakMode = NSLineBreakByCharWrapping;以字符为显示单位显示，后面部分省略不显示。<br>label.lineBreakMode = NSLineBreakByClipping;剪切与文本宽度相同的内容长度，后半部分被删除。<br>label.lineBreakMode = NSLineBreakByTruncatingHead;前面部分文字以……方式省略，显示尾部文字内容。<br>label.lineBreakMode = NSLineBreakByTruncatingMiddle;中间的内容以……方式省略，显示头尾的文字内容。<br>label.lineBreakMode = NSLineBreakByTruncatingTail;结尾部分的内容以……方式省略，显示头的文字内容。<br>label.lineBreakMode = NSLineBreakByWordWrapping;以单词为显示单位显示，后面部分省略不显示。</p>
 
       
     </div>
@@ -407,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/02/cocoaPod为所有工程添加/" rel="next" title="为工程中所有target添加pod支持">
-                <i class="fa fa-chevron-left"></i> 为工程中所有target添加pod支持
+              <a href="/2017/06/14/iOS-UIScroll的一些代理方法/" rel="next" title="UIScroll的一些代理方法">
+                <i class="fa fa-chevron-left"></i> UIScroll的一些代理方法
               </a>
             
           </div>
@@ -417,8 +399,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/05/iOS-接入webSocket/" rel="prev" title="iOS 接入webSocket">
-                iOS 接入webSocket <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/01/iOS-设置圆角/" rel="prev" title="iOS 设置圆角">
+                iOS 设置圆角 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -445,8 +427,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/27/iOS对数组中对象的深拷贝/"
-           data-title="iOS对数组中对象的深拷贝" data-url="http://yoursite.com/2017/03/27/iOS对数组中对象的深拷贝/">
+      <div class="ds-thread" data-thread-key="2017/06/21/iOS-多行label富文本的省略号/"
+           data-title="多行label富文本的省略号" data-url="http://yoursite.com/2017/06/21/iOS-多行label富文本的省略号/">
       </div>
     
   </div>
@@ -546,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iOS对数组中对象的深拷贝"><span class="nav-number">1.</span> <span class="nav-text">iOS对数组中对象的深拷贝</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#多行label下富文本的省略号"><span class="nav-number">1.</span> <span class="nav-text">多行label下富文本的省略号</span></a></li></ol></div>
             
 
           </div>
