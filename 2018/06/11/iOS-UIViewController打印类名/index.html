@@ -99,7 +99,7 @@
 
 主要是利用runtime机制,截取viewcontroller的viewdidload方法,给viewcontroller添加分类,重新实现viewdidload方法;
 在直接调用IMP的话就会发生EXC_BAD_ACCESS错误,因为IMP指针是有返回值的类型,而viewdidload">
-<meta property="og:updated_time" content="2018-06-11T13:34:56.384Z">
+<meta property="og:updated_time" content="2018-06-11T13:56:04.901Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS-UIViewController打印类名">
 <meta name="twitter:description" content="新工作接手一个很大的老项目,所以需要在viewcontroller将要显示的时候获取到类名,方便定位bug
@@ -365,8 +365,9 @@
 <p>新工作接手一个很大的老项目,所以需要在viewcontroller将要显示的时候获取到类名,方便定位bug</p>
 </blockquote>
 <p>主要是利用runtime机制,截取viewcontroller的viewdidload方法,给viewcontroller添加分类,重新实现viewdidload方法;</p>
-<p>在直接调用IMP的话就会发生EXC_BAD_ACCESS错误,因为IMP指针是有返回值的类型,而viewdidload这个方法是没有返回值的,我们定义一个和IMP相同类型的函数指针VIMP,把他的返回值定位Void.</p>
+<p>在直接调用IMP的话就会发生EXC_BAD_ACCESS错误,因为IMP指针是有返回值的类型,而viewdidload这个方法是没有返回值的,我们定义一个和IMP相同类型的函数指针VIMP,把他的返回值定位Void.<a id="more"></a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIViewController+ZPViewDidLoad.h&quot;</div><div class="line">#import &lt;objc/runtime.h&gt;</div><div class="line"></div><div class="line">typedef void (* _VIMP)(id, SEL, ...);</div><div class="line"></div><div class="line">@implementation UIViewController (ZPViewDidLoad)</div><div class="line"></div><div class="line">+(void)load &#123;</div><div class="line">    </div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        </div><div class="line">        // get system viewDidLoad method</div><div class="line">        Method viewDidLoad = class_getInstanceMethod(self, @selector(viewDidLoad));</div><div class="line">        </div><div class="line">        // get the system implementation of viewDidLoad</div><div class="line">        _VIMP viewDidLoad_VIMP = (_VIMP)method_getImplementation(viewDidLoad);</div><div class="line">        </div><div class="line">        // resetter the  system implementation of viewDidLoad</div><div class="line">        method_setImplementation(viewDidLoad, imp_implementationWithBlock(^ (id target , SEL action)&#123;</div><div class="line">            </div><div class="line">            // the system viewDidLoad method</div><div class="line">            viewDidLoad_VIMP(target , @selector(viewDidLoad));</div><div class="line">            </div><div class="line">            </div><div class="line">            // the new add NSLog method</div><div class="line">            NSLog(@&quot;-------------------- %@ : view did load&quot;,target);</div><div class="line">        &#125;));</div><div class="line">        </div><div class="line">        </div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+
       
     </div>
 

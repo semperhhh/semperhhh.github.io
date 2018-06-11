@@ -355,20 +355,22 @@
       
         
           
-            <h3 id="sublime3下java的编译"><a href="#sublime3下java的编译" class="headerlink" title="sublime3下java的编译"></a>sublime3下java的编译</h3><blockquote>
-<p>学习java的第一步,是开发工具的选择<br>sublime3在偏好中找的javaC,在万能的百度上找到了这个配置文件</p>
-</blockquote>
-<p>{</p>
-<p>“shell_cmd”: “javac -encoding utf-8 $file_name &amp;&amp; java $file_base_name &amp;&amp; rm -rf $file_base_name.class”,</p>
-<p>“working_dir”: “${project_path:${folder}}”,</p>
-<p>“file_regex”: “^(…<em>?):([0-9]</em>):?([0-9]*)”,</p>
-<p>“selector”: “source.java”,</p>
-<p>“shell”: true,</p>
-<p>“encoding”: “utf-8”</p>
-<p>}</p>
-<p>这个配置文件是可以编译java的,生成的.class也会自已删除</p>
+          sublime3下java的编译
+学习java的第一步,是开发工具的选择sublime3在偏好中找的javaC,在万能的百度上找到了这个配置文件
 
-          
+{
+“shell_cmd”: “javac -encoding utf-8 $file_name &amp;&amp; java $file_base_name &amp;&amp; rm -rf $file_base_name.class”,
+“working_dir”: “${project_path:${folder}}”,
+“file_regex”: “^(…?):([0-9]):?([0-9]*)”,
+“selector”: “sourc
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/11/sublime3-java编译/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -497,25 +499,19 @@
       
         
           
-            <h3 id="自适应行高笔记"><a href="#自适应行高笔记" class="headerlink" title="自适应行高笔记"></a>自适应行高笔记</h3><blockquote>
-<p>以前的cell不同文本的高度都是用的SDAutoLayout,但是第三方用的时间久了总是想着能够自己钻一下,有一个缺点就是SDAuto在cell自适应高度的时候会多次的去调用setmodel这个方法</p>
-</blockquote>
-<p>​    多次调用<em>setmodel</em>这个方法,感觉不算什么大问题,但是<em>setmodel</em> 中有许多的业务在这里面,调用的次数多了就显得多余和臃肿,所有想着试一试<em>Masonry</em>和<em>YYKit</em>这两种的布局方式.</p>
-<p>​    首先YYKit,YYKit确实是非常厉害的三方库,对作者也是膜拜的心情,各种富文本布局是非常炫酷也非常实用,但是我觉得yykit的布局是不太明确的,如 <em>uilabel.top</em> 这种写法不能让我直观的感受到label的top到底是哪个,基于这个我就又去看了<em>Masonry</em></p>
-<p>​    在<em>Masonry</em>中,布局是非常舒服的,相信大多数开发也是实用的Masonry布局,然而听组长说<em>Masonry</em>的布局是没有自使用行高的,但是可以计算label文本内容的高度</p>
-<h4 id="想法"><a href="#想法" class="headerlink" title="想法"></a>想法</h4><p>布局是习惯了masonry的,所有用masonry做基础布局,在布局过程中遇到了一些问题</p>
-<ul>
-<li>masonry在setmodel中布局,因为是消息类,所以有一个父类的cell,具体的例如文本,图片,音频继承自这个cell,这就是所谓的工厂模式吧</li>
-<li>在父cell中写了一些共有的控件,例如时间、头像,在父cell中的setmodel的时候定义了这些控件的布局,但是在子类中[super setmodel]后,控件还是没有frame,是因为cell的layout还没有刷新frame, 调用[setlayoutifneed] 就可以刷新控件的frame,从而拿到要做cell的高度的底部控件的高</li>
-<li>将控件的高保存在模型中(model),代理的控制器中cell高度的代理方法调用数组中对应的cell的model,获取保存在其中的高就可以知道当前cell的高度</li>
-<li>但是,这样的高度只有在cell展示出来的时候才可以计算cell的高度,在聊天的类中,是需要根据cell的高度来决定聊天列表向下滚到的底部的距离的,但是新进来的消息是在没有展示cell的时候就执行代理中返回高度的代理方法的,这时候cell的高度为0,列表不会向下滚动,就看不到新的消息,一个简单的解决方法是在消息的字典转model时给model预设一个高度,这样就能保证聊天列表会向下滚动,而且不会超过cell的高度,因为在滚动时会去计算cell的高度,但是预设的高度小于cell的应有高度,则不会滚动到底部. 现在能想到的比较好的方法是yykit的方法,Label这些文本其实是一个块,计算出这个文本块的高度但是是在一个高于model的类layout中,这个layout类实现了计算Label文本块大小的方法,对富文本的支持特别厉害,这样新消息不用cell展示就能知道行高,因为行高保存在了layout类中,同理,我在model中写了这样一个计算高度的方法</li>
-<li><strong>表情</strong> 表情是在model中计算高度的方法中根据正则表达式找出表情替换,注意是从后向前替换的</li>
-<li><strong>图片</strong> 自己发送的和文字一样,在model中计算图片的宽高,是保存在缓存中的,所以可以马上提取到图片的大小,如果是对面发送过来的图片,可以先用一个占位图,然后在图片加载完成后计算宽高替换占位图刷新cell高度,这里本来是用的一个第三方,但是这个第三方有一些滑动的bug,现在改用了kvo来监听在sdwebimage加载完成的回调中刷新cell</li>
-<li><strong>语音</strong> 语音在model中计算语音的长度</li>
-<li><strong>电话号码</strong> 电话号码应该是带下划线的富文本,这里和表情一样在富文本中根据正则表达式找出符合的电话号码,采用对应的富文本和位置替换</li>
-</ul>
+          自适应行高笔记
+以前的cell不同文本的高度都是用的SDAutoLayout,但是第三方用的时间久了总是想着能够自己钻一下,有一个缺点就是SDAuto在cell自适应高度的时候会多次的去调用setmodel这个方法
 
-          
+​    多次调用setmodel这个方法,感觉不算什么大问题,但是setmodel 中有许多的业务在这里面,调用的次数多了就显得多余和臃肿,所有想着试一试Masonry和YYKit这两种的布局方式.
+​    首先YYKit,YYKit确实是非常厉害的三方库,对作者也是膜拜的心情,各种富文本布局是非常炫酷也非常实用,但是我觉得yykit的布局是不太明确的,如 uilabel.t
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/07/iOS-自适应行高笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -644,17 +640,21 @@
       
         
           
-            <h3 id="iOS函数延迟执行performselector"><a href="#iOS函数延迟执行performselector" class="headerlink" title="iOS函数延迟执行performselector"></a>iOS函数延迟执行performselector</h3><blockquote>
-<p>工程用到了来消息时的声音提醒,自己想不到什么好的方法,今天跟着大佬学了一招延迟函数</p>
-</blockquote>
-<p>延迟函数performselector</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self performSelector:@selector(delayMethod) withObject:nil afterDelay:1.0f];//延迟1秒通过选择器去执行delaymethod这个方法</div></pre></td></tr></table></figure>
-<p>延迟函数要求必须在主线程中执行,否则无效,是一种非阻塞的执行方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(scrollDone) object:nil];//取消执行函数</div></pre></td></tr></table></figure>
-<p>取消执行函数和执行函数带的参数必须一样,才能取消成功</p>
-<p>这样在有很多声音提醒的时候就合一判断只向一次了,组长v587!</p>
+          iOS函数延迟执行performselector
+工程用到了来消息时的声音提醒,自己想不到什么好的方法,今天跟着大佬学了一招延迟函数
 
-          
+延迟函数performselector
+1[self performSelector:@selector(delayMethod) withObject:nil afterDelay:1.0f];//延迟1秒通过选择器去执行delaymethod这个方法
+延迟函数要求必须在主线程中执行,否则无效,是一种非阻塞的执行方式
+12[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@sele
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/02/iOS-延迟函数/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -783,19 +783,26 @@
       
         
           
-            <h2 id="iOS条件断点"><a href="#iOS条件断点" class="headerlink" title="iOS条件断点"></a>iOS条件断点</h2><blockquote>
-<p>在日常使用中只是使用一般的断点,效率不高</p>
-</blockquote>
-<h3 id="1-给断点加判断条件"><a href="#1-给断点加判断条件" class="headerlink" title="1. 给断点加判断条件"></a>1. 给断点加判断条件</h3><p>给断点加一个判断条件,例如在一个for循环中,当  <em>i==3</em>  的时候才让断点生效<img src="http://olnx80yq4.bkt.clouddn.com/Conditionalbreakpoints1.png" alt="条件断点1"></p>
-<p>右击 断点 点击 <em>edit Breakpoint</em> <img src="http://olnx80yq4.bkt.clouddn.com/Conditionalbreakpoints3.png" alt="条件断点3"></p>
-<p>在 <em>condition</em>中填入条件</p>
-<p><img src="http://olnx80yq4.bkt.clouddn.com/Conditionalbreakpoints2.png" alt="条件断点2"></p>
-<p>当<em>i==3</em>时,断点就停在了这个地方</p>
-<p><img src="http://olnx80yq4.bkt.clouddn.com/Conditionalbreakpoints4.png" alt="条件断点4"></p>
-<p>在点击 <em>add Action</em> 可以添加断点运行到这个地方后的指令,如<img src="http://olnx80yq4.bkt.clouddn.com/Conditionalbreakpoints5.png" alt="条件断点5"></p>
-<p>这里输入了<em>po i</em> 就是当 <em>i == 3</em> 这个断点执行时做 <em>po i</em> 命令</p>
+          iOS条件断点
+在日常使用中只是使用一般的断点,效率不高
+
+1. 给断点加判断条件给断点加一个判断条件,例如在一个for循环中,当  i==3  的时候才让断点生效
+右击 断点 点击 edit Breakpoint 
+在 condition中填入条件
+
+当i==3时,断点就停在了这个地方
+
+在点击 add Action 可以添加断点运行到这个地方后的指令,如
+这里输入了po i 就是当 i == 3 这个断点执行时做 po i 命令
 
           
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/16/iOS-条件断点/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -924,14 +931,20 @@
       
         
           
-            <h2 id="iOS-接入webSocket"><a href="#iOS-接入webSocket" class="headerlink" title="iOS 接入webSocket"></a>iOS 接入webSocket</h2><blockquote>
-<p>前段时间用到了webSocket,在某度了好久之后还是没有发现一些比较全面的,所以自己记录下来一点</p>
-</blockquote>
-<p>首先导入了square大神的SocketRocket(简称SR,应该是iOS端webSocket采用比较多的框架),比较简单,发送消息参数需要和后台约定好</p>
-<h4 id="1-gt-创建SRWebSocket"><a href="#1-gt-创建SRWebSocket" class="headerlink" title="1&gt; 创建SRWebSocket"></a>1&gt; 创建SRWebSocket</h4><p>我这边创建了一个webSocket的单例类,在单例类里实例化SRWebSocket并且设置代理</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">SRWebSocket *webSocket;</div><div class="line">webSocket.delegate = nil;</div><div class="line">[webSocket close];</div><div class="line">webSocket = [[SRWebSocket alloc]initWithURLRequest:url];//这里的url是一个遵守ws协议的开头是&apos;ws://&apos;的</div><div class="line">webSocket.delegate = self;	//记得要遵守协议&lt;SRWebSocketDelegate&gt;,实现delegate方法</div><div class="line">[webSocket open];	//打开socket通道</div><div class="line"></div><div class="line">--&lt;SRWebSocketDelegate&gt;</div><div class="line">- (void)webSocketDidOpen:(SRWebSocket *)webSocket;&#123;</div><div class="line">	NSLog(@&quot;当进入这个代理方法的时候说明socket通道已经打开&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error &#123;</div><div class="line">    NSLog(@&quot;连接失败，这里可以实现掉线自动重连&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean;&#123;</div><div class="line"></div><div class="line">	[webSocket close];	//关闭socket</div><div class="line">	webSocket = nil;</div><div class="line">    NSLog(@&quot;socket通道断开了,断开一般是服务器主动断开的,这个时候可以进行重连&quot;);</div><div class="line">   </div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message;&#123;</div><div class="line"></div><div class="line">    NSLog(@&quot;Received \&quot;%@\&quot;&quot;, message);</div><div class="line">    NSLog(@&quot;这里是收到服务器推来的消息 一般是JSON格式&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)sendData:(id)data &#123;</div><div class="line"></div><div class="line"> 	if (socket.readyState == SR_OPEN) &#123;</div><div class="line"></div><div class="line"> 		[socket send:data];    // 发送数据,这里要socket打开才能发送,不然会crashes</div><div class="line"> 	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+          iOS 接入webSocket
+前段时间用到了webSocket,在某度了好久之后还是没有发现一些比较全面的,所以自己记录下来一点
 
-          
+首先导入了square大神的SocketRocket(简称SR,应该是iOS端webSocket采用比较多的框架),比较简单,发送消息参数需要和后台约定好
+1&gt; 创建SRWebSocket我这边创建了一个webSocket的单例类,在单例类里实例化SRWebSocket并且设置代理
+1234567891011121314151617181920212223242526272829303132333435363738SRWebSocket *webSocke
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/05/iOS-接入webSocket/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1060,15 +1073,19 @@
       
         
           
-            <h2 id="iOS对数组中对象的深拷贝"><a href="#iOS对数组中对象的深拷贝" class="headerlink" title="iOS对数组中对象的深拷贝"></a>iOS对数组中对象的深拷贝</h2><blockquote>
-<p>在队数组中对象的copy 和 mutablecopy中,这两种对数组中对线的拷贝都是拷贝的指针</p>
-</blockquote>
-<p>如果先对数组中对象进行深拷贝,比方说在工程中想要操作两个一样的数组,但是两个数组间的操作相互是不影响的,这时浅拷贝已经不能满足我们的需求,然而再对数组的copy和mutablecopy中,这两种对数组中对象的拷贝不是对对象本身的拷贝,而是对指向对象的指针的拷贝.</p>
-<p>​    想要将自定义对象深拷贝,我们需要用到两个类代理方法 NSCopying,NSMutableCopying,在自定义对象的.m中实现代理方法- (id)copyWithZone:(nullable NSZone <em>)zone和- (id)mutableCopyWithZone:(nullable NSZone </em>)zone,例如我这里声明了一个自定义对象类为model:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">Model</div><div class="line">@interface Model : NSObject&lt;NSCopying,NSMutableCopying&gt;</div><div class="line">@property (nonatomic, copy) NSString *str1;</div><div class="line">@property (nonatomic, copy) NSString *str2;</div><div class="line">@end </div><div class="line">@implementation Model</div><div class="line">- (id)copyWithZone:(nullable NSZone *)zone&#123;</div><div class="line">Model *person = [[self class] allocWithZone:zone];</div><div class="line">person.str1 = [_str1 copy];</div><div class="line">person.str2 = [_str2 copy];</div><div class="line">return person;</div><div class="line">&#125;</div><div class="line">- (id)mutableCopyWithZone:(nullable NSZone *)zone&#123;</div><div class="line">Model *person = [[self class] allocWithZone:zone];</div><div class="line">person.str1 = [_str1 copy];</div><div class="line">person.str2 = [_str2 copy];</div><div class="line">return person;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
-<p>这个时候可以用[[NSMutableArray alloc] initWithArray:arr1 copyItems:YES]来接这个数组,这样数组里面的model也同样copy了.</p>
+          iOS对数组中对象的深拷贝
+在队数组中对象的copy 和 mutablecopy中,这两种对数组中对线的拷贝都是拷贝的指针
 
-          
+如果先对数组中对象进行深拷贝,比方说在工程中想要操作两个一样的数组,但是两个数组间的操作相互是不影响的,这时浅拷贝已经不能满足我们的需求,然而再对数组的copy和mutablecopy中,这两种对数组中对象的拷贝不是对对象本身的拷贝,而是对指向对象的指针的拷贝.
+​    想要将自定义对象深拷贝,我们需要用到两个类代理方法 NSCopying,NSMutableCopying,在自定义对象的.m中实现代理方法- (id)copyWithZone:(nullable NS
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/27/iOS-对数组中对象的深拷贝/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1197,15 +1214,20 @@
       
         
           
-            <h3 id="为一个工程中的所有target添加pod库支持"><a href="#为一个工程中的所有target添加pod库支持" class="headerlink" title="为一个工程中的所有target添加pod库支持"></a>为一个工程中的所有target添加pod库支持</h3><blockquote>
-<p>前一阵在工程中心添加了一个第三方库,然后自己一个工程中的两个target就只有一个可以正常运行了,另一个则”file not”了</p>
-</blockquote>
-<p>然后在百度了一些问题,但是没有确切的明确的解释这个问题的,现在自己解决了,就把解决方法记录下来</p>
-<p>首先造成这个问题的原因是因为pod文件中只引用了一个target,所以只有被引用的那个target是可以正常使用的,所以我们需要做的就是在pod中把工程中的target都引用进来(不知道引用这个词对不对)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">platform :ios, &apos;8.0&apos;</div><div class="line"></div><div class="line">abstract_target &apos;AAAA&apos; do  </div><div class="line"></div><div class="line">pod &apos;AFNetworking&apos;, &apos;~&gt; 3.0&apos;</div><div class="line"></div><div class="line">pod &apos;Masonry&apos;pod &apos;MJRefresh&apos;</div><div class="line"></div><div class="line">target &apos;BBBB&apos;</div><div class="line"></div><div class="line">target &apos;CCCC&apos;</div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
-<p>在podfile配置文件中,使用了abstract_target关键字,后面跟的名字AAA是一个不存在的target名字,后面增加我项目中实际存在的两个target,整体表示两个target共用上面的所有库.</p>
+          为一个工程中的所有target添加pod库支持
+前一阵在工程中心添加了一个第三方库,然后自己一个工程中的两个target就只有一个可以正常运行了,另一个则”file not”了
 
-          
+然后在百度了一些问题,但是没有确切的明确的解释这个问题的,现在自己解决了,就把解决方法记录下来
+首先造成这个问题的原因是因为pod文件中只引用了一个target,所以只有被引用的那个target是可以正常使用的,所以我们需要做的就是在pod中把工程中的target都引用进来(不知道引用这个词对不对)
+12345678910111213platform :ios, &apos;8.0&apos;abstract_tar
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/03/02/cocoaPod为所有工程添加/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1356,17 +1378,16 @@
       
         
           
-            <h2 id="iOS视图布局向上偏移的原因"><a href="#iOS视图布局向上偏移的原因" class="headerlink" title="iOS视图布局向上偏移的原因"></a>iOS视图布局向上偏移的原因</h2><p>在常用的iOS视图布局的时候,有时候会出现控件向上偏移的情况</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">_firstTableView = [[UITableView alloc]init];</div><div class="line">_firstTableView.top = 0;</div><div class="line">_firstTableView.left = 0;</div><div class="line">_firstTableView.height = self.view.height -64;</div><div class="line">_firstTableView.width = 200;</div><div class="line">_firstTableView.backgroundColor = [UIColor grayColor];</div><div class="line">_firstTableView.dataSource = self;</div><div class="line">_firstTableView.delegate = self;</div><div class="line">[self.view addSubview:_firstTableView];</div><div class="line"></div><div class="line">_secondTableView = [[UITableView alloc]init];</div><div class="line">_secondTableView.top = 0;</div><div class="line">_secondTableView.left = _firstTableView.right;</div><div class="line">_secondTableView.width = self.view.width -_firstTableView.width;</div><div class="line">_secondTableView.height = self.view.height -64;</div><div class="line">_secondTableView.backgroundColor = [UIColor blueColor];</div><div class="line">_secondTableView.dataSource = self;</div><div class="line">_secondTableView.delegate = self;</div><div class="line">[self.view addSubview:_secondTableView];</div></pre></td></tr></table></figure>
-<p>这段代码在一个界面创建了两个tableview,布局基本是一模一样的,但是效果却是两者上下偏移64px<br><img src="http://olnx80yq4.bkt.clouddn.com/image/bolg/170220170220.PNG" alt="img"></p>
-<p>view有一个类型是UIExtendedEdge的属性,指定边缘要延伸的方向,默认值是UIRectEdgeAll.</p>
-<p>在上面的代码中添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.edgesForExtendedLayout = UIRectEdgeNone;</div></pre></td></tr></table></figure>
-<p>,两个空间的高度布局一样了.</p>
-<p><em>当有导航控制器时,系统会默认将第一个添加的csrollview或其子类视图的内容下移64个像素</em>  ,也可以加上这句代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">self.automaticallyAdjustsScrollViewInsets = NO;</div></pre></td></tr></table></figure>
-
-          
+          iOS视图布局向上偏移的原因在常用的iOS视图布局的时候,有时候会出现控件向上偏移的情况
+12345678910111213141516171819_firstTableView = [[UITableView alloc]init];_firstTableView.top = 0;_firstTableView.left = 0;_firstTableView.height = self.view.height -64;_firstTableView.width = 200;_firstTableView.backgroundColor = [UIColor grayColor];_firs
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/20/iOS-视图布局向上偏移的原因/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1517,24 +1538,27 @@
       
         
           
-            <h3 id="实现一个小的滤镜功能"><a href="#实现一个小的滤镜功能" class="headerlink" title="实现一个小的滤镜功能"></a>实现一个小的滤镜功能</h3><blockquote>
-<p>用系统的CIFilter实现一个小的滤镜功能</p>
-</blockquote>
-<p>​    CIFilter:滤镜类包含一个字典结构,对各种滤镜定义了属于他们各自的属性,滤镜有很多种,比如鲜艳程度滤镜,色彩反转滤镜,剪裁滤镜等等</p>
-<p>让图像通过一个CIFilter显示在屏幕上</p>
-<ul>
-<li>创建一个CIImage对象</li>
-<li>创建一个CIContext</li>
-<li>创建一个CIFilter</li>
-<li>输出滤镜</li>
-</ul>
-<p>具体实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">//将uiimage转ciimage</div><div class="line">CIImage *ciImage = [[CIImage alloc]initWithImage:_imageView.image];</div><div class="line">//创建滤镜</div><div class="line">CIFilter *filter = [CIFilter filterWithName:@&quot;CIPhotoEffectChrome&quot; keysAndValues:kCIInputImageKey,ciImage, nil];</div><div class="line">//已有的值不改变,其他的设为默认值</div><div class="line">[filter setDefaults];</div><div class="line">//获取绘制上下文</div><div class="line">CIContext *context = [CIContext contextWithOptions:nil];</div><div class="line">//渲染并输出ciimage</div><div class="line">CIImage *outputImage = [filter outputImage];</div><div class="line">//创建cgimage句柄</div><div class="line">CGImageRef cgImage = [context createCGImage:outputImage fromRect:[outputImage extent]];</div><div class="line">//获取图片</div><div class="line">UIImage *image = [UIImage imageWithCGImage:cgImage];</div><div class="line">//释放cgimage句柄</div><div class="line">CGImageRelease(cgImage);</div><div class="line">    </div><div class="line">_imageView.image = image;</div></pre></td></tr></table></figure>
-<h3 id="内置滤镜"><a href="#内置滤镜" class="headerlink" title="内置滤镜"></a>内置滤镜</h3><p>​    通过CIFilter的类方法filterNamesInCategory()可以得到属于某个类别下的所有滤镜</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">NSArray *filterArray = [CIFilter filterNamesInCategory:kCICategoryBuiltIn];</div></pre></td></tr></table></figure>
-<p>​    通过CICategoryColorEffect这个key取到一些常见的滤镜</p>
+          实现一个小的滤镜功能
+用系统的CIFilter实现一个小的滤镜功能
 
-          
+​    CIFilter:滤镜类包含一个字典结构,对各种滤镜定义了属于他们各自的属性,滤镜有很多种,比如鲜艳程度滤镜,色彩反转滤镜,剪裁滤镜等等
+让图像通过一个CIFilter显示在屏幕上
+
+创建一个CIImage对象
+创建一个CIContext
+创建一个CIFilter
+输出滤镜
+
+具体实现
+123456789101112131415161718//将uiimage转ciimageCIImage *ciImage = [[CIImage alloc]initWithImage:_imageView.image];//创建
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/18/iOS-CIFilter实现一个小的滤镜功能/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1685,17 +1709,21 @@
       
         
           
-            <h1 id="初步认识YYkit"><a href="#初步认识YYkit" class="headerlink" title="初步认识YYkit"></a>初步认识YYkit</h1><blockquote>
-<p>想着写一个顺滑的TableView,然后打开了半年前下载的YYKit,因为半年前看YYKit真心觉得难,看不懂一些逻辑,所以今天再拿出来学习学习</p>
-</blockquote>
-<p>​    首先向大牛看齐[ibireme][<a href="http://blog.ibireme.com/author/ibireme/&gt;" target="_blank" rel="external">http://blog.ibireme.com/author/ibireme/&gt;</a>]</p>
-<p>因为我主要是想写一个TableView,所以我重点看了微博篇,微博篇中主要学习了布局,也就是<strong>WBStatusLayout</strong> 这个类,因为主要的布局代码都是在这个类里面实现的</p>
-<p>贴上我对<strong>WBStatusLayout</strong>的注释,可能不对或者不准确,希望大家共同学习吧</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">- (void)_layoutText &#123;</div><div class="line"></div><div class="line">    _textHeight = 0;</div><div class="line">    _textLayout = nil;</div><div class="line">    NSMutableAttributedString *text = [self textWithStatus:status</div><div class="line">                                                  isRetweet:NO                                   fontSize:kWBCellTextFontSize</div><div class="line">                                      textColor:kWBCellTextNormalColor];</div><div class="line"></div><div class="line">    if (text.length == 0) return;//-如果文本的长度为0直接返回</div><div class="line"></div><div class="line">    //-这里应该是计算高度布局的地方 --将每行文本的高度固定下来</div><div class="line"></div><div class="line">    WBTextLinePositionModifier *modifier = [WBTextLinePositionModifier new];</div><div class="line"></div><div class="line">    modifier.font = [UIFont fontWithName:@&quot;Heiti SC&quot; size:kWBCellTextFontSize];//-字体的大小</div><div class="line"></div><div class="line">    modifier.paddingTop = kWBCellPaddingText;//-文本顶部留白</div><div class="line"></div><div class="line">    modifier.paddingBottom = kWBCellPaddingText;//-文本顶部留白</div><div class="line"></div><div class="line">    YYTextContainer *container = [YYTextContainer new]; //-容器</div><div class="line"></div><div class="line">    container.size = CGSizeMake(kWBCellContentWidth, HUGE);//-文本矩形的宽度和高度(高度无限大);</div><div class="line"></div><div class="line">    container.linePositionModifier = modifier;//-布局完成后修改线位置,默认是0</div><div class="line"></div><div class="line">    _textLayout = [YYTextLayout layoutWithContainer:container text:text];//-布局</div><div class="line"></div><div class="line">    if (!_textLayout) return;   //-如果没有文本布局直接返回</div><div class="line">  </div><div class="line">    textHeight = [modifier heightForLineCount:textLayout.rowCount];//-文本布局的行数</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>这里面首先给点了字体的大小,然后计算出了每行文本的高度和宽度</p>
-<p>再建一个容器将每行文本的高度和宽度设置,用<em>YYTextContainer</em>计算文本的矩形宽高,然后放在<em>YYTextLayout</em>中进行布局</p>
+          初步认识YYkit
+想着写一个顺滑的TableView,然后打开了半年前下载的YYKit,因为半年前看YYKit真心觉得难,看不懂一些逻辑,所以今天再拿出来学习学习
 
-          
+​    首先向大牛看齐[ibireme][http://blog.ibireme.com/author/ibireme/&gt;]
+因为我主要是想写一个TableView,所以我重点看了微博篇,微博篇中主要学习了布局,也就是WBStatusLayout 这个类,因为主要的布局代码都是在这个类里面实现的
+贴上我对WBStatusLayout的注释,可能不对或者不准确,希望大家共同学习吧
+123456789101112131415
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/14/iOS-初步认识YYKit/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
