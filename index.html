@@ -355,8 +355,9 @@
       
         
           
-          
-          
+          在button设置图片时的要求是normal状态下显示图片,selected状态下没有图片.常规的方法就是设置normal的图片,不设置selected的图片,但是这样设置在图片会一直存在1[_attentionButton setImage:[UIImage imageNamed:@&quot;video_play_关注&quot;] forState:UIControlStateNormal];
+所以我想到的方法是做一张小的透明的图片放到selected下,生成图片的方法:123456789101112131415//获取一张PNG格式的透明图片.- (UIImage *)getClear
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/04/iOS-Button的状态图片/#more" rel="contents">

@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -87,13 +87,16 @@
 
 
 
+<meta name="description" content="在button设置图片时的要求是normal状态下显示图片,selected状态下没有图片.常规的方法就是设置normal的图片,不设置selected的图片,但是这样设置在图片会一直存在1[_attentionButton setImage:[UIImage imageNamed:@&amp;quot;video_play_关注&amp;quot;] forState:UIControlStateNormal]">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS-Button的状态图片">
 <meta property="og:url" content="http://yoursite.com/2018/07/04/iOS-Button的状态图片/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
-<meta property="og:updated_time" content="2018-07-04T12:04:39.326Z">
+<meta property="og:description" content="在button设置图片时的要求是normal状态下显示图片,selected状态下没有图片.常规的方法就是设置normal的图片,不设置selected的图片,但是这样设置在图片会一直存在1[_attentionButton setImage:[UIImage imageNamed:@&amp;quot;video_play_关注&amp;quot;] forState:UIControlStateNormal]">
+<meta property="og:updated_time" content="2018-07-04T12:05:32.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS-Button的状态图片">
+<meta name="twitter:description" content="在button设置图片时的要求是normal状态下显示图片,selected状态下没有图片.常规的方法就是设置normal的图片,不设置selected的图片,但是这样设置在图片会一直存在1[_attentionButton setImage:[UIImage imageNamed:@&amp;quot;video_play_关注&amp;quot;] forState:UIControlStateNormal]">
 
 
 
@@ -349,7 +352,10 @@
       
 
       
-        
+        <p>在button设置图片时的要求是normal状态下显示图片,selected状态下没有图片.<br>常规的方法就是设置normal的图片,不设置selected的图片,但是这样设置在图片会一直存在<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[_attentionButton setImage:[UIImage imageNamed:@&quot;video_play_关注&quot;] forState:UIControlStateNormal];</div></pre></td></tr></table></figure></p>
+<p>所以我想到的方法是做一张小的透明的图片放到selected下,生成图片的方法:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//获取一张PNG格式的透明图片.</div><div class="line">- (UIImage *)getClearColorPNGImage &#123;</div><div class="line">//开启一个图片上下文.</div><div class="line">UIGraphicsBeginImageContext(CGSizeMake(5, 5));</div><div class="line">//设置一个透明的颜色</div><div class="line">UIColor * color = [UIColor clearColor];</div><div class="line">//使用上面设置的颜色进行填充.</div><div class="line">[color setFill];</div><div class="line">//从图片上下文中获取图片.</div><div class="line">UIImage * image = UIGraphicsGetImageFromCurrentImageContext();</div><div class="line">//关闭图片上下文,否则会造成内存泄露.</div><div class="line">UIGraphicsEndImageContext();</div><div class="line"></div><div class="line">return image;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>另:图片点击时的高亮状态设置:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[_attentionButton setTitle:@&quot;已关注&quot; forState:UIControlStateSelected | UIControlStateHighlighted];</div></pre></td></tr></table></figure></p>
+
       
     </div>
 
@@ -369,6 +375,12 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
       
 
       
