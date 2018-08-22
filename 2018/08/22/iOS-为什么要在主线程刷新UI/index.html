@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -87,31 +87,25 @@
 
 
 
-<meta name="description" content="sublime3下java的编译
-学习java的第一步,是开发工具的选择sublime3在偏好中找的javaC,在万能的百度上找到了这个配置文件
-
-{
-“shell_cmd”: “javac -encoding utf-8 $file_name &amp;amp;&amp;amp; java $file_base_name &amp;amp;&amp;amp; rm -rf $file_base_name.class”,
-“wo">
+<meta name="description" content="UIKit框架不是线程安全的,但是要确保线程安全,规定一个线程,必须在这个线程中更新UI,这就是主线程.
+否则如果在两个线程中设置同一个控件的更新UI,很有可能会由于对象释放两次,引发crach.(多线程出现数据同步问题)
+UIKit在设计的时候有两种选择:1,设计成线程安全的,但是性能不是太好2,设计成一个串行线程,但是需要开发者遵守在这个线程中更新UI的约定.
+UIKit中多是UI更新操作,一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="sublime3 java编译">
-<meta property="og:url" content="http://yoursite.com/2017/06/11/sublime3-java编译/index.html">
+<meta property="og:title" content="iOS-为什么要在主线程刷新UI">
+<meta property="og:url" content="http://yoursite.com/2018/08/22/iOS-为什么要在主线程刷新UI/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
-<meta property="og:description" content="sublime3下java的编译
-学习java的第一步,是开发工具的选择sublime3在偏好中找的javaC,在万能的百度上找到了这个配置文件
-
-{
-“shell_cmd”: “javac -encoding utf-8 $file_name &amp;amp;&amp;amp; java $file_base_name &amp;amp;&amp;amp; rm -rf $file_base_name.class”,
-“wo">
-<meta property="og:updated_time" content="2017-06-11T09:04:22.000Z">
+<meta property="og:description" content="UIKit框架不是线程安全的,但是要确保线程安全,规定一个线程,必须在这个线程中更新UI,这就是主线程.
+否则如果在两个线程中设置同一个控件的更新UI,很有可能会由于对象释放两次,引发crach.(多线程出现数据同步问题)
+UIKit在设计的时候有两种选择:1,设计成线程安全的,但是性能不是太好2,设计成一个串行线程,但是需要开发者遵守在这个线程中更新UI的约定.
+UIKit中多是UI更新操作,一">
+<meta property="og:updated_time" content="2018-08-22T07:47:12.844Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sublime3 java编译">
-<meta name="twitter:description" content="sublime3下java的编译
-学习java的第一步,是开发工具的选择sublime3在偏好中找的javaC,在万能的百度上找到了这个配置文件
-
-{
-“shell_cmd”: “javac -encoding utf-8 $file_name &amp;amp;&amp;amp; java $file_base_name &amp;amp;&amp;amp; rm -rf $file_base_name.class”,
-“wo">
+<meta name="twitter:title" content="iOS-为什么要在主线程刷新UI">
+<meta name="twitter:description" content="UIKit框架不是线程安全的,但是要确保线程安全,规定一个线程,必须在这个线程中更新UI,这就是主线程.
+否则如果在两个线程中设置同一个控件的更新UI,很有可能会由于对象释放两次,引发crach.(多线程出现数据同步问题)
+UIKit在设计的时候有两种选择:1,设计成线程安全的,但是性能不是太好2,设计成一个串行线程,但是需要开发者遵守在这个线程中更新UI的约定.
+UIKit中多是UI更新操作,一">
 
 
 
@@ -139,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/11/sublime3-java编译/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/22/iOS-为什么要在主线程刷新UI/"/>
 
 
 
 
 
-  <title> sublime3 java编译 | 张鹏辉の博客 </title>
+  <title> iOS-为什么要在主线程刷新UI | 张鹏辉の博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -282,7 +276,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/11/sublime3-java编译/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/22/iOS-为什么要在主线程刷新UI/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="semperphhhh">
@@ -306,7 +300,7 @@
             
             
               
-                sublime3 java编译
+                iOS-为什么要在主线程刷新UI
               
             
           </h1>
@@ -321,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-11T16:13:42+08:00">
-                2017-06-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-22T13:02:05+08:00">
+                2018-08-22
               </time>
             
 
@@ -340,8 +334,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/11/sublime3-java编译/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/11/sublime3-java编译/" itemprop="commentCount"></span>
+                <a href="/2018/08/22/iOS-为什么要在主线程刷新UI/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/08/22/iOS-为什么要在主线程刷新UI/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,18 +361,11 @@
       
 
       
-        <h3 id="sublime3下java的编译"><a href="#sublime3下java的编译" class="headerlink" title="sublime3下java的编译"></a>sublime3下java的编译</h3><blockquote>
-<p>学习java的第一步,是开发工具的选择<br>sublime3在偏好中找的javaC,在万能的百度上找到了这个配置文件</p>
-</blockquote>
-<p>{</p>
-<p>“shell_cmd”: “javac -encoding utf-8 $file_name &amp;&amp; java $file_base_name &amp;&amp; rm -rf $file_base_name.class”,</p>
-<p>“working_dir”: “${project_path:${folder}}”,</p>
-<p>“file_regex”: “^(…<em>?):([0-9]</em>):?([0-9]*)”,</p>
-<p>“selector”: “source.java”,</p>
-<p>“shell”: true,</p>
-<p>“encoding”: “utf-8”</p>
-<p>}</p>
-<p>这个配置文件是可以编译java的,生成的.class也会自已删除</p>
+        <p>UIKit框架不是线程安全的,但是要确保线程安全,规定一个线程,必须在这个线程中更新UI,这就是主线程.</p>
+<p>否则如果在两个线程中设置同一个控件的更新UI,很有可能会由于对象释放两次,引发crach.(多线程出现数据同步问题)</p>
+<p>UIKit在设计的时候有两种选择:<br>1,设计成线程安全的,但是性能不是太好<br>2,设计成一个串行线程,但是需要开发者遵守在这个线程中更新UI的约定.</p>
+<p>UIKit中多是UI更新操作,一个线程的好处是 <em>安全 简单</em></p>
+<p>多线程的目的是 执行多个任务,任务分开执行,不用等待.<br>但是线程同步在任务时候都是消耗巨大并且复杂的.资源数据容易出现问题.<br>信号量,线程锁性能消耗代价巨大.</p>
 
       
     </div>
@@ -402,7 +389,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Java/" rel="tag"># Java</a>
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
           
         </div>
       
@@ -415,8 +402,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/07/iOS-自适应行高笔记/" rel="next" title="自适应行高笔记">
-                <i class="fa fa-chevron-left"></i> 自适应行高笔记
+              <a href="/2018/07/29/iOS-objc-setAssociatedObject-关联对象学习/" rel="next" title="iOS-objc_setAssociatedObject 关联对象学习">
+                <i class="fa fa-chevron-left"></i> iOS-objc_setAssociatedObject 关联对象学习
               </a>
             
           </div>
@@ -424,10 +411,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/14/iOS-UIScroll的一些代理方法/" rel="prev" title="UIScroll的一些代理方法">
-                UIScroll的一些代理方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -453,8 +436,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/06/11/sublime3-java编译/"
-           data-title="sublime3 java编译" data-url="http://yoursite.com/2017/06/11/sublime3-java编译/">
+      <div class="ds-thread" data-thread-key="2018/08/22/iOS-为什么要在主线程刷新UI/"
+           data-title="iOS-为什么要在主线程刷新UI" data-url="http://yoursite.com/2018/08/22/iOS-为什么要在主线程刷新UI/">
       </div>
     
   </div>
@@ -478,17 +461,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://olnx80yq4.bkt.clouddn.com/AAE0EED2ECA058174A4787D0C4B94DEA.png"
@@ -544,22 +518,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#sublime3下java的编译"><span class="nav-number">1.</span> <span class="nav-text">sublime3下java的编译</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
