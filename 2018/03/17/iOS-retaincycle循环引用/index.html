@@ -87,22 +87,16 @@
 
 
 
-<meta name="description" content="retain cycle循环引用循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用.
-解决方法一般是两种:    1.事前避免:将该对象使用_weak或者_block修饰符修饰之后再在block中使用;    2.时候补救:将其中一方强制置空 xx == nil;
-只有当block直接或间接的被self持有时,才需要weakself.如果">
+<meta name="description" content="retain cycle循环引用循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS-retaincycle循环引用">
 <meta property="og:url" content="http://yoursite.com/2018/03/17/iOS-retaincycle循环引用/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
-<meta property="og:description" content="retain cycle循环引用循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用.
-解决方法一般是两种:    1.事前避免:将该对象使用_weak或者_block修饰符修饰之后再在block中使用;    2.时候补救:将其中一方强制置空 xx == nil;
-只有当block直接或间接的被self持有时,才需要weakself.如果">
-<meta property="og:updated_time" content="2018-09-04T13:02:18.293Z">
+<meta property="og:description" content="retain cycle循环引用循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用.">
+<meta property="og:updated_time" content="2018-09-10T11:50:24.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS-retaincycle循环引用">
-<meta name="twitter:description" content="retain cycle循环引用循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用.
-解决方法一般是两种:    1.事前避免:将该对象使用_weak或者_block修饰符修饰之后再在block中使用;    2.时候补救:将其中一方强制置空 xx == nil;
-只有当block直接或间接的被self持有时,才需要weakself.如果">
+<meta name="twitter:description" content="retain cycle循环引用循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用.">
 
 
 
@@ -358,7 +352,7 @@
       
 
       
-        <h2 id="retain-cycle循环引用"><a href="#retain-cycle循环引用" class="headerlink" title="retain cycle循环引用"></a>retain cycle循环引用</h2><p>循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用.</p>
+        <h2 id="retain-cycle循环引用"><a href="#retain-cycle循环引用" class="headerlink" title="retain cycle循环引用"></a>retain cycle循环引用</h2><p>循环引用最常出现在block中,一个对象中强引用了block,在block中又强引用了该对象,就会发生循环引用. <a id="more"></a></p>
 <p>解决方法一般是两种:<br>    1.事前避免:将该对象使用_weak或者_block修饰符修饰之后再在block中使用;<br>    2.时候补救:将其中一方强制置空 xx == nil;</p>
 <p>只有当block直接或间接的被self持有时,才需要weakself.如果在block内需要多次访问self,则需要使用strongself.</p>
 <p>当 block 本身不被 self 持有，而被别的对象持有，同时不产生循环引用的时候，就不需要使用 weak self 了。最常见的代码就是 UIView 的动画代码，我们在使用 UIView 的 animateWithDuration:animations 方法 做动画的时候，并不需要使用 weak self，因为引用持有关系是：</p>
