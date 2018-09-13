@@ -97,12 +97,14 @@
 <meta property="og:description" content="买了&amp;lt;Objective-C高级编程 iOS与OS X多线程和内存管理&amp;gt;,发现自己以前理解的GCD多线程是错误的
 
 以前理解的dispatch_async就会开一个新的线程去执行任务,其实是不对的.">
-<meta property="og:updated_time" content="2018-09-13T13:24:52.218Z">
+<meta property="og:image" content="http://olnx80yq4.bkt.clouddn.com/iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.png">
+<meta property="og:updated_time" content="2018-09-13T13:46:03.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS-GCD多线程理解">
 <meta name="twitter:description" content="买了&amp;lt;Objective-C高级编程 iOS与OS X多线程和内存管理&amp;gt;,发现自己以前理解的GCD多线程是错误的
 
 以前理解的dispatch_async就会开一个新的线程去执行任务,其实是不对的.">
+<meta name="twitter:image" content="http://olnx80yq4.bkt.clouddn.com/iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.png">
 
 
 
@@ -358,13 +360,14 @@
       
 
       
-        <blockquote>
+        <p><img src="http://olnx80yq4.bkt.clouddn.com/iOS%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%92%8C%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.png" alt="图片"></p>
+<blockquote>
 <p>买了&lt;Objective-C高级编程 iOS与OS X多线程和内存管理&gt;,发现自己以前理解的GCD多线程是错误的</p>
 </blockquote>
 <p>以前理解的dispatch_async就会开一个新的线程去执行任务,其实是<em>不对</em>的.<a id="more"></a></p>
 <p>按照书中理解的,<em>dispatch_get_main_queue</em>是一个主队列,这个队列是一个串行队列,是在主线程上执行的队列,也就是number=1的线程上.</p>
 <p>全局队列<em>dispatch_get_global_queue(0, 0)</em>是一个全局的并行队列.</p>
-<p>串行队列和并行队列的区别是:<br>    串行队列中的任务是按先进先出的顺序执行的.<br>    并行队列中的任务是允许同时多个线程去执行的.</p>
+<p>串行队列和并行队列的区别是:<br>&ensp;&ensp;串行队列中的任务是按先进先出的顺序执行的.<br>&ensp;&ensp;并行队列中的任务是允许同时多个线程去执行的.</p>
 <p><em>dispatch_sync</em>是同步追加任务到队列.追加任务会等待队列前面的任务执行完后再执行追加的任务.<br><em>dispatch_async</em>是异步追加任务到队列.追加任务不会等待队列中的其他任务执行完成.(队列任务可以异步执行,你先走,不用管我)</p>
 <h4 id="串行队列同步追加"><a href="#串行队列同步追加" class="headerlink" title="串行队列同步追加"></a>串行队列同步追加</h4><p>追加到当前的线程中,会等待当前线程中前面的任务执行完毕后在执行追加的任务<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">queue.sync &#123;</div><div class="line"></div><div class="line">    <span class="built_in">print</span>(<span class="string">"queue - <span class="subst">\(Thread.current)</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h4 id="串行队列异步追加"><a href="#串行队列异步追加" class="headerlink" title="串行队列异步追加"></a>串行队列异步追加</h4><p>追加到串行队列的线程中,会等待串行队列中的任务执行完毕后执行追加的任务,当前线程不受影响<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">queue.async &#123;</div><div class="line"></div><div class="line">    <span class="built_in">print</span>(<span class="string">"queue - <span class="subst">\(Thread.current)</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
