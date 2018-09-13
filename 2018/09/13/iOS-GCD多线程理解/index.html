@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -87,19 +87,22 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="description" content="买了&amp;lt;Objective-C高级编程 iOS与OS X多线程和内存管理&amp;gt;,发现自己以前理解的GCD多线程是错误的
+
+以前理解的dispatch_async就会开一个新的线程去执行任务,其实是不对的.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2017/02/08/hello-world/index.html">
+<meta property="og:title" content="iOS-GCD多线程理解">
+<meta property="og:url" content="http://yoursite.com/2018/09/13/iOS-GCD多线程理解/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2017-02-08T06:23:30.000Z">
+<meta property="og:description" content="买了&amp;lt;Objective-C高级编程 iOS与OS X多线程和内存管理&amp;gt;,发现自己以前理解的GCD多线程是错误的
+
+以前理解的dispatch_async就会开一个新的线程去执行任务,其实是不对的.">
+<meta property="og:updated_time" content="2018-09-13T13:24:52.218Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="iOS-GCD多线程理解">
+<meta name="twitter:description" content="买了&amp;lt;Objective-C高级编程 iOS与OS X多线程和内存管理&amp;gt;,发现自己以前理解的GCD多线程是错误的
+
+以前理解的dispatch_async就会开一个新的线程去执行任务,其实是不对的.">
 
 
 
@@ -127,13 +130,13 @@ Quick">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/08/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/13/iOS-GCD多线程理解/"/>
 
 
 
 
 
-  <title> Hello World | 张鹏辉の博客 </title>
+  <title> iOS-GCD多线程理解 | 张鹏辉の博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -270,7 +273,7 @@ Quick">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/08/hello-world/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/iOS-GCD多线程理解/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="semperphhhh">
@@ -294,7 +297,7 @@ Quick">
             
             
               
-                Hello World
+                iOS-GCD多线程理解
               
             
           </h1>
@@ -309,8 +312,8 @@ Quick">
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-08T14:23:30+08:00">
-                2017-02-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-13T21:19:01+08:00">
+                2018-09-13
               </time>
             
 
@@ -328,8 +331,8 @@ Quick">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/02/08/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/08/hello-world/" itemprop="commentCount"></span>
+                <a href="/2018/09/13/iOS-GCD多线程理解/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/09/13/iOS-GCD多线程理解/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -355,16 +358,19 @@ Quick">
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
+        <blockquote>
+<p>买了&lt;Objective-C高级编程 iOS与OS X多线程和内存管理&gt;,发现自己以前理解的GCD多线程是错误的</p>
+</blockquote>
+<p>以前理解的dispatch_async就会开一个新的线程去执行任务,其实是<em>不对</em>的.<a id="more"></a></p>
+<p>按照书中理解的,<em>dispatch_get_main_queue</em>是一个主队列,这个队列是一个串行队列,是在主线程上执行的队列,也就是number=1的线程上.</p>
+<p>全局队列<em>dispatch_get_global_queue(0, 0)</em>是一个全局的并行队列.</p>
+<p>串行队列和并行队列的区别是:<br>    串行队列中的任务是按先进先出的顺序执行的.<br>    并行队列中的任务是允许同时多个线程去执行的.</p>
+<p><em>dispatch_sync</em>是同步追加任务到队列.追加任务会等待队列前面的任务执行完后再执行追加的任务.<br><em>dispatch_async</em>是异步追加任务到队列.追加任务不会等待队列中的其他任务执行完成.(队列任务可以异步执行,你先走,不用管我)</p>
+<h4 id="串行队列同步追加"><a href="#串行队列同步追加" class="headerlink" title="串行队列同步追加"></a>串行队列同步追加</h4><p>追加到当前的线程中,会等待当前线程中前面的任务执行完毕后在执行追加的任务<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">queue.sync &#123;</div><div class="line"></div><div class="line">    <span class="built_in">print</span>(<span class="string">"queue - <span class="subst">\(Thread.current)</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="串行队列异步追加"><a href="#串行队列异步追加" class="headerlink" title="串行队列异步追加"></a>串行队列异步追加</h4><p>追加到串行队列的线程中,会等待串行队列中的任务执行完毕后执行追加的任务,当前线程不受影响<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">queue.async &#123;</div><div class="line"></div><div class="line">    <span class="built_in">print</span>(<span class="string">"queue - <span class="subst">\(Thread.current)</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="并行队列同步追加"><a href="#并行队列同步追加" class="headerlink" title="并行队列同步追加"></a>并行队列同步追加</h4><p>追加到当前的线程中,会等待当前线程.<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">conQueue.sync &#123;</div><div class="line">            </div><div class="line">    <span class="built_in">print</span>(<span class="string">"2 - <span class="subst">\(Thread.current)</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h4 id="并行队列异步追加"><a href="#并行队列异步追加" class="headerlink" title="并行队列异步追加"></a>并行队列异步追加</h4><p>追加到并行队列的线程中,因为是并行队列,可以开启多个线程执行多个任务,不会等待.我们常用的就是这种<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">conQueue.async &#123;</div><div class="line">            </div><div class="line">    <span class="built_in">print</span>(<span class="string">"2 - <span class="subst">\(Thread.current)</span>"</span>)</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="刚刚开始写文章-有写的不对的地方还请大佬们指正"><a href="#刚刚开始写文章-有写的不对的地方还请大佬们指正" class="headerlink" title="刚刚开始写文章,有写的不对的地方还请大佬们指正"></a>刚刚开始写文章,有写的不对的地方还请大佬们指正</h3>
       
     </div>
 
@@ -385,6 +391,12 @@ Quick">
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
 
       
         
@@ -394,15 +406,15 @@ Quick">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/08/29/Python练习-爬虫王者荣耀全英雄/" rel="next" title="Python练习-爬虫王者荣耀全英雄">
+                <i class="fa fa-chevron-left"></i> Python练习-爬虫王者荣耀全英雄
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/08/hello-hexo-i-am-zhangpenghui/" rel="prev" title="hello hexo, i am zhangpenghui">
-                hello hexo, i am zhangpenghui <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -428,8 +440,8 @@ Quick">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/02/08/hello-world/"
-           data-title="Hello World" data-url="http://yoursite.com/2017/02/08/hello-world/">
+      <div class="ds-thread" data-thread-key="2018/09/13/iOS-GCD多线程理解/"
+           data-title="iOS-GCD多线程理解" data-url="http://yoursite.com/2018/09/13/iOS-GCD多线程理解/">
       </div>
     
   </div>
@@ -529,7 +541,7 @@ Quick">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#串行队列同步追加"><span class="nav-number">1.</span> <span class="nav-text">串行队列同步追加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#串行队列异步追加"><span class="nav-number">2.</span> <span class="nav-text">串行队列异步追加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#并行队列同步追加"><span class="nav-number">3.</span> <span class="nav-text">并行队列同步追加</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#并行队列异步追加"><span class="nav-number">4.</span> <span class="nav-text">并行队列异步追加</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#刚刚开始写文章-有写的不对的地方还请大佬们指正"><span class="nav-number"></span> <span class="nav-text">刚刚开始写文章,有写的不对的地方还请大佬们指正</span></a></div>
             
 
           </div>
