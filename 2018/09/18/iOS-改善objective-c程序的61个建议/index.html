@@ -87,21 +87,21 @@
 
 
 
-<meta name="description" content="任性裸辞后买了一些书在看,总结了一些&amp;lt;编写高质量代码-改善objective-c程序的61个建议&amp;gt;中的内容
+<meta name="description" content="任性买了一些书在看,总结了一些&amp;lt;编写高质量代码-改善objective-c程序的61个建议&amp;gt;中的内容
 
 基础篇在头文件中尽量减少其他头文件的引用在面向对象开发语言中,对于类的描述,通常划分为头文件和源文件,头文件用于描述类的声明和可公开部分,而源文件用于描述类的方法或函数的具体实现,这也体现了面向对象语言的”封闭性”和”高内聚低耦合”的特性.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS-<<改善objective-c程序的61个建议>>(上)">
 <meta property="og:url" content="http://yoursite.com/2018/09/18/iOS-改善objective-c程序的61个建议/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
-<meta property="og:description" content="任性裸辞后买了一些书在看,总结了一些&amp;lt;编写高质量代码-改善objective-c程序的61个建议&amp;gt;中的内容
+<meta property="og:description" content="任性买了一些书在看,总结了一些&amp;lt;编写高质量代码-改善objective-c程序的61个建议&amp;gt;中的内容
 
 基础篇在头文件中尽量减少其他头文件的引用在面向对象开发语言中,对于类的描述,通常划分为头文件和源文件,头文件用于描述类的声明和可公开部分,而源文件用于描述类的方法或函数的具体实现,这也体现了面向对象语言的”封闭性”和”高内聚低耦合”的特性.">
 <meta property="og:image" content="http://olnx80yq4.bkt.clouddn.com/iOS-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81.png">
-<meta property="og:updated_time" content="2018-09-19T13:04:54.050Z">
+<meta property="og:updated_time" content="2018-10-06T14:53:45.786Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS-<<改善objective-c程序的61个建议>>(上)">
-<meta name="twitter:description" content="任性裸辞后买了一些书在看,总结了一些&amp;lt;编写高质量代码-改善objective-c程序的61个建议&amp;gt;中的内容
+<meta name="twitter:description" content="任性买了一些书在看,总结了一些&amp;lt;编写高质量代码-改善objective-c程序的61个建议&amp;gt;中的内容
 
 基础篇在头文件中尽量减少其他头文件的引用在面向对象开发语言中,对于类的描述,通常划分为头文件和源文件,头文件用于描述类的声明和可公开部分,而源文件用于描述类的方法或函数的具体实现,这也体现了面向对象语言的”封闭性”和”高内聚低耦合”的特性.">
 <meta name="twitter:image" content="http://olnx80yq4.bkt.clouddn.com/iOS-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81.png">
@@ -384,7 +384,7 @@
       
         <p><img src="http://olnx80yq4.bkt.clouddn.com/iOS-%E7%BC%96%E5%86%99%E9%AB%98%E8%B4%A8%E9%87%8F%E4%BB%A3%E7%A0%81.png" alt="图片"></p>
 <blockquote>
-<p>任性裸辞后买了一些书在看,总结了一些&lt;编写高质量代码-改善objective-c程序的61个建议&gt;中的内容</p>
+<p>任性买了一些书在看,总结了一些&lt;编写高质量代码-改善objective-c程序的61个建议&gt;中的内容</p>
 </blockquote>
 <h3 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h3><h4 id="在头文件中尽量减少其他头文件的引用"><a href="#在头文件中尽量减少其他头文件的引用" class="headerlink" title="在头文件中尽量减少其他头文件的引用"></a>在头文件中尽量减少其他头文件的引用</h4><p>在面向对象开发语言中,对于类的描述,通常划分为头文件和源文件,头文件用于描述类的声明和可公开部分,而源文件用于描述类的方法或函数的具体实现,这也体现了面向对象语言的”封闭性”和”高内聚低耦合”的特性.<a id="more"></a><br>在oop(面向对象编程)中有两个技术用于描述类与类或对象之间的关系:一个是继承;另一个是复合.在objective-c中,当一个类需要引用另一个类,即建立复合关系时,需要在类的头文件中,通过”#import”修饰符俩建立被引用类的指针.<br></p>
 <p>使用关键字@class:假如有100个头文件,都用”#import”引用了同一个头文件,那么头文件有变化时,后面所有引用它的类都需要重新编译,这将耗费大量的时间,而使用@class则不会.同时使用@class可以避免”类循环依赖”出现的编译错误.当然还是尽量避免”类循环依赖”的出现.<br></p>
@@ -406,6 +406,20 @@
 <p>如果使用一个常量字符串来初始化另一个字符串,另一个字符串会直接通过地址赋值为常量字符串,alloc的内存也会立即释放.</p>
 <h4 id="在访问集合时要优先考虑使用快速枚举"><a href="#在访问集合时要优先考虑使用快速枚举" class="headerlink" title="在访问集合时要优先考虑使用快速枚举"></a>在访问集合时要优先考虑使用快速枚举</h4><p>快速;枚举是一种语言中用于快速安全的枚举一个集合的表达式.<br><br>for…in表达式,就是一种快速枚举表达式.<br></p>
 <p>快速枚举是访问数组中的对象的一种比较快的方法.<br></p>
+<h3 id="第二部分-内存管理"><a href="#第二部分-内存管理" class="headerlink" title="第二部分 内存管理"></a>第二部分 内存管理</h3><h4 id="理解内存和objective-c内存管理规则"><a href="#理解内存和objective-c内存管理规则" class="headerlink" title="理解内存和objective-c内存管理规则"></a>理解内存和objective-c内存管理规则</h4><p>Objective-c 内存管理模式基于对象的”所有权”上.任何对象都会被一个或多个使用者引用,只要对象还有一个使用者,该对象就应该继续存在.<br><br>对象所有权策略是基于引用计数实现的(retaincount),每一个对象有一个retaincount变量.对象的retaincount为0时,对象被销毁.</p>
+<blockquote>
+<p>常见的循环引用即对象的retaincount没有减为0.</p>
+</blockquote>
+<p>在Objective-c中,释放对象应优先使用release而非autorelease,但在不适合立即回收对象的情况下,应优先使用autorelease.如要从某个方法返回对象.<br><br>对于拥有alloc返回的对象而言,失去释放所有权之前,应先失去对该对象的引用.<br></p>
+<h4 id="区别开alloc-init-retain-release-dealloc"><a href="#区别开alloc-init-retain-release-dealloc" class="headerlink" title="区别开alloc,init,retain,release,dealloc"></a>区别开alloc,init,retain,release,dealloc</h4><p>alloc是创建变量,init是分配内存,dealloc是释放变量,retain是计数加1,release是计数减1.<br><br>分配过程(alloc和init)不仅进行对象的内存分配,还要对它的isa实例变量和保持数初始化.<br></p>
+<blockquote>
+<p>isa实例变量 :NSObject类作为所有oc对象的父类只有这一个属性isa.官方是这样解释的:每个对象都是通过isa实例变量连接到运行时系统，从NSObject类继承。Isa标识对象的类；它指向一个结构的类定义编译。<br><br>通过isa，可以在运行时找到一个对象的所有信息,如继承层次结构中的位置，它的实例变量的大小和结构，以及可以相应消息的方法所实现的位置。<br></p>
+</blockquote>
+<h4 id="优先选用存取方法来简化内存管理"><a href="#优先选用存取方法来简化内存管理" class="headerlink" title="优先选用存取方法来简化内存管理"></a>优先选用存取方法来简化内存管理</h4><p>程序有一个对象类型的属性,要保证:当使用的时候,任何已经赋值了的对象都不会被销毁.被赋新值的时候,开发者必须获得对象的所有权,并放弃正在使用对象的所有权.</p>
+<blockquote>
+<p>即使用self.去访问实例变量.使用”_”访问实例变量可能会跳过存取方法直接赋值.</p>
+</blockquote>
+<h4 id="对象销毁或者被移除一定考虑所有权的释放"><a href="#对象销毁或者被移除一定考虑所有权的释放" class="headerlink" title="对象销毁或者被移除一定考虑所有权的释放"></a>对象销毁或者被移除一定考虑所有权的释放</h4><p>1.从集合类中移除对象,集合要释放的被释放对象所有权.<br><br>2.防止出现父对象呗释放前而子对象没有被释放.<br><br>3.是否有权释放对象关键要看获取的方式.</p>
 
       
     </div>
@@ -577,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础篇"><span class="nav-number">1.</span> <span class="nav-text">基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在头文件中尽量减少其他头文件的引用"><span class="nav-number">1.1.</span> <span class="nav-text">在头文件中尽量减少其他头文件的引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#尽量使用模块方式与多类建立复合关系"><span class="nav-number">1.2.</span> <span class="nav-text">尽量使用模块方式与多类建立复合关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#尽量使用const-enum来替换预处理-define"><span class="nav-number">1.3.</span> <span class="nav-text">尽量使用const,enum来替换预处理#define</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优先使用对象字面量语法而非等效方法"><span class="nav-number">1.4.</span> <span class="nav-text">优先使用对象字面量语法而非等效方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理隐藏的返回类型-优先选择实例类型而非id"><span class="nav-number">1.5.</span> <span class="nav-text">处理隐藏的返回类型,优先选择实例类型而非id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高度警惕空指针和野指针的袭击"><span class="nav-number">1.6.</span> <span class="nav-text">高度警惕空指针和野指针的袭击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清楚常量字符串和一般字符串的区别"><span class="nav-number">1.7.</span> <span class="nav-text">清楚常量字符串和一般字符串的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在访问集合时要优先考虑使用快速枚举"><span class="nav-number">1.8.</span> <span class="nav-text">在访问集合时要优先考虑使用快速枚举</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础篇"><span class="nav-number">1.</span> <span class="nav-text">基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#在头文件中尽量减少其他头文件的引用"><span class="nav-number">1.1.</span> <span class="nav-text">在头文件中尽量减少其他头文件的引用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#尽量使用模块方式与多类建立复合关系"><span class="nav-number">1.2.</span> <span class="nav-text">尽量使用模块方式与多类建立复合关系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#尽量使用const-enum来替换预处理-define"><span class="nav-number">1.3.</span> <span class="nav-text">尽量使用const,enum来替换预处理#define</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优先使用对象字面量语法而非等效方法"><span class="nav-number">1.4.</span> <span class="nav-text">优先使用对象字面量语法而非等效方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理隐藏的返回类型-优先选择实例类型而非id"><span class="nav-number">1.5.</span> <span class="nav-text">处理隐藏的返回类型,优先选择实例类型而非id</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高度警惕空指针和野指针的袭击"><span class="nav-number">1.6.</span> <span class="nav-text">高度警惕空指针和野指针的袭击</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#清楚常量字符串和一般字符串的区别"><span class="nav-number">1.7.</span> <span class="nav-text">清楚常量字符串和一般字符串的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在访问集合时要优先考虑使用快速枚举"><span class="nav-number">1.8.</span> <span class="nav-text">在访问集合时要优先考虑使用快速枚举</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二部分-内存管理"><span class="nav-number">2.</span> <span class="nav-text">第二部分 内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#理解内存和objective-c内存管理规则"><span class="nav-number">2.1.</span> <span class="nav-text">理解内存和objective-c内存管理规则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#区别开alloc-init-retain-release-dealloc"><span class="nav-number">2.2.</span> <span class="nav-text">区别开alloc,init,retain,release,dealloc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#优先选用存取方法来简化内存管理"><span class="nav-number">2.3.</span> <span class="nav-text">优先选用存取方法来简化内存管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#对象销毁或者被移除一定考虑所有权的释放"><span class="nav-number">2.4.</span> <span class="nav-text">对象销毁或者被移除一定考虑所有权的释放</span></a></li></ol></li></ol></div>
             
 
           </div>
