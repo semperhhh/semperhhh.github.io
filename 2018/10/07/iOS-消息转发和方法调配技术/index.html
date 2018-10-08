@@ -87,31 +87,21 @@
 
 
 
-<meta name="description" content="iOS函数延迟执行performselector
-工程用到了来消息时的声音提醒,自己想不到什么好的方法,今天跟着大佬学了一招延迟函数
-
-延迟函数performselector
-1[self performSelector:@selector(delayMethod) withObject:nil afterDelay:1.0f];//延迟1秒通过选择器去执行delaymethod这个方法
-延迟函数">
+<meta name="description" content="学习的主要摘自
+在oc中,可以:1.在运行期向类中新增实例变量2.在运行期可以继续向类中添加方法3.在运行期改变与给定的选择子名称相对应的方法(方法调配技术)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 延迟函数">
-<meta property="og:url" content="http://yoursite.com/2017/05/02/iOS-延迟函数/index.html">
+<meta property="og:title" content="iOS-消息转发和方法调配技术">
+<meta property="og:url" content="http://yoursite.com/2018/10/07/iOS-消息转发和方法调配技术/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
-<meta property="og:description" content="iOS函数延迟执行performselector
-工程用到了来消息时的声音提醒,自己想不到什么好的方法,今天跟着大佬学了一招延迟函数
-
-延迟函数performselector
-1[self performSelector:@selector(delayMethod) withObject:nil afterDelay:1.0f];//延迟1秒通过选择器去执行delaymethod这个方法
-延迟函数">
-<meta property="og:updated_time" content="2017-05-02T12:35:44.000Z">
+<meta property="og:description" content="学习的主要摘自
+在oc中,可以:1.在运行期向类中新增实例变量2.在运行期可以继续向类中添加方法3.在运行期改变与给定的选择子名称相对应的方法(方法调配技术)">
+<meta property="og:image" content="http://olnx80yq4.bkt.clouddn.com/effective%20Objective-c.png">
+<meta property="og:updated_time" content="2018-10-08T02:37:06.038Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 延迟函数">
-<meta name="twitter:description" content="iOS函数延迟执行performselector
-工程用到了来消息时的声音提醒,自己想不到什么好的方法,今天跟着大佬学了一招延迟函数
-
-延迟函数performselector
-1[self performSelector:@selector(delayMethod) withObject:nil afterDelay:1.0f];//延迟1秒通过选择器去执行delaymethod这个方法
-延迟函数">
+<meta name="twitter:title" content="iOS-消息转发和方法调配技术">
+<meta name="twitter:description" content="学习的主要摘自
+在oc中,可以:1.在运行期向类中新增实例变量2.在运行期可以继续向类中添加方法3.在运行期改变与给定的选择子名称相对应的方法(方法调配技术)">
+<meta name="twitter:image" content="http://olnx80yq4.bkt.clouddn.com/effective%20Objective-c.png">
 
 
 
@@ -139,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/02/iOS-延迟函数/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/07/iOS-消息转发和方法调配技术/"/>
 
 
 
 
 
-  <title> iOS 延迟函数 | 张鹏辉の博客 </title>
+  <title> iOS-消息转发和方法调配技术 | 张鹏辉の博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -282,7 +272,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/iOS-延迟函数/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/07/iOS-消息转发和方法调配技术/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="semperphhhh">
@@ -306,7 +296,7 @@
             
             
               
-                iOS 延迟函数
+                iOS-消息转发和方法调配技术
               
             
           </h1>
@@ -321,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T20:16:12+08:00">
-                2017-05-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-07T22:13:31+08:00">
+                2018-10-07
               </time>
             
 
@@ -332,6 +322,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -340,8 +352,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/02/iOS-延迟函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/02/iOS-延迟函数/" itemprop="commentCount"></span>
+                <a href="/2018/10/07/iOS-消息转发和方法调配技术/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/10/07/iOS-消息转发和方法调配技术/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -367,16 +379,32 @@
       
 
       
-        <h3 id="iOS函数延迟执行performselector"><a href="#iOS函数延迟执行performselector" class="headerlink" title="iOS函数延迟执行performselector"></a>iOS函数延迟执行performselector</h3><blockquote>
-<p>工程用到了来消息时的声音提醒,自己想不到什么好的方法,今天跟着大佬学了一招延迟函数</p>
+        <p>学习的主要摘自<effective objective-c=""><br><img src="http://olnx80yq4.bkt.clouddn.com/effective%20Objective-c.png" width="300" hegiht="300" align="center"></effective></p>
+<p>在oc中,可以:<br>1.在运行期向类中新增实例变量<br>2.在运行期可以继续向类中添加方法<br>3.在运行期改变与给定的选择子名称相对应的方法(方法调配技术)<a id="more"></a></p>
+<h3 id="理解objc-msgSend的作用"><a href="#理解objc-msgSend的作用" class="headerlink" title="理解objc_msgSend的作用"></a>理解objc_msgSend的作用</h3><p>在oc中,如果向某对象传递信息，那就会使用动态绑定机制来决定需要调用的方法。在底层，所有方法都是普通的C语言函数.然而对象收到消息之后,究竟该调用哪个方法则完全于运行期决定,甚至可以在程序运行时改变,这些特性使得oc成为一门真正的动态语言.</p>
+<p>在oc中,给对象发送消息的语法是:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">id returnValue = [someObject messageName:parameter];</div></pre></td></tr></table></figure>
+<p>这里，someObject叫做“接收者(receiver)”，messageName:叫做”选择子（selector）”,选择子和参数合起来称为“消息”。编译器看到此消息后，将其转换为一条标准的C语言函数调用，所调用的函数乃是消息传递机制中的核心函数叫做objc_msgSend，它的原型如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void objc_msgSend(id self, SEL cmd, ...)</div></pre></td></tr></table></figure></p>
+<p>第一个参数代表接收者，第二个参数代表选择子，后续参数就是消息中的那些参数，数量是可变的，所以这个函数就是参数个数可变的函数。编译器会把刚才那个例子中的消息转换为如下函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">id returnValue = objc_msgSend(someObject,@selector(messageName:),parameter);</div></pre></td></tr></table></figure></p>
+<p>objc_msgSend函数会依据接受者与选择子的类型来调用适当的方法.为了完成此操作,该方法需要在接收者所属的类中搜寻其”方法列表”,如果能找到与选择子相符的方法,就跳至其实现代码.若是找不到,就沿着继承体系继续向上查找.如果找到了就执行，如果最终还是找不到，就执行<em>消息转发</em>操作.</p>
+<blockquote>
+<p>快速执行路径:按照上面说的想调用一个方法似乎需要很多步骤,所幸objc_msgSend会将匹配的结果缓存在”快速映射表”里面,每个类都有这样一块缓存,若是稍后还向该类发送与选择子相同的消息,那么执行起来就很快了.</p>
 </blockquote>
-<p>延迟函数performselector</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[self performSelector:@selector(delayMethod) withObject:nil afterDelay:1.0f];//延迟1秒通过选择器去执行delaymethod这个方法</div></pre></td></tr></table></figure>
-<p>延迟函数要求必须在主线程中执行,否则无效,是一种非阻塞的执行方式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">[NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(scrollDone) object:nil];//取消执行函数</div></pre></td></tr></table></figure>
-<p>取消执行函数和执行函数带的参数必须一样,才能取消成功</p>
-<p>这样在有很多声音提醒的时候就合一判断只向一次了,组长v587!</p>
-
+<p>理解这些,就会明白,在发送消息时,代码究竟是如何执行的,而且也能理解,为何在调试的时候,栈”回溯”信息中总是出现objc_msgSend.</p>
+<h3 id="理解消息转发机制"><a href="#理解消息转发机制" class="headerlink" title="理解消息转发机制"></a>理解消息转发机制</h3><p>若想令类能理解某条消息,我们必须以程序码实现出对应的方法才行.但是在编译期向类发送了其无法解读的消息并不会报错,因为<em>在运行期继续可以向类中添加方法</em>,所以编译器在编译时还不知道类中到底有没有对应方法的实现.当对象接收到无法解读的消息后,就会启动消息转发机制.程序员可由此过程告诉对象应该如何处理未知消息.</p>
+<p>开发者在编写自己的类时,可于转发过程中设置<em>挂钩</em>,用以执行预订的逻辑,而不使应用程序崩溃.</p>
+<p>消息转发分为两个阶段:</p>
+<p>1.征询接受者，看它能否动态添加方法，以处理这个未知的选择子，这个过程叫做动态方法解析（dynamic method resolution).<br>2.请接受者看看有没有其他对象能处理这条消息：<br>&nbsp;&nbsp;如果有，则运行期系统会把消息转给那个对象。<br>&nbsp;&nbsp;如果没有，则启动完整的消息转发机制（full forwarding mechanism），运行期系统会把与消息有关的全部细节都封装到<br>NSInvocation对象中，再给接受者最后一次机会，令其设法解决当前还未处理的这条消息。<br>类方法<code>+(BOOL)resolveInstanceMethod:(SEL)selector:</code>查看这个类是否能新增一个实例方法用以处理此选择子<br>实例方法<code>- (id)forwardTargetForSelector:(SEL)selector;</code>:询问是否能找到未知消息的备援接受者，如果能找到备援对象，就将其返回，如果不能，就返回nil。<br>实例方法<code>- (void)forwardInvocation:(NSInvocation*)invocation:</code>创建NSInvocation对象，将尚未处理的那条消息 有关的全部细节都封于其中，在触发NSInvocation对象时，“消息派发系统（message-dispatch system）”就会将消息派给目标对象。</p>
+<p>总结:<br>若对象无法响应某个选择子,则进入消息转发流程.<br>通过运行期的动态方法解析功能,我们可以在需要用到某个方法时再将其加入类中.<br>对象可以把其无法解读的某些选择子转交给其他对象来处理.<br>经过上述两步之后,如果还是没办法处理选择子,那就启动完整的消息转发机制.</p>
+<h3 id="方法调配技术"><a href="#方法调配技术" class="headerlink" title="方法调配技术"></a>方法调配技术</h3><p>在oc中,与给定的选择子名称相对应的方法是不是也可以在运行期改变呢?没错,若能善用此特性,则可发挥出巨大优势,因为我们既不需要源码,也不需要通过继承子类来覆写方法就能改变这个类本身的功能.这样一来,新功能将在本类的所有实例中生效,而不是仅限于覆写了相关方法的那些子类实例.此方案经常称为”方法调配”</p>
+<p>类的方法列表会把选择子的名称映射到相关的方法实现之上,使得”动态消息派发系统”能够据此找到应该调用的方法.这些方法均以函数指针的形式来表示,这种指针叫做IMP,其原型如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">id (*IMP)(id,SEL,...)</div></pre></td></tr></table></figure></p>
+<h4 id="交换方法实现"><a href="#交换方法实现" class="headerlink" title="交换方法实现"></a>交换方法实现</h4><p>交换方法实现,可用下列函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void method_exchangeImplementations(Method m1,Method m2)</div></pre></td></tr></table></figure></p>
+<p>此函数的两个参数表示待交换的两个方法实现,而方法实现则可通过下列函数获得:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Method class_getInstanceMethod(Class aClass, SEL aSelector)</div></pre></td></tr></table></figure></p>
+<p>此函数根据给定的选择从类中取出与之相关的方法.</p>
+<blockquote>
+<p>很少有人在调试程序之外的场合用上述”方法调配技术”来永久改动某个类的功能.不能仅仅因为Objective-c语言里有这个特性就一定要用它.若是滥用,反而会令代码变得不易读懂且难于维护.</p>
+</blockquote>
+<h3 id="编译期"><a href="#编译期" class="headerlink" title="编译期"></a>编译期</h3>
       
     </div>
 
@@ -412,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/16/iOS-条件断点/" rel="next" title="iOS 条件断点">
-                <i class="fa fa-chevron-left"></i> iOS 条件断点
+              <a href="/2018/10/07/iOS-isa指针/" rel="next" title="iOS-isa指针">
+                <i class="fa fa-chevron-left"></i> iOS-isa指针
               </a>
             
           </div>
@@ -421,10 +449,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/07/iOS-自适应行高笔记/" rel="prev" title="自适应行高笔记">
-                自适应行高笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -450,8 +474,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/05/02/iOS-延迟函数/"
-           data-title="iOS 延迟函数" data-url="http://yoursite.com/2017/05/02/iOS-延迟函数/">
+      <div class="ds-thread" data-thread-key="2018/10/07/iOS-消息转发和方法调配技术/"
+           data-title="iOS-消息转发和方法调配技术" data-url="http://yoursite.com/2018/10/07/iOS-消息转发和方法调配技术/">
       </div>
     
   </div>
@@ -551,7 +575,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#iOS函数延迟执行performselector"><span class="nav-number">1.</span> <span class="nav-text">iOS函数延迟执行performselector</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解objc-msgSend的作用"><span class="nav-number">1.</span> <span class="nav-text">理解objc_msgSend的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解消息转发机制"><span class="nav-number">2.</span> <span class="nav-text">理解消息转发机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法调配技术"><span class="nav-number">3.</span> <span class="nav-text">方法调配技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#交换方法实现"><span class="nav-number">3.1.</span> <span class="nav-text">交换方法实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译期"><span class="nav-number">4.</span> <span class="nav-text">编译期</span></a></li></ol></div>
             
 
           </div>

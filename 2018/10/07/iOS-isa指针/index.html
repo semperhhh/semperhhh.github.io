@@ -91,7 +91,7 @@
 在Objective-c中,任何类的定义都是对象.类和类的实例对象没有任何本质区别.任何对象都有isa指针.
 
 isa指针对于消息分发机制和Cocoa对象的动态能力来说是很关键的.
-isa指针类型的数据结构可以在Objc.h中看到:可以看到isa是一个class类型的指针,它指向对象的类,在这个结构体里还有一个isa指针,又是一重指向.这里的isa指针指向的是">
+isa指针类型的数据结构可以在Objc.h中看到:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS-isa指针">
 <meta property="og:url" content="http://yoursite.com/2018/10/07/iOS-isa指针/index.html">
@@ -100,17 +100,17 @@ isa指针类型的数据结构可以在Objc.h中看到:可以看到isa是一个c
 在Objective-c中,任何类的定义都是对象.类和类的实例对象没有任何本质区别.任何对象都有isa指针.
 
 isa指针对于消息分发机制和Cocoa对象的动态能力来说是很关键的.
-isa指针类型的数据结构可以在Objc.h中看到:可以看到isa是一个class类型的指针,它指向对象的类,在这个结构体里还有一个isa指针,又是一重指向.这里的isa指针指向的是">
+isa指针类型的数据结构可以在Objc.h中看到:">
 <meta property="og:image" content="http://olnx80yq4.bkt.clouddn.com/iOS-isa%E6%8C%87%E9%92%88-1.png">
 <meta property="og:image" content="http://olnx80yq4.bkt.clouddn.com/iOS-isa%E6%8C%87%E9%92%88-2.png">
-<meta property="og:updated_time" content="2018-10-07T02:21:17.972Z">
+<meta property="og:updated_time" content="2018-10-07T02:23:47.284Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS-isa指针">
 <meta name="twitter:description" content="Objective-c中的isa指针
 在Objective-c中,任何类的定义都是对象.类和类的实例对象没有任何本质区别.任何对象都有isa指针.
 
 isa指针对于消息分发机制和Cocoa对象的动态能力来说是很关键的.
-isa指针类型的数据结构可以在Objc.h中看到:可以看到isa是一个class类型的指针,它指向对象的类,在这个结构体里还有一个isa指针,又是一重指向.这里的isa指针指向的是">
+isa指针类型的数据结构可以在Objc.h中看到:">
 <meta name="twitter:image" content="http://olnx80yq4.bkt.clouddn.com/iOS-isa%E6%8C%87%E9%92%88-1.png">
 
 
@@ -393,7 +393,7 @@ isa指针类型的数据结构可以在Objc.h中看到:可以看到isa是一个c
 <p>在Objective-c中,任何类的定义都是对象.类和类的实例对象没有任何本质区别.任何对象都有isa指针.</p>
 </blockquote>
 <p>isa指针对于消息分发机制和Cocoa对象的动态能力来说是很关键的.</p>
-<p>isa指针类型的数据结构可以在Objc.h中看到:<br><img src="http://olnx80yq4.bkt.clouddn.com/iOS-isa%E6%8C%87%E9%92%88-1.png" alt="图片1"><br><img src="http://olnx80yq4.bkt.clouddn.com/iOS-isa%E6%8C%87%E9%92%88-2.png" alt="图片2"><br>可以看到isa是一个class类型的指针,它指向对象的类,在这个结构体里还有一个isa指针,又是一重指向.这里的isa指针指向的是元类对象.它用来存储类的版本,名字,类方法等信息.所有的元类对都指向NSObject的元类对象,所以最终还是NSObject.一共有三次指向:类对象-&gt;元类对象-&gt;NSObject元类对象.</p>
+<p>isa指针类型的数据结构可以在Objc.h中看到:<a id="more"></a><br><img src="http://olnx80yq4.bkt.clouddn.com/iOS-isa%E6%8C%87%E9%92%88-1.png" alt="图片1"><br><img src="http://olnx80yq4.bkt.clouddn.com/iOS-isa%E6%8C%87%E9%92%88-2.png" alt="图片2"><br>可以看到isa是一个class类型的指针,它指向对象的类,在这个结构体里还有一个isa指针,又是一重指向.这里的isa指针指向的是元类对象.它用来存储类的版本,名字,类方法等信息.所有的元类对都指向NSObject的元类对象,所以最终还是NSObject.一共有三次指向:类对象-&gt;元类对象-&gt;NSObject元类对象.</p>
 <blockquote>
 <p>注意的是:元类(meteclass)也是类,它也是对象.元类保存了类方法的列表.当类方法被调用时,先会从本身查找类方法的实现,如果没有,元类会向他父类查找该方法.</p>
 </blockquote>
@@ -445,6 +445,10 @@ isa指针类型的数据结构可以在Objc.h中看到:可以看到isa是一个c
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/07/iOS-消息转发和方法调配技术/" rel="prev" title="iOS-消息转发和方法调配技术">
+                iOS-消息转发和方法调配技术 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -518,7 +522,7 @@ isa指针类型的数据结构可以在Objc.h中看到:可以看到isa是一个c
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-count">32</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
