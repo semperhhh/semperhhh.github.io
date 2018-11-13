@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="iOS," />
+  <meta name="keywords" content="Swift," />
 
 
 
@@ -87,25 +87,40 @@
 
 
 
-<meta name="description" content="新工作接手一个很大的老项目,所以需要在viewcontroller将要显示的时候获取到类名,方便定位bug
+<meta name="description" content="学习一些算法题,主要来源是LeetCode中简单部分的题.因为leetCode没有oc,所以顺便一起学习swift
 
-主要是利用runtime机制,截取viewcontroller的viewdidload方法,给viewcontroller添加分类,重新实现viewdidload方法;
-在直接调用IMP的话就会发生EXC_BAD_ACCESS错误,因为IMP指针是有返回值的类型,而viewdidload">
+1.two num(两数之和)
+遍历数组,建一个集合放前面的数字,用目标值减当前值,如果集合中存在,则返回
+
+7.reverse-integer(反转整数)
+遍历整数,正++,逆–.交换对应的两个数
+
+9.palindrome number(回文数)判断一个整数是否是回文数。回文">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS-UIViewController打印类名">
-<meta property="og:url" content="http://yoursite.com/2018/06/11/iOS-UIViewController打印类名/index.html">
+<meta property="og:title" content="Swift-刷leetCode题">
+<meta property="og:url" content="http://yoursite.com/2018/11/01/Swift-刷leetCode题/index.html">
 <meta property="og:site_name" content="张鹏辉の博客">
-<meta property="og:description" content="新工作接手一个很大的老项目,所以需要在viewcontroller将要显示的时候获取到类名,方便定位bug
+<meta property="og:description" content="学习一些算法题,主要来源是LeetCode中简单部分的题.因为leetCode没有oc,所以顺便一起学习swift
 
-主要是利用runtime机制,截取viewcontroller的viewdidload方法,给viewcontroller添加分类,重新实现viewdidload方法;
-在直接调用IMP的话就会发生EXC_BAD_ACCESS错误,因为IMP指针是有返回值的类型,而viewdidload">
-<meta property="og:updated_time" content="2018-06-11T13:56:04.901Z">
+1.two num(两数之和)
+遍历数组,建一个集合放前面的数字,用目标值减当前值,如果集合中存在,则返回
+
+7.reverse-integer(反转整数)
+遍历整数,正++,逆–.交换对应的两个数
+
+9.palindrome number(回文数)判断一个整数是否是回文数。回文">
+<meta property="og:updated_time" content="2018-11-03T08:38:22.157Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS-UIViewController打印类名">
-<meta name="twitter:description" content="新工作接手一个很大的老项目,所以需要在viewcontroller将要显示的时候获取到类名,方便定位bug
+<meta name="twitter:title" content="Swift-刷leetCode题">
+<meta name="twitter:description" content="学习一些算法题,主要来源是LeetCode中简单部分的题.因为leetCode没有oc,所以顺便一起学习swift
 
-主要是利用runtime机制,截取viewcontroller的viewdidload方法,给viewcontroller添加分类,重新实现viewdidload方法;
-在直接调用IMP的话就会发生EXC_BAD_ACCESS错误,因为IMP指针是有返回值的类型,而viewdidload">
+1.two num(两数之和)
+遍历数组,建一个集合放前面的数字,用目标值减当前值,如果集合中存在,则返回
+
+7.reverse-integer(反转整数)
+遍历整数,正++,逆–.交换对应的两个数
+
+9.palindrome number(回文数)判断一个整数是否是回文数。回文">
 
 
 
@@ -133,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/11/iOS-UIViewController打印类名/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/01/Swift-刷leetCode题/"/>
 
 
 
 
 
-  <title> iOS-UIViewController打印类名 | 张鹏辉の博客 </title>
+  <title> Swift-刷leetCode题 | 张鹏辉の博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/11/iOS-UIViewController打印类名/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/Swift-刷leetCode题/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="semperphhhh">
@@ -300,7 +315,7 @@
             
             
               
-                iOS-UIViewController打印类名
+                Swift-刷leetCode题
               
             
           </h1>
@@ -315,8 +330,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-06-11T21:03:24+08:00">
-                2018-06-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-01T20:00:31+08:00">
+                2018-11-01
               </time>
             
 
@@ -326,6 +341,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -334,8 +371,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/11/iOS-UIViewController打印类名/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/11/iOS-UIViewController打印类名/" itemprop="commentCount"></span>
+                <a href="/2018/11/01/Swift-刷leetCode题/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/11/01/Swift-刷leetCode题/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -362,11 +399,26 @@
 
       
         <blockquote>
-<p>新工作接手一个很大的老项目,所以需要在viewcontroller将要显示的时候获取到类名,方便定位bug</p>
+<p>学习一些算法题,主要来源是LeetCode中简单部分的题.因为leetCode没有oc,所以顺便一起学习swift</p>
 </blockquote>
-<p>主要是利用runtime机制,截取viewcontroller的viewdidload方法,给viewcontroller添加分类,重新实现viewdidload方法;</p>
-<p>在直接调用IMP的话就会发生EXC_BAD_ACCESS错误,因为IMP指针是有返回值的类型,而viewdidload这个方法是没有返回值的,我们定义一个和IMP相同类型的函数指针VIMP,把他的返回值定位Void.<a id="more"></a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIViewController+ZPViewDidLoad.h&quot;</div><div class="line">#import &lt;objc/runtime.h&gt;</div><div class="line"></div><div class="line">typedef void (* _VIMP)(id, SEL, ...);</div><div class="line"></div><div class="line">@implementation UIViewController (ZPViewDidLoad)</div><div class="line"></div><div class="line">+(void)load &#123;</div><div class="line">    </div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        </div><div class="line">        // get system viewDidLoad method</div><div class="line">        Method viewDidLoad = class_getInstanceMethod(self, @selector(viewDidLoad));</div><div class="line">        </div><div class="line">        // get the system implementation of viewDidLoad</div><div class="line">        _VIMP viewDidLoad_VIMP = (_VIMP)method_getImplementation(viewDidLoad);</div><div class="line">        </div><div class="line">        // resetter the  system implementation of viewDidLoad</div><div class="line">        method_setImplementation(viewDidLoad, imp_implementationWithBlock(^ (id target , SEL action)&#123;</div><div class="line">            </div><div class="line">            // the system viewDidLoad method</div><div class="line">            viewDidLoad_VIMP(target , @selector(viewDidLoad));</div><div class="line">            </div><div class="line">            </div><div class="line">            // the new add NSLog method</div><div class="line">            NSLog(@&quot;-------------------- %@ : view did load&quot;,target);</div><div class="line">        &#125;));</div><div class="line">        </div><div class="line">        </div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h4 id="1-two-num-两数之和"><a href="#1-two-num-两数之和" class="headerlink" title="1.two num(两数之和)"></a>1.two num(两数之和)</h4><blockquote>
+<p>遍历数组,建一个集合放前面的数字,用目标值减当前值,如果集合中存在,则返回</p>
+</blockquote>
+<h4 id="7-reverse-integer-反转整数"><a href="#7-reverse-integer-反转整数" class="headerlink" title="7.reverse-integer(反转整数)"></a>7.reverse-integer(反转整数)</h4><blockquote>
+<p>遍历整数,正++,逆–.交换对应的两个数</p>
+</blockquote>
+<h4 id="9-palindrome-number-回文数"><a href="#9-palindrome-number-回文数" class="headerlink" title="9.palindrome number(回文数)"></a>9.palindrome number(回文数)</h4><p>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
+<blockquote>
+<p>取到数字的位数,先判断第一位和最后一位是否相等,左右相互判断</p>
+</blockquote>
+<h4 id="13-roman-to-integer-罗马数字转整数"><a href="#13-roman-to-integer-罗马数字转整数" class="headerlink" title="13.roman-to-integer(罗马数字转整数)"></a>13.roman-to-integer(罗马数字转整数)</h4><blockquote>
+<p>从前向后遍历字符串,如果当前的比后一位的大,就正常加当前的数字;如果当前的比后一位的小,就减当前的数字</p>
+</blockquote>
+<h4 id="14-longest-Common-Prefix-最长公共前缀"><a href="#14-longest-Common-Prefix-最长公共前缀" class="headerlink" title="14.longest Common Prefix(最长公共前缀)"></a>14.longest Common Prefix(最长公共前缀)</h4><p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
+<blockquote>
+<p>根据第一个字符串与其余的遍历对比</p>
+</blockquote>
+<p>#### </p>
 
       
     </div>
@@ -390,7 +442,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/iOS/" rel="tag"># iOS</a>
+            <a href="/tags/Swift/" rel="tag"># Swift</a>
           
         </div>
       
@@ -403,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/19/iOS-隐藏导航栏/" rel="next" title="iOS-隐藏导航栏">
-                <i class="fa fa-chevron-left"></i> iOS-隐藏导航栏
+              <a href="/2018/10/08/iOS-认识锁/" rel="next" title="iOS-认识锁">
+                <i class="fa fa-chevron-left"></i> iOS-认识锁
               </a>
             
           </div>
@@ -412,10 +464,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/04/iOS-Button的状态图片/" rel="prev" title="iOS-Button的状态图片">
-                iOS-Button的状态图片 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,8 +489,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2018/06/11/iOS-UIViewController打印类名/"
-           data-title="iOS-UIViewController打印类名" data-url="http://yoursite.com/2018/06/11/iOS-UIViewController打印类名/">
+      <div class="ds-thread" data-thread-key="2018/11/01/Swift-刷leetCode题/"
+           data-title="Swift-刷leetCode题" data-url="http://yoursite.com/2018/11/01/Swift-刷leetCode题/">
       </div>
     
   </div>
@@ -466,8 +514,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://olnx80yq4.bkt.clouddn.com/AAE0EED2ECA058174A4787D0C4B94DEA.png"
@@ -523,6 +580,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-two-num-两数之和"><span class="nav-number">1.</span> <span class="nav-text">1.two num(两数之和)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-reverse-integer-反转整数"><span class="nav-number">2.</span> <span class="nav-text">7.reverse-integer(反转整数)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-palindrome-number-回文数"><span class="nav-number">3.</span> <span class="nav-text">9.palindrome number(回文数)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-roman-to-integer-罗马数字转整数"><span class="nav-number">4.</span> <span class="nav-text">13.roman-to-integer(罗马数字转整数)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-longest-Common-Prefix-最长公共前缀"><span class="nav-number">5.</span> <span class="nav-text">14.longest Common Prefix(最长公共前缀)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
     </div>
