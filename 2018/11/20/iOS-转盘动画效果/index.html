@@ -101,7 +101,7 @@
 画圆使用贝塞尔曲线画圆,首先涉及到uiview的drawRect,drawRect 的作用是重写该方法以实现自定义的绘制内容.">
 <meta property="og:image" content="https://blog-1256512148.cos.ap-beijing.myqcloud.com/iOS0005.png">
 <meta property="og:image" content="https://blog-1256512148.cos.ap-beijing.myqcloud.com/iOS0006.png">
-<meta property="og:updated_time" content="2018-11-21T13:05:44.918Z">
+<meta property="og:updated_time" content="2018-11-25T06:18:47.707Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS-转盘动画效果">
 <meta name="twitter:description" content="使用贝塞尔曲线和核心动画实现一个自定义转盘效果
@@ -315,8 +315,8 @@
             
               <span class="post-updated">
                 &nbsp; | &nbsp; 最后更新于
-              <time itemprop="dateUpdated" datetime="2018-11-21T21:05:44+08:00" content="2018-11-21">
-                2018-11-21
+              <time itemprop="dateUpdated" datetime="2018-11-25T14:18:47+08:00" content="2018-11-25">
+                2018-11-25
                </time>
                 &nbsp; | &nbsp;
               </span>
@@ -445,7 +445,6 @@
 <p>枚举参数：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">kCAMediaTimingFunctionLinear  时间曲线函数，匀速</div><div class="line">kCAMediaTimingFunctionEaseIn  时间曲线函数，由慢到特别快</div><div class="line">kCAMediaTimingFunctionEaseOut  时间曲线函数，由快到慢</div><div class="line">kCAMediaTimingFunctionEaseInEaseOut  时间曲线函数，由慢到快</div><div class="line">kCAMediaTimingFunctionDefault   系统默认</div></pre></td></tr></table></figure>
 <h4 id="转动实现"><a href="#转动实现" class="headerlink" title="转动实现"></a>转动实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">CABasicAnimation *rotationAnimation = [CABasicAnimation animationWithKeyPath:@&quot;transform.rotation.z&quot;];</div><div class="line">   double endValue = _startValue+(rand()%100)/100.0 * M_PI + M_PI*(rand()%5+5);//endvalue单位是弧度,2PI是一圈</div><div class="line">   </div><div class="line">   //设置旋转的起始值与终止值</div><div class="line">   rotationAnimation.fromValue = @(_startValue);</div><div class="line">   rotationAnimation.toValue = @(endValue);</div><div class="line">   </div><div class="line">   //旋转时长</div><div class="line">   rotationAnimation.duration = (endValue - _startValue)/(M_PI *2);</div><div class="line">   rotationAnimation.autoreverses = NO;//设置这个属性表示完成动画后会回到执行动画之前的状态</div><div class="line">   rotationAnimation.removedOnCompletion = NO;//动画结束后移除</div><div class="line">   </div><div class="line">   //速度函数</div><div class="line">   rotationAnimation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];</div><div class="line">   rotationAnimation.fillMode = kCAFillModeBoth;//动画开始前，layer处于动画开始那一刻的状态；动画结束后，layer处于动画结束那一刻的状态</div><div class="line">   [self.circleView.layer addAnimation:rotationAnimation forKey:@&quot;TurnTableAnimation&quot;];</div><div class="line">   </div><div class="line">   //记下当前旋转的位置，作为下一次旋转的起始值</div><div class="line">   _startValue = endValue;</div></pre></td></tr></table></figure>
-<h3 id="转动结束的选中"><a href="#转动结束的选中" class="headerlink" title="转动结束的选中"></a>转动结束的选中</h3><p>在转动结束后有一个选中的状态</p>
 <h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a href="https://www.jianshu.com/p/7242bc413ca8" target="_blank" rel="external">谈谈对drawRect的理解</a></p>
 
       
@@ -618,7 +617,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#画圆"><span class="nav-number">1.</span> <span class="nav-text">画圆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#drawRect调用场景"><span class="nav-number">1.1.</span> <span class="nav-text">drawRect调用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drawRect重绘方法定义"><span class="nav-number">1.2.</span> <span class="nav-text">drawRect重绘方法定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drawRect使用注意事项"><span class="nav-number">1.3.</span> <span class="nav-text">drawRect使用注意事项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#画圆实现"><span class="nav-number">1.4.</span> <span class="nav-text">画圆实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转动动画"><span class="nav-number">2.</span> <span class="nav-text">转动动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CAAnimation的属性"><span class="nav-number">2.1.</span> <span class="nav-text">CAAnimation的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转动实现"><span class="nav-number">2.2.</span> <span class="nav-text">转动实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转动结束的选中"><span class="nav-number">3.</span> <span class="nav-text">转动结束的选中</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#画圆"><span class="nav-number">1.</span> <span class="nav-text">画圆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#drawRect调用场景"><span class="nav-number">1.1.</span> <span class="nav-text">drawRect调用场景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drawRect重绘方法定义"><span class="nav-number">1.2.</span> <span class="nav-text">drawRect重绘方法定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#drawRect使用注意事项"><span class="nav-number">1.3.</span> <span class="nav-text">drawRect使用注意事项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#画圆实现"><span class="nav-number">1.4.</span> <span class="nav-text">画圆实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转动动画"><span class="nav-number">2.</span> <span class="nav-text">转动动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CAAnimation的属性"><span class="nav-number">2.1.</span> <span class="nav-text">CAAnimation的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#转动实现"><span class="nav-number">2.2.</span> <span class="nav-text">转动实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考链接"><span class="nav-number">3.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>
