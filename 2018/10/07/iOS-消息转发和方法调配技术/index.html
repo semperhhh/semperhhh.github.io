@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -96,7 +96,7 @@
 <meta property="og:description" content="学习的主要摘自
 在oc中,可以:1.在运行期向类中新增实例变量2.在运行期可以继续向类中添加方法3.在运行期改变与给定的选择子名称相对应的方法(方法调配技术)">
 <meta property="og:image" content="https://blog-1256512148.cos.ap-beijing.myqcloud.com/iOS0002.png">
-<meta property="og:updated_time" content="2018-11-20T11:21:01.179Z">
+<meta property="og:updated_time" content="2018-12-02T10:58:42.867Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS-消息转发和方法调配技术">
 <meta name="twitter:description" content="学习的主要摘自
@@ -109,8 +109,8 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -308,8 +308,8 @@
             
               <span class="post-updated">
                 &nbsp; | &nbsp; 最后更新于
-              <time itemprop="dateUpdated" datetime="2018-11-20T19:21:01+08:00" content="2018-11-20">
-                2018-11-20
+              <time itemprop="dateUpdated" datetime="2018-12-02T18:58:42+08:00" content="2018-12-02">
+                2018-12-02
                </time>
                 &nbsp; | &nbsp;
               </span>
@@ -358,16 +358,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/10/07/iOS-消息转发和方法调配技术/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/10/07/iOS-消息转发和方法调配技术/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -407,6 +397,7 @@
 <p>消息转发分为两个阶段:</p>
 <p>1.征询接受者，看它能否动态添加方法，以处理这个未知的选择子，这个过程叫做动态方法解析（dynamic method resolution).<br>2.请接受者看看有没有其他对象能处理这条消息：<br>&nbsp;&nbsp;如果有，则运行期系统会把消息转给那个对象。<br>&nbsp;&nbsp;如果没有，则启动完整的消息转发机制（full forwarding mechanism），运行期系统会把与消息有关的全部细节都封装到<br>NSInvocation对象中，再给接受者最后一次机会，令其设法解决当前还未处理的这条消息。<br>类方法<code>+(BOOL)resolveInstanceMethod:(SEL)selector:</code>查看这个类是否能新增一个实例方法用以处理此选择子<br>实例方法<code>- (id)forwardTargetForSelector:(SEL)selector;</code>:询问是否能找到未知消息的备援接受者，如果能找到备援对象，就将其返回，如果不能，就返回nil。<br>实例方法<code>- (void)forwardInvocation:(NSInvocation*)invocation:</code>创建NSInvocation对象，将尚未处理的那条消息 有关的全部细节都封于其中，在触发NSInvocation对象时，“消息派发系统（message-dispatch system）”就会将消息派给目标对象。</p>
 <p>总结:<br>若对象无法响应某个选择子,则进入消息转发流程.<br>通过运行期的动态方法解析功能,我们可以在需要用到某个方法时再将其加入类中.<br>对象可以把其无法解读的某些选择子转交给其他对象来处理.<br>经过上述两步之后,如果还是没办法处理选择子,那就启动完整的消息转发机制.</p>
+<h4 id="应用-向对象发送没有实现的消息"><a href="#应用-向对象发送没有实现的消息" class="headerlink" title="应用-向对象发送没有实现的消息"></a>应用-向对象发送没有实现的消息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    //调用当前类中没有实现的方法</div><div class="line">    [self performSelector:@selector(readBook)];</div><div class="line">    [self performSelector:@selector(writeBook)];</div><div class="line">    [self performSelector:@selector(findBook)];</div><div class="line">&#125;</div><div class="line"></div><div class="line">void readBook(id self,SEL _cmd) &#123;</div><div class="line"></div><div class="line">    NSLog(@&quot;now i can readBook&quot;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//1.动态方法解析</div><div class="line">+(BOOL)resolveInstanceMethod:(SEL)sel &#123;</div><div class="line"></div><div class="line">    NSLog(@&quot;resolveInstanceMethod: %@&quot;,NSStringFromSelector(sel));</div><div class="line"></div><div class="line">    if (sel == @selector(readBook)) &#123;</div><div class="line">        class_addMethod([self class], sel, (IMP)readBook, &quot;V@:&quot;);</div><div class="line"></div><div class="line">        return YES;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    return [super resolveInstanceMethod:sel];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//2.备援接受者</div><div class="line">-(id)forwardingTargetForSelector:(SEL)aSelector &#123;</div><div class="line"> </div><div class="line">    NSLog(@&quot;forwardingTarget: %@&quot;,NSStringFromSelector(aSelector));</div><div class="line">    </div><div class="line">    CLRead *read = [[CLRead alloc]init];</div><div class="line">    if ([read respondsToSelector:aSelector]) &#123;</div><div class="line">        return read;</div><div class="line">    &#125;</div><div class="line">    return [super forwardingTargetForSelector:aSelector];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//3.完整的消息转发</div><div class="line">-(NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector &#123;</div><div class="line">    </div><div class="line">    NSLog(@&quot;method signature for selector: %@&quot;,NSStringFromSelector(aSelector));</div><div class="line">    </div><div class="line">    if (aSelector == @selector(code)) &#123;</div><div class="line">        return [NSMethodSignature signatureWithObjCTypes:&quot;V@:&quot;];</div><div class="line">    &#125;</div><div class="line">    return [super methodSignatureForSelector:aSelector];</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(void)forwardInvocation:(NSInvocation *)anInvocation &#123;</div><div class="line">    </div><div class="line">    NSLog(@&quot;forwardInvocation: %@&quot;,NSStringFromSelector([anInvocation selector]));</div><div class="line">    </div><div class="line">    if ([anInvocation selector] == @selector(code)) &#123;</div><div class="line">        CLRead *read = [[CLRead alloc]init];</div><div class="line">        [anInvocation invokeWithTarget:read];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="方法调配技术"><a href="#方法调配技术" class="headerlink" title="方法调配技术"></a>方法调配技术</h3><p>在oc中,与给定的选择子名称相对应的方法是不是也可以在运行期改变呢?没错,若能善用此特性,则可发挥出巨大优势,因为我们既不需要源码,也不需要通过继承子类来覆写方法就能改变这个类本身的功能.这样一来,新功能将在本类的所有实例中生效,而不是仅限于覆写了相关方法的那些子类实例.此方案经常称为”方法调配”</p>
 <p>类的方法列表会把选择子的名称映射到相关的方法实现之上,使得”动态消息派发系统”能够据此找到应该调用的方法.这些方法均以函数指针的形式来表示,这种指针叫做IMP,其原型如下:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">id (*IMP)(id,SEL,...)</div></pre></td></tr></table></figure></p>
 <h4 id="交换方法实现"><a href="#交换方法实现" class="headerlink" title="交换方法实现"></a>交换方法实现</h4><p>交换方法实现,可用下列函数:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">void method_exchangeImplementations(Method m1,Method m2)</div></pre></td></tr></table></figure></p>
@@ -415,7 +406,15 @@
 <blockquote>
 <p>很少有人在调试程序之外的场合用上述”方法调配技术”来永久改动某个类的功能.不能仅仅因为Objective-c语言里有这个特性就一定要用它.若是滥用,反而会令代码变得不易读懂且难于维护.</p>
 </blockquote>
-<h3 id="编译期"><a href="#编译期" class="headerlink" title="编译期"></a>编译期</h3>
+<h4 id="应用-防止数组越界的crach"><a href="#应用-防止数组越界的crach" class="headerlink" title="应用-防止数组越界的crach"></a>应用-防止数组越界的crach</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//在NSArray中添加分类</div><div class="line">+(void)load &#123;</div><div class="line">    </div><div class="line">    //替换不可变数组中的方法 []调用的方法</div><div class="line">    Method oldObjectAtIndex = class_getInstanceMethod(objc_getClass(&quot;__NSArrayI&quot;), @selector(objectAtIndexedSubscript:));</div><div class="line">    Method newObjectAtIndex = class_getInstanceMethod(objc_getClass(&quot;__NSArrayI&quot;), @selector(objectAtIndexedNewSubscript:));</div><div class="line">    </div><div class="line">    method_exchangeImplementations(oldObjectAtIndex, newObjectAtIndex);</div><div class="line">    </div><div class="line">    //替换不可变数组中的objectAtIndex</div><div class="line">    Method oldObjectAtIndex1 = class_getInstanceMethod(objc_getClass(&quot;__NSArrayI&quot;), @selector(objectAtIndex:));</div><div class="line">    Method newObjectAtIndex1 = class_getInstanceMethod(objc_getClass(&quot;__NSArrayI&quot;), @selector(newObjectAtIndex:));</div><div class="line">    </div><div class="line">    method_exchangeImplementations(oldObjectAtIndex1, newObjectAtIndex1);</div><div class="line">    </div><div class="line">    //替换可变数组中的方法 []调用的方法</div><div class="line">    Method oldMutableObjectAtIndex = class_getInstanceMethod(objc_getClass(&quot;__NSArrayM&quot;), @selector(objectAtIndexedSubscript:));</div><div class="line">    Method newMutableObjectAtIndex = class_getInstanceMethod(objc_getClass(&quot;__NSArrayM&quot;), @selector(mutableObjectAtIndexedNewSubscript:));</div><div class="line"></div><div class="line">    method_exchangeImplementations(oldMutableObjectAtIndex, newMutableObjectAtIndex);</div><div class="line">    </div><div class="line">    //替换可变数组中的方法 objectatindex</div><div class="line">    Method oldMutableObjectAtIndex1 = class_getInstanceMethod(objc_getClass(&quot;__NSArrayM&quot;), @selector(objectAtIndex:));</div><div class="line">    Method newMutableObjectAtIndex1 = class_getInstanceMethod(objc_getClass(&quot;__NSArrayM&quot;), @selector(newMutableObjectAtIndex:));</div><div class="line">    </div><div class="line">    method_exchangeImplementations(oldMutableObjectAtIndex1, newMutableObjectAtIndex1);</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(id)newMutableObjectAtIndex:(NSUInteger)index &#123;</div><div class="line"> </div><div class="line">    if (index &gt; self.count - 1 || !self.count) &#123;</div><div class="line">        </div><div class="line">        @try &#123;</div><div class="line">            </div><div class="line">            //因为前面方法交换了,这里其实调用的原生的方法</div><div class="line">            return [self newMutableObjectAtIndex:index];</div><div class="line">        &#125; @catch (NSException *exception) &#123;</div><div class="line">            NSLog(@&quot;可变数组越界了&quot;);</div><div class="line">            return nil;</div><div class="line">        &#125; @finally &#123;</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">    &#125;else &#123;</div><div class="line">        return [self newMutableObjectAtIndex:index];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(id)mutableObjectAtIndexedNewSubscript:(NSUInteger)index &#123;</div><div class="line">    </div><div class="line">    if (index &gt; self.count - 1 || !self.count) &#123;</div><div class="line">        </div><div class="line">        @try &#123;</div><div class="line">            </div><div class="line">            //因为前面方法交换了,这里其实调用的原生的方法</div><div class="line">            return [self mutableObjectAtIndexedNewSubscript:index];</div><div class="line">        &#125; @catch (NSException *exception) &#123;</div><div class="line">            NSLog(@&quot;可变数组越界了&quot;);</div><div class="line">            return nil;</div><div class="line">        &#125; @finally &#123;</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">    &#125;else &#123;</div><div class="line">        return [self mutableObjectAtIndexedNewSubscript:index];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(id)newObjectAtIndex:(NSUInteger)index &#123;</div><div class="line">    </div><div class="line">    if (index &gt; self.count - 1 || !self.count) &#123;</div><div class="line">        </div><div class="line">        @try &#123;</div><div class="line">            </div><div class="line">            //因为前面方法交换了,这里其实调用的原生的方法</div><div class="line">            return [self newObjectAtIndex:index];</div><div class="line">        &#125; @catch (NSException *exception) &#123;</div><div class="line">            NSLog(@&quot;不可变数组越界了&quot;);</div><div class="line">            return nil;</div><div class="line">        &#125; @finally &#123;</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">    &#125;else &#123;</div><div class="line">        return [self newObjectAtIndex:index];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">-(id)objectAtIndexedNewSubscript:(NSUInteger)index &#123;</div><div class="line">    </div><div class="line">    if (index &gt; self.count - 1 || !self.count) &#123;</div><div class="line">        </div><div class="line">        @try &#123;</div><div class="line">            </div><div class="line">            //因为前面方法交换了,这里其实调用的原生的方法</div><div class="line">            return [self objectAtIndexedNewSubscript:index];</div><div class="line">        &#125; @catch (NSException *exception) &#123;</div><div class="line">            NSLog(@&quot;不可变数组越界了&quot;);</div><div class="line">            return nil;</div><div class="line">        &#125; @finally &#123;</div><div class="line">            </div><div class="line">        &#125;</div><div class="line">    &#125;else &#123;</div><div class="line">        return [self objectAtIndexedNewSubscript:index];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="应用-打印viewcontroller类名"><a href="#应用-打印viewcontroller类名" class="headerlink" title="应用-打印viewcontroller类名"></a>应用-打印viewcontroller类名</h4><blockquote>
+<p>在每个viewcontroller将要<code>viewdidload</code>的时候,在控制台打印类名,对调试app的时候会有帮助</p>
+</blockquote>
+<p>截取viewcontroller的<code>viewdidload</code>方法,给viewcontroller添加分类,重新实现<code>viewdidload</code>方法;</p>
+<p>在直接调用IMP的话就会发生<code>EXC_BAD_ACCESS</code>错误,因为IMP指针是有返回值的类型,而viewdidload这个方法是没有返回值的,我们定义一个和IMP相同类型的函数指针VIMP,把他的返回值定位Void.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">#import &quot;UIViewController+ZPViewDidLoad.h&quot;</div><div class="line">#import &lt;objc/runtime.h&gt;</div><div class="line"></div><div class="line">typedef void (* _VIMP)(id, SEL, ...);</div><div class="line"></div><div class="line">@implementation UIViewController (ZPViewDidLoad)</div><div class="line"></div><div class="line">+(void)load &#123;</div><div class="line">    </div><div class="line">    static dispatch_once_t onceToken;</div><div class="line">    dispatch_once(&amp;onceToken, ^&#123;</div><div class="line">        </div><div class="line">        // get system viewDidLoad method</div><div class="line">        Method viewDidLoad = class_getInstanceMethod(self, @selector(viewDidLoad));</div><div class="line">        </div><div class="line">        // get the system implementation of viewDidLoad</div><div class="line">        _VIMP viewDidLoad_VIMP = (_VIMP)method_getImplementation(viewDidLoad);</div><div class="line">        </div><div class="line">        // resetter the  system implementation of viewDidLoad</div><div class="line">        method_setImplementation(viewDidLoad, imp_implementationWithBlock(^ (id target , SEL action)&#123;</div><div class="line">            </div><div class="line">            // the system viewDidLoad method</div><div class="line">            viewDidLoad_VIMP(target , @selector(viewDidLoad));</div><div class="line">            </div><div class="line">            </div><div class="line">            // the new add NSLog method</div><div class="line">            NSLog(@&quot;-------------------- %@ : view did load&quot;,target);</div><div class="line">        &#125;));</div><div class="line">        </div><div class="line">        </div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h3 id="编译期"><a href="#编译期" class="headerlink" title="编译期"></a>编译期</h3><p>编译时就是获取objc文件.</p>
+
       
     </div>
 
@@ -489,10 +488,6 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2018/10/07/iOS-消息转发和方法调配技术/"
-           data-title="iOS-消息转发和方法调配技术" data-url="http://yoursite.com/2018/10/07/iOS-消息转发和方法调配技术/">
-      </div>
-    
   </div>
 
 
@@ -537,7 +532,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -555,7 +550,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -566,6 +561,35 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zphui5409" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.weibo.com/2573592991/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/58ff25b65c497d00581169f5" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
           
         </div>
 
@@ -590,7 +614,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解objc-msgSend的作用"><span class="nav-number">1.</span> <span class="nav-text">理解objc_msgSend的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解消息转发机制"><span class="nav-number">2.</span> <span class="nav-text">理解消息转发机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法调配技术"><span class="nav-number">3.</span> <span class="nav-text">方法调配技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#交换方法实现"><span class="nav-number">3.1.</span> <span class="nav-text">交换方法实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译期"><span class="nav-number">4.</span> <span class="nav-text">编译期</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#理解objc-msgSend的作用"><span class="nav-number">1.</span> <span class="nav-text">理解objc_msgSend的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#理解消息转发机制"><span class="nav-number">2.</span> <span class="nav-text">理解消息转发机制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#应用-向对象发送没有实现的消息"><span class="nav-number">2.1.</span> <span class="nav-text">应用-向对象发送没有实现的消息</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法调配技术"><span class="nav-number">3.</span> <span class="nav-text">方法调配技术</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#交换方法实现"><span class="nav-number">3.1.</span> <span class="nav-text">交换方法实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用-防止数组越界的crach"><span class="nav-number">3.2.</span> <span class="nav-text">应用-防止数组越界的crach</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用-打印viewcontroller类名"><span class="nav-number">3.3.</span> <span class="nav-text">应用-打印viewcontroller类名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译期"><span class="nav-number">4.</span> <span class="nav-text">编译期</span></a></li></ol></div>
             
 
           </div>
@@ -626,7 +650,7 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -694,13 +718,6 @@
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
@@ -716,39 +733,32 @@
 
   
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"zhangpenghui"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+
+
+
+
+	
+
+
+
+
+
   
 
 
 
 
 
+  
 
 
 
 
 
+  
 
 
 

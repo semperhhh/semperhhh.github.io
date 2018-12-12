@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -103,7 +103,8 @@ isa指针对于消息分发机制和Cocoa对象的动态能力来说是很关键
 isa指针类型的数据结构可以在Objc.h中看到:">
 <meta property="og:image" content="http://olnx80yq4.bkt.clouddn.com/iOS-isa%E6%8C%87%E9%92%88-1.png">
 <meta property="og:image" content="http://olnx80yq4.bkt.clouddn.com/iOS-isa%E6%8C%87%E9%92%88-2.png">
-<meta property="og:updated_time" content="2018-10-07T02:23:47.284Z">
+<meta property="og:image" content="https://blog-1256512148.cos.ap-beijing.myqcloud.com/blog-isa01.png">
+<meta property="og:updated_time" content="2018-12-04T10:16:37.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS-isa指针">
 <meta name="twitter:description" content="Objective-c中的isa指针
@@ -119,8 +120,8 @@ isa指针类型的数据结构可以在Objc.h中看到:">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post"},
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"hide"},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -318,8 +319,8 @@ isa指针类型的数据结构可以在Objc.h中看到:">
             
               <span class="post-updated">
                 &nbsp; | &nbsp; 最后更新于
-              <time itemprop="dateUpdated" datetime="2018-10-07T10:23:47+08:00" content="2018-10-07">
-                2018-10-07
+              <time itemprop="dateUpdated" datetime="2018-12-04T18:16:37+08:00" content="2018-12-04">
+                2018-12-04
                </time>
                 &nbsp; | &nbsp;
               </span>
@@ -368,16 +369,6 @@ isa指针类型的数据结构可以在Objc.h中看到:">
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/10/07/iOS-isa指针/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/10/07/iOS-isa指针/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -411,6 +402,7 @@ isa指针类型的数据结构可以在Objc.h中看到:">
 <p>第二个成员变量”super_class”指向父类的类对象.</p>
 <p><em>每一个对象本质上都是一个类的实例.其中类定义了成员变量和成员方法的列表.对象通过对象的isa指针指向类</em></p>
 <h3 id="isa指针的应用"><a href="#isa指针的应用" class="headerlink" title="isa指针的应用"></a>isa指针的应用</h3><p>isa指针常见于runtime的应用:<br>1.动态创建一个类.<br>2.动态地为某个类添加属性\方法,修改属性值\方法.(前面学习过的关联对象).<br>3.遍历一个类的所有成员变量(属性)\所有方法.</p>
+<h3 id="isa指针经典的图片介绍"><a href="#isa指针经典的图片介绍" class="headerlink" title="isa指针经典的图片介绍"></a>isa指针经典的图片介绍</h3><p><img src="https://blog-1256512148.cos.ap-beijing.myqcloud.com/blog-isa01.png" width="600" align="center"></p>
 
       
     </div>
@@ -485,10 +477,6 @@ isa指针类型的数据结构可以在Objc.h中看到:">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2018/10/07/iOS-isa指针/"
-           data-title="iOS-isa指针" data-url="http://yoursite.com/2018/10/07/iOS-isa指针/">
-      </div>
-    
   </div>
 
 
@@ -533,7 +521,7 @@ isa指针类型的数据结构可以在Objc.h中看到:">
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -551,7 +539,7 @@ isa指针类型的数据结构可以在Objc.h中看到:">
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -562,6 +550,35 @@ isa指针类型的数据结构可以在Objc.h中看到:">
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/zphui5409" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.weibo.com/2573592991/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/58ff25b65c497d00581169f5" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
           
         </div>
 
@@ -586,7 +603,7 @@ isa指针类型的数据结构可以在Objc.h中看到:">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Objective-c中的isa指针"><span class="nav-number">1.</span> <span class="nav-text">Objective-c中的isa指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#isa指针的应用"><span class="nav-number">2.</span> <span class="nav-text">isa指针的应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Objective-c中的isa指针"><span class="nav-number">1.</span> <span class="nav-text">Objective-c中的isa指针</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#isa指针的应用"><span class="nav-number">2.</span> <span class="nav-text">isa指针的应用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#isa指针经典的图片介绍"><span class="nav-number">3.</span> <span class="nav-text">isa指针经典的图片介绍</span></a></li></ol></div>
             
 
           </div>
@@ -622,7 +639,7 @@ isa指针类型的数据结构可以在Objc.h中看到:">
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Mist
   </a>
 </div>
 
@@ -690,13 +707,6 @@ isa指针类型的数据结构可以在Objc.h中看到:">
   
   
 
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
@@ -712,39 +722,32 @@ isa指针类型的数据结构可以在Objc.h中看到:">
 
   
 
-  
-    
-  
 
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"zhangpenghui"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
 
   
-    
-    
-    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
-    <script src="/js/src/hook-duoshuo.js"></script>
+
+
+
+
+	
+
+
+
+
+
   
 
 
 
 
 
+  
 
 
 
 
 
+  
 
 
 
