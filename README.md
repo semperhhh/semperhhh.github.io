@@ -1,13 +1,12 @@
 # 个人信息
 
 * 张鹏辉,男,1995年生
-* 河北工业职业技术学院, 2016年专科毕业
 * 工作年限：4年
+* 专科,2016年毕业
 * 技术博客：http://www.semperhhh.cn
 * Github：https://github.com/semperhhh
 * 期望职位：iOS开发工程师
 * 期望薪资：15K-17K
-* 期望城市：北京
 * 手机：17600115409
 * Email：zphui5409@163.com
 
