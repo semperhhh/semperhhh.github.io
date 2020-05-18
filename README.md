@@ -6,7 +6,6 @@
 * 技术博客：http://www.semperhhh.cn
 * Github：https://github.com/semperhhh
 * 期望职位：iOS开发工程师
-* 期望薪资：15K-17K
 * 手机：17600115409
 * Email：zphui5409@163.com
 
