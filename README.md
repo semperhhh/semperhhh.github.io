@@ -1,13 +1,13 @@
 ## 个人信息
 
-* 张鹏辉,男,1995年生
-* 工作年限：4年
+* 张鹏辉,男
+* 工作经验：4年
 * 本科
-* 技术博客：http://www.semperhhh.cn
-* Github：https://github.com/semperhhh
 * 期望职位：iOS开发工程师
 * 手机：17600115409
 * Email：zphui5409@163.com
+* 技术博客：http://www.semperhhh.cn
+* Github：https://github.com/semperhhh
 
 ## 技能特长
 
