@@ -2,7 +2,7 @@
 
 * 张鹏辉,男,1995年生
 * 工作年限：4年
-* 专科,2016年毕业
+* 本科
 * 技术博客：http://www.semperhhh.cn
 * Github：https://github.com/semperhhh
 * 期望职位：iOS开发工程师
