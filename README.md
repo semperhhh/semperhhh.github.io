@@ -12,7 +12,7 @@
 ## 技能特长
 
 * 主要开发语言为Objective-C,Swift;
-* 了解前端H5及Node.js,有个人博客搭建项目;
+* 了解前端开发,有个人博客搭建项目;
 * 了解framework静态包制作并有项目封装SDK经验;
 * 追求工作效率,熟悉git/svn等工具;
 
@@ -22,9 +22,9 @@
 
 > 移动端app方式是针对健身房会员的会员端以及健身房教练和店主的私教端.
 
-1.负责公司旗下健身品牌光猪圈及练多多分别针对会员和教练的两端app开发任务与维护,与产品共同评审移动端开发可行性;
+1.负责公司旗下健身品牌光猪圈及练多多分别针对会员和教练的两端app开发任务与维护,与产品共同评审移动端开发可行性,开发霸王卡、通店卡、到店红包以及微信连续包月卡等功能模块;
 
-2.负责公司pc端saas系统与app的联动对接的数据结构制定,达到会员端,教练端及电脑端的三端协作工作;
+2.负责公司pc端saas系统与app的联动对接的数据结构制定,达到会员端,教练端及电脑端的三端协作工作,开发iOS端的推单模块;
 
 3.整合同组开发代码,合并以及版本发布;
 
@@ -34,7 +34,7 @@
 
 1.参与新功能研发和版本迭代,以及历史遗留的问题修复工作;
 
-2.对接腾讯云视频平台,使用UIScrollerView3个子View轮转实现无限上下翻页的短视频播放功能;
+2.对接腾讯云视频平台,实现短视频编辑,播放功能模块;
 
 3.重构App电商模块,将UIWebView替换为WKWebView,并与前端桥接对调的功能;
 
@@ -52,15 +52,15 @@
 
 [SemmmProject](https://github.com/semperhhh/SemmmProject) :
 
-个人博客项目迁移版,后台基于Node.js,使用MySql记录数据,html++css+vue实现页面展示,前后端分离.学习后端知识,对后端,数据库有个概念,工作中可以更好地和后台配合.过程受益大于产出结果.
-
-[SemperProject](https://github.com/semperhhh/SemperProject) :
-
-个人博客项目基于Swift的Perfect框架的服务端,使用MySQL记录数据,nginx作反向代理服务及一些基于Mustache的动态html界面,css样式大部分引用bootStrap.
+个人博客项目,原基于Swift的Perfect框架的服务端(项目:[SemperProject](https://github.com/semperhhh/SemperProject)),使用MySQL记录数据,nginx作反向代理服务及一些基于Mustache的动态html界面,css样式大部分引用bootStrap.后选择将后台迁移成node.js,html++css+vue实现页面展示,前后端分离.学习后端知识,对后端,数据库有个概念,工作中可以更好地和后台配合.过程受益大于产出结果.
 
 [v2exer](https://github.com/semperhhh/v2exer) :
 
-个人Swift的iOS项目.部分使用v2ex公开的接口,部分使用'Ji'来解析html作内容展示.主要框架使用Alamofire+SwiftJson,沙盒归档作一些数据缓存.
+个人Swift的iOS项目.部分使用v2ex公开的接口,部分使用'Ji'来解析html作内容展示.主要框架使用Alamofire+SwiftJson,沙盒归档作一些数据缓存.目的为学习swift语法,扩展技术栈.
 
 [iOS-控件封装为framework来使用](https://juejin.im/post/5c0a117be51d4538994af76b) :
 封装自定义控件为framework静态库使用总结的过程,添加.bundle文件资源以及通过简单的lipo命令合并.a文件使兼容模拟器和真机.
+
+---      
+# 致谢
+感谢您花时间阅读我的简历，期待能有机会和您共事。
