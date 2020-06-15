@@ -55,9 +55,9 @@
 
 个人博客项目,原基于Swift的Perfect框架的服务端(项目链接:[SemperProject](https://github.com/semperhhh/SemperProject)),使用MySQL记录数据,nginx作反向代理服务及一些基于Mustache的动态html界面,css样式大部分引用bootStrap.后选择将后台迁移成node.js,html++css+vue实现页面展示,前后端分离.学习后端知识,对后端,数据库有个概念,工作中可以更好地和后台配合.过程受益大于产出结果.
 
-[v2exer](https://github.com/semperhhh/v2exer) :
+[SemClosepress](https://github.com/semperhhh/SemClosepress) :
 
-个人Swift的iOS项目.部分使用v2ex公开的接口,部分使用'Ji'来解析html作内容展示.主要框架使用Alamofire+SwiftJson,沙盒归档作一些数据缓存.目的为学习swift语法,扩展技术栈.
+个人Swift的iOS项目.主要框架使用Alamofire+SnapKit,数据存储使用SQLite.swift.目的为学习swift语法,扩展技术栈.
 
 [iOS-控件封装为framework来使用](https://juejin.im/post/5c0a117be51d4538994af76b) :
 封装自定义控件为framework静态库使用总结的过程,添加.bundle文件资源以及通过简单的lipo命令合并.a文件使兼容模拟器和真机.
