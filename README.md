@@ -3,7 +3,8 @@
 ## 个人信息
 
 * 张鹏辉,男,1995年生
-* 本科/工作年限：4年
+* 工作年限：4年
+* 本科/北京航空航天⼤学(成考)
 * 技术博客：http://www.semperhhh.cn
 * Github：https://github.com/semperhhh
 
