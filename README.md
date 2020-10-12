@@ -17,15 +17,15 @@
 
 ### 北京中体联合数据科技有限公司 (2019年2月 ~ 至今)
 
-> 移动端app是针对健身房会员的会员端以及健身房教练和店主的私教端.
+> 移动端app是针对健身房会员的会员端以及健身房教练和店主的私教端. 
 
-1.负责公司旗下健身品牌光猪圈及练多多分别针对会员和教练的两端App开发任务与维护,与产品评审开发可行性,配合pc端saas系统,联动开发霸王卡、通店卡、到店红包以及微信连续包月卡等功能模块;
+[光猪圈健身APP](https://apps.apple.com/cn/app/光猪圈健身/id1027673267), [光猪圈教练APP](https://apps.apple.com/cn/app/光猪圈教练/id1180466459)
 
-2.解决App开屏广告加载时的白屏问题;封装网络日志工具类,方便测试同事更快定位问题;封装TableView的空数据状态展示;
+1.负责公司旗下健身品牌光猪圈及练多多分别针对会员和教练的两端App开发任务与维护,与产品评审开发可行性,配合pc端saas系统,联动开发霸王卡、通店卡、到店红包以及微信连续包月卡等业务需求;
 
-3.使用runtime修改ViewController中View类的isa指向,监听该View的点击事件.
+2.解决App开屏广告加载时的白屏问题;封装网络日志工具类,方便测试同事更快定位问题;封装TableView的空数据状态展示,使用Runtime修改ViewController中View类的isa指向,监听View的点击事件.
 
-3.项目从Objective-C汇编Swift.
+3.项目Objective-C汇编Swift,分离基础模块,采用NSClassFormString初步分离业务模块.
 
 4.完善iOS同组代码开发规范,代码合并以及版本发布;
 
@@ -33,7 +33,7 @@
 
 > 移动端app方向是电商平台.
 
-1.参与新功能研发和版本迭代,利用Runtime方法调配交换部分方法,方便定位解决历史遗留的问题;
+1.参与新功能研发和版本迭代,利用Runtime方法调配交换部分方法,方便定位解决历史遗留的问题,重构首页布局;
 
 2.对接腾讯云视频平台,实现短视频编辑,播放功能模块;
 
@@ -52,12 +52,7 @@
 ## 个人分享
 
 [SemmmProject](https://github.com/semperhhh/SemmmProject) :
-
 个人博客项目,原基于Swift的Perfect框架的服务端(项目链接:[SemperProject](https://github.com/semperhhh/SemperProject)),使用MySQL记录数据,nginx作反向代理服务及一些基于Mustache的动态html界面,css样式大部分引用bootStrap.后选择将后台迁移成node.js,html++css+vue实现页面展示,前后端分离.学习后端知识,对后端,数据库有个概念,工作中可以更好地和后台配合.过程受益大于产出结果.
-
-[SemClosepress](https://github.com/semperhhh/SemClosepress) :
-
-个人Swift的iOS项目.主要框架使用Alamofire+SnapKit,数据存储使用SQLite.swift.目的为学习swift语法,扩展技术栈.
 
 [iOS-控件封装为framework来使用](https://juejin.im/post/5c0a117be51d4538994af76b) :
 封装自定义控件为framework静态库使用总结的过程,添加.bundle文件资源以及通过简单的lipo命令合并.a文件使兼容模拟器和真机.
@@ -74,3 +69,4 @@
 ## 致谢
 
 感谢您花时间阅读我的简历，期待能有机会和您共事。
+      
