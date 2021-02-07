@@ -57,14 +57,20 @@
 
 [Flutterapp]() :
 个人app项目,一个记录时间的app,使用 **Flutter** 进行开发,实现iOS和Android双端同时开发;
+
 使用 **sqflite** 数据持久化完成主要功能, **flutter_screenutil** 屏幕适配iphone和ipad;
+
 iOS端本地推送使用原生实现;
+
 通过项目了解熟悉Flutter框架,了解Flutter布局模式和 **Dart** 语言特性;
 
 [SemmmProject](https://github.com/semperhhh/SemmmProject) :
 个人博客项目,原基于Swift的Perfect框架的服务端(项目链接:[SemperProject](https://github.com/semperhhh/SemperProject));
+
 使用MySQL记录数据,nginx作反向代理服务及一些基于Mustache的动态html界面,css样式大部分引用bootStrap.
+
 后选择将后台迁移成node.js,html++css+vue实现页面展示,前后端分离.
+
 通过项目学习**Swift语言特性**及后端知识,对后端,数据库有个概念,工作中可以更好地和后台配合.过程受益大于产出结果.
 
 [iOS-控件封装为framework来使用](https://juejin.im/post/5c0a117be51d4538994af76b) :
