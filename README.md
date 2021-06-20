@@ -3,7 +3,7 @@
 ## 个人信息
 
 * 张鹏辉,男,1995年
-* 工作年限：4年/专科
+* 工作年限：4年/本科
 * 技术博客：https://juejin.cn/user/2101921961221943/posts
 * Github：https://github.com/semperhhh
 * 到岗时间: 2~4周
