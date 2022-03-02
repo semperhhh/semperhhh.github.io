@@ -6,7 +6,7 @@
 * 工作年限：4年/本科
 * 技术博客：https://juejin.cn/user/2101921961221943/posts
 * Github：https://github.com/semperhhh
-* 到岗时间: 2~4周
+* 到岗时间: 一周内
 
 ## 联系方式
 
