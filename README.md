@@ -20,15 +20,17 @@
 
 * 责任描述: 任职期间负责云听App和VideoDownloaderApp的iOS端开发任务
 
-[云听]()
+[云听](https://apps.apple.com/cn/app/id496145505)
 
-1. 负责云听6.38.0版本的云医模块的开发任务
-2. 负责云听6.37.0版本的音频圈子的开发任务
+1. 使用Objective-C完成UI开发, 埋点统计等;
+2. 负责云听6.38.0版本的云医模块的开发任务;
+3. 负责云听6.37.0版本的音频圈子的开发任务;
 
-[VideoDownloader]()
+[VideoDownloader]
 
-1. 使用IJKPlayer负责App的视频播放开发任务
-2. 使用AVAudioPlayer负责App的音频播放开发任务
+1. 项目主要使用Swift进行开发,混编部分Objective-C三方库;
+2. 使用IJKPlayer完成App的视频播放开发任务并封装视频控制层manager;
+3. 使用AVAudioPlayer完成App的音频播放开发任务并封装音频控制层;
 
 ### 石家庄友曼科技有限公司(2020年10月~2021年11月)
 
@@ -61,7 +63,7 @@
 
 练多多会员端2.0
 
-1. 新项目和同事沟通后,使用的 Swift 作为项目主语言,负责 [练多多场馆端2.0] 的私教会员模块以及 [练多多会员端2.0] 50%的开发任务,和同事合作完成app开发;
+1. Swift 作为项目主语言,混编部分Objective-c库,负责 [练多多场馆端2.0] 的私教会员模块以及 [练多多会员端2.0] 50%的开发任务,和同事合作完成app开发;
 2. 学习Swift,使用Swift语言的特性减少了客户端crash的发生率;Struct代替原本的Class模型,使用SwiftyJSON转换;利用计算属性扩展String等;
 
 
